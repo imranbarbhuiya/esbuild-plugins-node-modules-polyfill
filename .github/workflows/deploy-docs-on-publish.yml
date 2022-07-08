@@ -1,0 +1,34 @@
+name: Deploy Docs On Publish
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Deploy Docs to gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+      - name: Add TypeScript problem matcher
+        run: echo "::add-matcher::.github/problemMatchers/tsc.json"
+      - name: Use Node.js v16
+        uses: actions/setup-node@eeb10cff27034e7acf239c5d29f62154018672fd # tag=v3
+        with:
+          node-version: 16
+          cache: yarn
+          registry-url: https://registry.yarnpkg.com/
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Build all packages
+        run: yarn build
+      - name: Generate Docs
+        run: yarn docs
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@e6d003d0839927f5a4b998bfd92ed8e448fde37a # tag=v4.3.4
+        with:
+          branch: gh-pages
+          folder: docs
