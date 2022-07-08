@@ -1,1 +1,2 @@
-export const main = () => 'this builds and pushes';
+export * from './utils/util';
+export * from './plugin';

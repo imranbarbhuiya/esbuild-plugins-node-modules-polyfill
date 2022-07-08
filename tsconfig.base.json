@@ -3,6 +3,7 @@
 		"target": "esnext",
 		"module": "commonjs",
 		"strict": true,
+		"esModuleInterop": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
 		"noImplicitThis": true,

@@ -13,6 +13,8 @@
 
 Polyfills nodejs builtin modules for the browser.
 
+The code in this package has been greatly inspired by [@esbuild-plugins/node-modules-polyfill](https://github.com/remorses/esbuild-plugins/tree/master/node-modules-polyfill) from [remorses](https://github.com/remorses).
+
 ## Features
 
 -   Written In Typescript
@@ -29,10 +31,10 @@ npm install --save-dev esbuild-plugins-node-modules-polyfill
 ## Usage
 
 ```ts
-import { nodeModulePlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulePlugin()]
+	plugins: [nodeModulesPolyfillPlugin()]
 });
 ```
 

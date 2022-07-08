@@ -11,7 +11,6 @@
 		"@typescript-eslint/no-unsafe-argument": "error",
 		"@typescript-eslint/no-unsafe-assignment": "error",
 		"@typescript-eslint/no-unnecessary-condition": "error",
-		"@typescript-eslint/no-unnecessary-type-assertion": "error",
-		"no-console": "error"
+		"@typescript-eslint/no-unnecessary-type-assertion": "error"
 	}
 }
