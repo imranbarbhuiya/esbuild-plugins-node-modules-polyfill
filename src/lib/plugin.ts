@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { OnResolveArgs, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
-import { getModules as builtinsPolyfills } from 'rollup-plugin-polyfill-node/dist/modules';
+import { getModules as builtinsPolyfills } from 'rollup-plugin-polyfill-node/dist/modules.js';
 import { escapeRegex, commonJsTemplate, removeEndingSlash } from './utils/util';
 
 const NAME = 'node-modules-polyfills';
