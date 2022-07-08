@@ -59,12 +59,12 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/imranbarbhuiya/template.git"
+		"url": "git+https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill.git"
 	},
 	"bugs": {
-		"url": "https://github.com/imranbarbhuiya/template/issues"
+		"url": "https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/issues"
 	},
-	"homepage": "https://template.js.org/",
+	"homepage": "https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill#readme",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"

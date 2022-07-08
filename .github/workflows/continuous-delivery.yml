@@ -13,7 +13,7 @@ on:
       repository:
         description: The {owner}/{repository} that is being deployed.
         required: false
-        default: imranbarbhuiya/package-template
+        default: imranbarbhuiya/esbuild-plugins-node-modules-polyfill
   push:
     branches:
       - main
@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
           fetch-depth: 0
-          repository: ${{ github.event.inputs.repository || 'imranbarbhuiya/package-template' }}
+          repository: ${{ github.event.inputs.repository || 'imranbarbhuiya/esbuild-plugins-node-modules-polyfill' }}
           ref: ${{ github.event.inputs.ref || 'main' }}
       - name: Add TypeScript problem matcher
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
