@@ -1,8 +1,9 @@
-import fs from 'node:fs';
 import path from 'node:path';
 import type { OnResolveArgs, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
-import { getModules as builtinsPolyfills } from 'rollup-plugin-polyfill-node/dist/modules.js';
+import { polyfillContent, polyfillPath } from 'modern-node-polyfills';
+import { builtinModules } from 'module';
+
 import { escapeRegex, commonJsTemplate, removeEndingSlash } from './utils/util';
 
 const NAME = 'node-modules-polyfills';
@@ -19,8 +20,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 	}
 
 	const commonjsNamespace = `${namespace}-commonjs`;
-	const polyfilledBuiltins = builtinsPolyfills();
-	const polyfilledBuiltinsNames = [...polyfilledBuiltins.keys()];
+	// const polyfilledBuiltins = builtinsPolyfills();
+	// const polyfilledBuiltinsNames = [...polyfilledBuiltins.keys()];
 
 	return {
 		name,
@@ -34,18 +35,17 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> => {
 				try {
-					const argsPath = args.path.replace(/^node:/, '');
 					const isCommonjs = args.namespace.endsWith('commonjs');
 
-					const resolved = polyfilledBuiltins.get(removeEndingSlash(argsPath)) as string;
-					const contents = (await fs.promises.readFile(resolved)).toString();
+					const resolved = await polyfillPath(removeEndingSlash(args.path));
+					const contents = await polyfillContent(removeEndingSlash(args.path));
 					const resolveDir = path.dirname(resolved);
 
 					if (isCommonjs) {
 						return {
 							loader: 'js',
 							contents: commonJsTemplate({
-								importPath: argsPath
+								importPath: args.path
 							}),
 							resolveDir
 						};
@@ -65,12 +65,13 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 			};
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
-			const filter = new RegExp([...polyfilledBuiltinsNames, ...polyfilledBuiltinsNames.map((n) => `node:${n}`)].map(escapeRegex).join('|'));
-			const resolver = (args: OnResolveArgs) => {
-				const argsPath = args.path.replace(/^node:/, '');
+			const filter = new RegExp(`(?:node:)?${builtinModules.map(escapeRegex).join('|')}`);
+			const resolver = async (args: OnResolveArgs) => {
 				const ignoreRequire = args.namespace === commonjsNamespace;
 
-				if (!polyfilledBuiltins.has(argsPath)) {
+				const pollyfill = await polyfillPath(args.path).catch(() => null);
+
+				if (!pollyfill) {
 					return;
 				}
 
@@ -78,7 +79,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 				return {
 					namespace: isCommonjs ? commonjsNamespace : namespace,
-					path: argsPath
+					path: args.path
 				};
 			};
 			onResolve({ filter }, resolver);
