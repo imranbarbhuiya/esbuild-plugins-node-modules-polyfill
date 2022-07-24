@@ -37,8 +37,8 @@
 		"@favware/rollup-type-bundler": "^1.0.9",
 		"@sapphire/eslint-config": "^4.3.7",
 		"@sapphire/prettier-config": "^1.4.3",
-		"@typescript-eslint/eslint-plugin": "^5.30.6",
-		"@typescript-eslint/parser": "^5.30.6",
+		"@typescript-eslint/eslint-plugin": "^5.30.7",
+		"@typescript-eslint/parser": "^5.30.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.14.49",
 		"eslint": "^8.20.0",
@@ -82,9 +82,9 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.6"
 	},
-	"packageManager": "yarn@3.2.1",
+	"packageManager": "yarn@3.2.2",
 	"prettier": "@sapphire/prettier-config",
 	"dependencies": {
-		"rollup-plugin-polyfill-node": "^0.10.1"
+		"rollup-plugin-polyfill-node": "^0.10.2"
 	}
 }
