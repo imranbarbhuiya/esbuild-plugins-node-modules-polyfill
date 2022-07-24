@@ -20,8 +20,6 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 	}
 
 	const commonjsNamespace = `${namespace}-commonjs`;
-	// const polyfilledBuiltins = builtinsPolyfills();
-	// const polyfilledBuiltinsNames = [...polyfilledBuiltins.keys()];
 
 	return {
 		name,
