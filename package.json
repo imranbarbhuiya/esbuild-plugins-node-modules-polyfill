@@ -20,7 +20,7 @@
 		"build": "tsup",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
-		"prepack": "rollup-type-bundler && pinst --disable",
+		"prepack": "yarn build && pinst --disable",
 		"postinstall": "husky install .github/husky",
 		"postpack": "pinst --enable",
 		"typecheck": "tsc -p tsconfig.eslint.json"
@@ -35,7 +35,6 @@
 		"@commitlint/config-conventional": "^17.0.3",
 		"@favware/cliff-jumper": "^1.8.6",
 		"@favware/npm-deprecate": "^1.0.5",
-		"@favware/rollup-type-bundler": "^1.0.10",
 		"@sapphire/eslint-config": "^4.3.7",
 		"@sapphire/prettier-config": "^1.4.3",
 		"@typescript-eslint/eslint-plugin": "^5.31.0",

@@ -5,7 +5,7 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.16.7":
+"@babel/code-frame@npm:^7.0.0":
   version: 7.16.7
   resolution: "@babel/code-frame@npm:7.16.7"
   dependencies:
@@ -333,24 +333,6 @@ __metadata:
     nd: dist/cli.js
     npm-deprecate: dist/cli.js
   checksum: 6ea6ab42cad38d9ab19bf33a71b0a0056c10edcce23f1cde98c91d1bb39723d996a6ce6203805dd828cc42dffd4d4cd1d9ef0dc1446795ae1df95e2be0a9c640
-  languageName: node
-  linkType: hard
-
-"@favware/rollup-type-bundler@npm:^1.0.10":
-  version: 1.0.10
-  resolution: "@favware/rollup-type-bundler@npm:1.0.10"
-  dependencies:
-    "@sapphire/utilities": ^3.8.0
-    colorette: ^2.0.19
-    commander: ^9.4.0
-    js-yaml: ^4.1.0
-    rollup: ^2.77.2
-    rollup-plugin-dts: ^4.2.2
-    typescript: ^4.7.4
-  bin:
-    rollup-type-bundler: ./dist/cli.js
-    rtb: ./dist/cli.js
-  checksum: 4fe597a9ddf1815fb5580e2f8de225c1732a58ce60d112d45166bf921aa9a91d9839bc87f6c14db0d0fe288422f9dd22199e4418fecda5b5ccaafc2a741b4f27
   languageName: node
   linkType: hard
 
@@ -2220,7 +2202,6 @@ __metadata:
     "@commitlint/config-conventional": ^17.0.3
     "@favware/cliff-jumper": ^1.8.6
     "@favware/npm-deprecate": ^1.0.5
-    "@favware/rollup-type-bundler": ^1.0.10
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/prettier-config": ^1.4.3
     "@typescript-eslint/eslint-plugin": ^5.31.0
@@ -3951,15 +3932,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.26.1":
-  version: 0.26.1
-  resolution: "magic-string@npm:0.26.1"
-  dependencies:
-    sourcemap-codec: ^1.4.8
-  checksum: 23f21f5734346ddfbabd7b9834e3ecda3521e3e1db81166c1513b45b729489bbed1eafa8cd052c7db7fdc7c68ebc5c03bc00dd5a23697edda15dbecaf8c98397
-  languageName: node
-  linkType: hard
-
 "make-error@npm:^1.1.1":
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
@@ -5001,22 +4973,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "rollup-plugin-dts@npm:4.2.2"
-  dependencies:
-    "@babel/code-frame": ^7.16.7
-    magic-string: ^0.26.1
-  peerDependencies:
-    rollup: ^2.55
-    typescript: ^4.1
-  dependenciesMeta:
-    "@babel/code-frame":
-      optional: true
-  checksum: cf4b45f6cca442a5f44af0f0fb567c8fc540ecb792c763571d1bcda9bf495803bcc8d4eaef451a2dd32f7f391eb822e2b96cc6b86b096db54a4d3935236fd8da
-  languageName: node
-  linkType: hard
-
 "rollup@npm:^2.74.1":
   version: 2.75.1
   resolution: "rollup@npm:2.75.1"
@@ -5042,20 +4998,6 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: a6331d46b01062b184efdcb42ce12caf2e1575f989963944534b02f5855f6f3bc239ed0c1a18893572d7695af6d83166f3aef59dbd0365084e1531cb67824674
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.77.2":
-  version: 2.77.2
-  resolution: "rollup@npm:2.77.2"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 5a84fb98a6f858906bceba091430442f6c1f362b07c5fa9123b708f87e39f52640e34a189cd9a1776ceae61300055c78ba648205fa03188451539ebeb19797df
   languageName: node
   linkType: hard
 
