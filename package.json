@@ -17,12 +17,13 @@
 		"lint": "eslint src --ext ts --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"update": "yarn upgrade-interactive",
-		"build": "tsup && tsc -b src",
+		"build": "tsup",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
 		"prepack": "rollup-type-bundler && pinst --disable",
 		"postinstall": "husky install .github/husky",
-		"postpack": "pinst --enable"
+		"postpack": "pinst --enable",
+		"typecheck": "tsc -p tsconfig.eslint.json"
 	},
 	"keywords": [
 		"esbuild-plugins",

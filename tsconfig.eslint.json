@@ -1,20 +1,8 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"allowJs": true
+		"noEmit": true,
+		"incremental": false
 	},
-	"include": [
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.js",
-		"**/*.mjs",
-		"**/*.jsx",
-		"**/*.test.ts",
-		"**/*.test.js",
-		"**/*.test.mjs",
-		"**/*.spec.ts",
-		"**/*.spec.js",
-		"**/*.spec.mjs"
-	],
-	"exclude": []
+	"include": ["src", "tsup.config.ts"]
 }
