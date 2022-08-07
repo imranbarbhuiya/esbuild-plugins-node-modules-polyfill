@@ -37,11 +37,11 @@
 		"@favware/npm-deprecate": "^1.0.5",
 		"@sapphire/eslint-config": "^4.3.7",
 		"@sapphire/prettier-config": "^1.4.3",
-		"@typescript-eslint/eslint-plugin": "^5.31.0",
-		"@typescript-eslint/parser": "^5.31.0",
+		"@typescript-eslint/eslint-plugin": "^5.32.0",
+		"@typescript-eslint/parser": "^5.32.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.14.51",
-		"eslint": "^8.20.0",
+		"esbuild": "^0.14.53",
+		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "^8.0.1",
@@ -85,6 +85,6 @@
 	"packageManager": "yarn@3.2.2",
 	"prettier": "@sapphire/prettier-config",
 	"dependencies": {
-		"modern-node-polyfills": "^0.0.7"
+		"modern-node-polyfills": "^0.0.8"
 	}
 }
