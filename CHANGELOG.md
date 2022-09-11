@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 
 - Remove comment ([96a9d0e](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/96a9d0e3837b35f1831d226ac3f6ffc96ef29170))
 
+# [1.0.3](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.2...v1.0.3) - (2022-08-05)
+
+## 🪞 Styling
+
+- Remove comment ([96a9d0e](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/96a9d0e3837b35f1831d226ac3f6ffc96ef29170))
+
 # [1.0.2](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.1...v1.0.2) - (2022-07-24)
 
 ## 🐛 Bug Fixes
