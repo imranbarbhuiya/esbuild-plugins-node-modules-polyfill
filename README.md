@@ -18,6 +18,7 @@ Polyfills nodejs builtin modules for the browser.
 -   Written In Typescript
 -   Offers CJS and ESM builds
 -   Full TypeScript & JavaScript support
+-   Supports `node:` protocol
 
 ## Install
 
@@ -32,7 +33,7 @@ npm install --save-dev esbuild-plugins-node-modules-polyfill
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulesPolyfillPlugin()]
+	plugins: [nodeModulesPolyfillPlugin()],
 });
 ```
 
