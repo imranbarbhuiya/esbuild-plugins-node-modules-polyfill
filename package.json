@@ -39,9 +39,9 @@
 		"@favware/cliff-jumper": "^1.8.8",
 		"@favware/npm-deprecate": "^1.0.5",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.15.10",
+		"esbuild": "^0.15.11",
 		"eslint": "^8.25.0",
-		"eslint-config-mahir": "^0.0.8",
+		"eslint-config-mahir": "^0.0.11",
 		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
 		"pinst": "^3.0.0",
@@ -77,7 +77,7 @@
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
-		"minimist": "^1.2.6"
+		"minimist": "^1.2.7"
 	},
 	"packageManager": "yarn@3.2.4",
 	"dependencies": {
