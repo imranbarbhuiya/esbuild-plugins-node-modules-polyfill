@@ -1,5 +1,5 @@
 export const escapeRegex = (str: string) => {
-	return str.replace(/[$()*+.?[\\\]^{|}]/g, '\\$&').replaceAll('-', '\\x2d');
+	return str.replaceAll(/[$()*+.?[\\\]^{|}]/g, '\\$&').replaceAll('-', '\\x2d');
 };
 
 export const removeEndingSlash = (str: string) => {
