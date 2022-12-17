@@ -10,7 +10,9 @@
 		"require": "./dist/index.js",
 		"types": "./dist/index.d.ts"
 	},
-	"sideEffects": false,
+	"sideEffects": [
+		"./src/lib/polyfills/StringReplaceAllPolyfill.ts"
+	],
 	"license": "MIT",
 	"author": "@imranbarbhuiya",
 	"scripts": {

@@ -1,3 +1,5 @@
+import '../polyfills/StringReplaceAllPolyfill.js';
+
 export const escapeRegex = (str: string) => {
 	return str.replaceAll(/[$()*+.?[\\\]^{|}]/g, '\\$&').replaceAll('-', '\\x2d');
 };
