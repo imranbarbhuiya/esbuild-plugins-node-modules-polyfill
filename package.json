@@ -1,6 +1,6 @@
 {
 	"name": "esbuild-plugins-node-modules-polyfill",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Polyfills nodejs builtin modules for the browser.",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
