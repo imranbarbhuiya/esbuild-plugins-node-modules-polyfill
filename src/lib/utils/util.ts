@@ -1,7 +1,6 @@
-import '../polyfills/StringReplaceAllPolyfill.js';
-
+/* eslint-disable unicorn/prefer-string-replace-all */
 export const escapeRegex = (str: string) => {
-	return str.replaceAll(/[$()*+.?[\\\]^{|}]/g, '\\$&').replaceAll('-', '\\x2d');
+	return str.replace(/[$()*+.?[\\\]^{|}]/g, '\\$&').replace(/-/g, '\\x2d');
 };
 
 export const removeEndingSlash = (str: string) => {
