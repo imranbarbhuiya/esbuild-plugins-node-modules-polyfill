@@ -39,7 +39,7 @@
 		"@favware/cliff-jumper": "^1.9.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.16.9",
+		"esbuild": "^0.16.10",
 		"eslint": "^8.30.0",
 		"eslint-config-mahir": "^0.0.18",
 		"husky": "^8.0.2",
@@ -79,7 +79,7 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.7"
 	},
-	"packageManager": "yarn@3.3.0",
+	"packageManager": "yarn@3.3.1",
 	"dependencies": {
 		"modern-node-polyfills": "^0.0.9"
 	}
