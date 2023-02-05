@@ -47,7 +47,7 @@
 		"pinst": "^3.0.0",
 		"prettier": "^2.8.3",
 		"tsup": "^6.5.0",
-		"typescript": "^4.9.4"
+		"typescript": "^4.9.5"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -79,7 +79,7 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.7"
 	},
-	"packageManager": "yarn@3.3.1",
+	"packageManager": "yarn@3.4.1",
 	"dependencies": {
 		"modern-node-polyfills": "^0.0.9"
 	}
