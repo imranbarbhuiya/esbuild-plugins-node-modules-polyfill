@@ -6,6 +6,31 @@ All notable changes to this project will be documented in this file.
 
 ## 📝 Documentation
 
+- Add favna as a contributor for code (#56) ([2e5d2e7](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/2e5d2e77fd2ba0605ee2a4188d38cb5c0a3233a3))
+
+# [1.0.8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.7...v1.0.8) - (2022-12-18)
+
+## 🐛 Bug Fixes
+
+- Fixed node14 support (#51) ([ced7aca](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/ced7aca64056e4f08c7d6cc2a2d290a50cef2b4a))
+
+# [1.0.6](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.5...v1.0.6) - (2022-10-08)
+
+## 📝 Documentation
+
+- Update readme ([784bd89](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/784bd89cce3562022a71625e0f6fec6356f01c6d))
+- Fix changelog ([910fdf8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/910fdf86e2ac03cfcdd545be4da4f963470362db))
+
+# [1.0.3](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.2...v1.0.3) - (2022-08-05)
+
+## 🪞 Styling
+
+- Remove comment ([96a9d0e](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/96a9d0e3837b35f1831d226ac3f6ffc96ef29170))
+
+# [1.0.9](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.8...v1.0.9) - (2022-12-18)
+
+## 📝 Documentation
+
 -   Add favna as a contributor for code (#56) ([2e5d2e7](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/2e5d2e77fd2ba0605ee2a4188d38cb5c0a3233a3))
 
 # [1.0.8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.7...v1.0.8) - (2022-12-18)
