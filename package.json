@@ -36,7 +36,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
-		"@favware/cliff-jumper": "^1.10.0",
+		"@favware/cliff-jumper": "^2.0.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.17.11",
