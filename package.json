@@ -34,12 +34,12 @@
 		"polyfill"
 	],
 	"devDependencies": {
-		"@commitlint/cli": "^17.5.1",
-		"@commitlint/config-conventional": "^17.4.4",
+		"@commitlint/cli": "^17.6.1",
+		"@commitlint/config-conventional": "^17.6.1",
 		"@favware/cliff-jumper": "^2.0.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.17.15",
+		"esbuild": "^0.17.16",
 		"eslint": "^8.38.0",
 		"eslint-config-mahir": "^0.0.24",
 		"husky": "^8.0.3",
