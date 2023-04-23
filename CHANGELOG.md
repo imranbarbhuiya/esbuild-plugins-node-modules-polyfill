@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.12](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.11...v1.0.12) - (2023-04-23)
+
+## 🐛 Bug Fixes
+
+- Add @rollup/pluginutils deps ([75433a7](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/75433a701e70a569e4d003c39f3a69fcb95a1ef4))
+
 # [1.0.9](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.8...v1.0.9) - (2022-12-18)
 
 ## 📝 Documentation
