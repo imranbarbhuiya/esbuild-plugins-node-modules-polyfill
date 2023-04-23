@@ -1,8 +1,9 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
+		"types": ["vitest/globals"],
 		"noEmit": true,
 		"incremental": false
 	},
-	"include": ["src", "tsup.config.ts"]
+	"include": ["src", "tests", "tsup.config.ts", "vitest.config.ts"]
 }

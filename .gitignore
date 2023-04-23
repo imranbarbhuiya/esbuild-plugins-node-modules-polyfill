@@ -149,3 +149,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+tests/fixtures/output

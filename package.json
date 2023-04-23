@@ -23,7 +23,8 @@
 		"prepack": "yarn build && pinst --disable",
 		"postinstall": "husky install .github/husky",
 		"postpack": "pinst --enable",
-		"typecheck": "tsc -p tsconfig.eslint.json"
+		"typecheck": "tsc -p tsconfig.eslint.json",
+		"test": "vitest run"
 	},
 	"keywords": [
 		"esbuild-plugins",
@@ -47,7 +48,8 @@
 		"pinst": "^3.0.0",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
-		"typescript": "^5.0.4"
+		"typescript": "^5.0.4",
+		"vitest": "^0.30.1"
 	},
 	"files": [
 		"dist/**/*.js*",
