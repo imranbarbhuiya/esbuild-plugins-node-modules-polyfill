@@ -8,18 +8,16 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/polyfill.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/nodePrefix.ts')],
 		},
 		pluginOptions,
 	);
 }
 
 describe('Polyfill Test', () => {
-	test('GIVEN a file that imports a node builtin file THEN polyfill it', async () => {
+	test('GIVEN a file that imports a node builtin with node: prefix file THEN polyfill it', async () => {
 		const config = createConfig();
-
 		await esbuild.build(config);
-
-		await assertFileContent('./fixtures/output/polyfill.js');
+		await assertFileContent('./fixtures/output/nodePrefix.js');
 	});
 });

@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Polyfill Test > GIVEN a file that imports a node builtin file THEN polyfill it 1`] = `
+exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: prefix file THEN polyfill it 1`] = `
 "\\"use strict\\";
 (() => {
-  // node-modules-polyfills:util
+  // node-modules-polyfills:node:util
   var e;
   var t;
   var n;
@@ -663,7 +663,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin file THEN poly
   var TextEncoder2 = X.TextEncoder = globalThis.TextEncoder;
   var TextDecoder2 = X.TextDecoder = globalThis.TextDecoder;
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/nodePrefix.ts
   var data = {
     name: \\"esbuild\\"
   };
