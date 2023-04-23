@@ -27,7 +27,7 @@ jobs:
         run: yarn lint --fix=false
 
   Building:
-    name: Compile source code
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
@@ -44,22 +44,5 @@ jobs:
         run: yarn --immutable
       - name: Build Code
         run: yarn build
-
-  Tests:
-    name: Test Plugin
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Project
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-      - name: Add problem matcher
-        run: echo "::add-matcher::.github/problemMatchers/tsc.json"
-      - name: Use Node.js v20
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
-        with:
-          node-version: 20
-          cache: yarn
-          registry-url: https://registry.npmjs.org/
-      - name: Install Dependencies
-        run: yarn --immutable
-      - name: Build Code
+      - name: Test Code
         run: yarn test
