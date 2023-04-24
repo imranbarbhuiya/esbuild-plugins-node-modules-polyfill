@@ -83,7 +83,6 @@
 	},
 	"packageManager": "yarn@3.5.0",
 	"dependencies": {
-		"@rollup/pluginutils": "^5.0.2",
-		"modern-node-polyfills": "^0.1.1"
+		"modern-node-polyfills": "^0.1.3"
 	}
 }
