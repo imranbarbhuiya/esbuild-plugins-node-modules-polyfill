@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Polyfill Test > GIVEN a file that imports a crypto THEN the output shouldn't contain direct eval 1`] = `
+exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output shouldn't contain direct eval 1`] = `
 "\\"use strict\\";
 (() => {
   // node-modules-polyfills:crypto
