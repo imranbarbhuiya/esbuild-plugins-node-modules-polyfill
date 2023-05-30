@@ -25,6 +25,8 @@ export async function assertFileContent(filePath: string) {
 	const result = await readFile(absolutePath, { encoding: `utf-8` });
 
 	expect(result).toMatchSnapshot();
+
+	return result;
 }
 
 export function buildAbsolutePath(filePath: string) {

@@ -20,7 +20,8 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 		const isCommonjs = args.namespace.endsWith('commonjs');
 
 		const resolved = await polyfillPath(removeEndingSlash(args.path));
-		const contents = await polyfillContent(removeEndingSlash(args.path));
+		const contents = (await polyfillContent(removeEndingSlash(args.path))).replaceAll('eval(', '(0,eval)(');
+
 		const resolveDir = path.dirname(resolved);
 
 		if (isCommonjs) {
