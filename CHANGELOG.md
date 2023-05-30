@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.14](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.13...v1.0.14) - (2023-05-30)
+
+## 🐛 Bug Fixes
+
+- Replace direct eval with indirect eval fixes: #31 ([db9b7e5](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/db9b7e561ae0d6a27aac88916e443ca031d8d7c0))
+
 # [1.0.13](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.12...v1.0.13) - (2023-04-24)
 
 ## 🐛 Bug Fixes
