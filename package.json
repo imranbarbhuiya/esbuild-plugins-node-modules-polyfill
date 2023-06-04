@@ -38,21 +38,21 @@
 		"modern-node-polyfills": "^0.1.3"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.3",
-		"@commitlint/config-conventional": "^17.6.3",
+		"@commitlint/cli": "^17.6.5",
+		"@commitlint/config-conventional": "^17.6.5",
 		"@favware/cliff-jumper": "^2.0.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.17.19",
-		"eslint": "^8.41.0",
+		"eslint": "^8.42.0",
 		"eslint-config-mahir": "^0.0.26",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
 		"pinst": "^3.0.0",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
-		"typescript": "^5.0.4",
-		"vitest": "^0.31.1"
+		"typescript": "^5.1.3",
+		"vitest": "^0.31.4"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -84,5 +84,5 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8"
 	},
-	"packageManager": "yarn@3.5.1"
+	"packageManager": "yarn@3.6.0"
 }
