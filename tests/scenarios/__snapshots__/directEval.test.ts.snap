@@ -3206,7 +3206,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       if (first === void 0 || last === void 0) {
         boundsError(offset, this.length - 8);
       }
-      const val = (first << 24) + this[++offset] * 2 ** 16 + this[++offset] * 2 ** 8 + this[++offset];
+      const val = (first << 24) + // Overflow
+      this[++offset] * 2 ** 16 + this[++offset] * 2 ** 8 + this[++offset];
       return (BigInt(val) << BigInt(32)) + BigInt(this[++offset] * 2 ** 24 + this[++offset] * 2 ** 16 + this[++offset] * 2 ** 8 + last);
     });
     Buffer.prototype.readFloatLE = function readFloatLE(offset, noAssert) {
@@ -4018,6 +4019,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           }
           return ret;
         }
+        // Consumes a specified amount of bytes or characters from the buffered data.
       }, {
         key: \\"consume\\",
         value: function consume(n6, hasStrings) {
@@ -4037,6 +4039,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         value: function first() {
           return this.head.data;
         }
+        // Consumes a specified amount of characters from the buffered data.
       }, {
         key: \\"_getString\\",
         value: function _getString(n6) {
@@ -4070,6 +4073,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           this.length -= c6;
           return ret;
         }
+        // Consumes a specified amount of bytes from the buffered data.
       }, {
         key: \\"_getBuffer\\",
         value: function _getBuffer(n6) {
@@ -4101,11 +4105,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           this.length -= c6;
           return ret;
         }
+        // Make sure the linked list only shows the minimal necessary information.
       }, {
         key: custom,
         value: function value(_4, options) {
           return inspect2(this, _objectSpread({}, options, {
+            // Only inspect one level.
             depth: 0,
+            // It should not recurse.
             customInspect: false
           }));
         }
@@ -4577,6 +4584,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this;
     };
     Object.defineProperty(Writable.prototype, \\"writableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState && this._writableState.getBuffer();
@@ -4589,6 +4599,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return chunk;
     }
     Object.defineProperty(Writable.prototype, \\"writableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.highWaterMark;
@@ -4767,6 +4780,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this;
     };
     Object.defineProperty(Writable.prototype, \\"writableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.length;
@@ -4839,6 +4855,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       state.corkedRequestsFree.next = corkReq;
     }
     Object.defineProperty(Writable.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._writableState === void 0) {
@@ -4904,18 +4923,27 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
     }
     Object.defineProperty(Duplex.prototype, \\"writableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.highWaterMark;
       }
     });
     Object.defineProperty(Duplex.prototype, \\"writableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState && this._writableState.getBuffer();
       }
     });
     Object.defineProperty(Duplex.prototype, \\"writableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.length;
@@ -4930,6 +4958,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       self2.end();
     }
     Object.defineProperty(Duplex.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._readableState === void 0 || this._writableState === void 0) {
@@ -5342,6 +5373,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       Stream.call(this);
     }
     Object.defineProperty(Readable.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._readableState === void 0) {
@@ -5928,18 +5962,27 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       };
     }
     Object.defineProperty(Readable.prototype, \\"readableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.highWaterMark;
       }
     });
     Object.defineProperty(Readable.prototype, \\"readableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState && this._readableState.buffer;
       }
     });
     Object.defineProperty(Readable.prototype, \\"readableFlowing\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.flowing;
@@ -5952,6 +5995,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     });
     Readable._fromList = fromList;
     Object.defineProperty(Readable.prototype, \\"readableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.length;
@@ -7571,6 +7617,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           }
           return ret;
         }
+        // Consumes a specified amount of bytes or characters from the buffered data.
       }, {
         key: \\"consume\\",
         value: function consume(n6, hasStrings) {
@@ -7590,6 +7637,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         value: function first() {
           return this.head.data;
         }
+        // Consumes a specified amount of characters from the buffered data.
       }, {
         key: \\"_getString\\",
         value: function _getString(n6) {
@@ -7623,6 +7671,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           this.length -= c6;
           return ret;
         }
+        // Consumes a specified amount of bytes from the buffered data.
       }, {
         key: \\"_getBuffer\\",
         value: function _getBuffer(n6) {
@@ -7654,11 +7703,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           this.length -= c6;
           return ret;
         }
+        // Make sure the linked list only shows the minimal necessary information.
       }, {
         key: custom,
         value: function value(_4, options) {
           return inspect2(this, _objectSpread({}, options, {
+            // Only inspect one level.
             depth: 0,
+            // It should not recurse.
             customInspect: false
           }));
         }
@@ -8130,6 +8182,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this;
     };
     Object.defineProperty(Writable.prototype, \\"writableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState && this._writableState.getBuffer();
@@ -8142,6 +8197,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return chunk;
     }
     Object.defineProperty(Writable.prototype, \\"writableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.highWaterMark;
@@ -8320,6 +8378,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this;
     };
     Object.defineProperty(Writable.prototype, \\"writableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.length;
@@ -8392,6 +8453,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       state.corkedRequestsFree.next = corkReq;
     }
     Object.defineProperty(Writable.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._writableState === void 0) {
@@ -8457,18 +8521,27 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
     }
     Object.defineProperty(Duplex.prototype, \\"writableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.highWaterMark;
       }
     });
     Object.defineProperty(Duplex.prototype, \\"writableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState && this._writableState.getBuffer();
       }
     });
     Object.defineProperty(Duplex.prototype, \\"writableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._writableState.length;
@@ -8483,6 +8556,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       self2.end();
     }
     Object.defineProperty(Duplex.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._readableState === void 0 || this._writableState === void 0) {
@@ -8895,6 +8971,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       Stream.call(this);
     }
     Object.defineProperty(Readable.prototype, \\"destroyed\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         if (this._readableState === void 0) {
@@ -9481,18 +9560,27 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       };
     }
     Object.defineProperty(Readable.prototype, \\"readableHighWaterMark\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.highWaterMark;
       }
     });
     Object.defineProperty(Readable.prototype, \\"readableBuffer\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState && this._readableState.buffer;
       }
     });
     Object.defineProperty(Readable.prototype, \\"readableFlowing\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.flowing;
@@ -9505,6 +9593,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     });
     Readable._fromList = fromList;
     Object.defineProperty(Readable.prototype, \\"readableLength\\", {
+      // making it explicit this property is not enumerable
+      // because otherwise some prototype manipulation in
+      // userland will fail
       enumerable: false,
       get: function get() {
         return this._readableState.length;
@@ -10679,6 +10770,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return num << shift & 268435455 | num >>> 28 - shift;
     };
     var pc2table = [
+      // inL => outL
       14,
       11,
       17,
@@ -10703,6 +10795,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       8,
       15,
       26,
+      // inR => outR
       15,
       4,
       25,
@@ -21521,6 +21614,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return num << shift & 268435455 | num >>> 28 - shift;
     };
     var pc2table = [
+      // inL => outL
       14,
       11,
       17,
@@ -21545,6 +21639,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       8,
       15,
       26,
+      // inR => outR
       15,
       4,
       25,
@@ -40517,9 +40612,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
         var comb = [
           points[a6],
+          /* 1 */
           null,
+          /* 3 */
           null,
+          /* 5 */
           points[b4]
+          /* 7 */
         ];
         if (points[a6].y.cmp(points[b4].y) === 0) {
           comb[1] = points[a6].add(points[b4]);
@@ -40533,14 +40632,23 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
         var index = [
           -3,
+          /* -1 -1 */
           -1,
+          /* -1 0 */
           -5,
+          /* -1 1 */
           -7,
+          /* 0 -1 */
           0,
+          /* 0 0 */
           7,
+          /* 0 1 */
           5,
+          /* 1 -1 */
           1,
+          /* 1 0 */
           3
+          /* 1 1 */
         ];
         var jsf = getJSF(coeffs[a6], coeffs[b4]);
         max = Math.max(jsf[0].length, max);
@@ -42473,12 +42581,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       p: \\"7fffffffffffffff ffffffffffffffff ffffffffffffffff ffffffffffffffed\\",
       a: \\"-1\\",
       c: \\"1\\",
+      // -121665 * (121666^(-1)) (mod P)
       d: \\"52036cee2b6ffe73 8cc740797779e898 00700a4d4141d8ab 75eb4dca135978a3\\",
       n: \\"1000000000000000 0000000000000000 14def9dea2f79cd6 5812631a5cf5d3ed\\",
       hash: hash.sha256,
       gRed: false,
       g: [
         \\"216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51a\\",
+        // 4/5
         \\"6666666666666666666666666666666666666666666666666666666666666658\\"
       ]
     });
@@ -42497,6 +42607,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       n: \\"ffffffff ffffffff ffffffff fffffffe baaedce6 af48a03b bfd25e8c d0364141\\",
       h: \\"1\\",
       hash: hash.sha256,
+      // Precomputed endomorphism
       beta: \\"7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501ee\\",
       lambda: \\"5363ad4cc05c30e0a5261c028812645a122e22ea20816678df02967c1b23bd72\\",
       basis: [{
@@ -60470,9 +60581,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
         var comb = [
           points[a6],
+          /* 1 */
           null,
+          /* 3 */
           null,
+          /* 5 */
           points[b4]
+          /* 7 */
         ];
         if (points[a6].y.cmp(points[b4].y) === 0) {
           comb[1] = points[a6].add(points[b4]);
@@ -60486,14 +60601,23 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
         var index = [
           -3,
+          /* -1 -1 */
           -1,
+          /* -1 0 */
           -5,
+          /* -1 1 */
           -7,
+          /* 0 -1 */
           0,
+          /* 0 0 */
           7,
+          /* 0 1 */
           5,
+          /* 1 -1 */
           1,
+          /* 1 0 */
           3
+          /* 1 1 */
         ];
         var jsf = getJSF(coeffs[a6], coeffs[b4]);
         max = Math.max(jsf[0].length, max);
@@ -62426,12 +62550,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       p: \\"7fffffffffffffff ffffffffffffffff ffffffffffffffff ffffffffffffffed\\",
       a: \\"-1\\",
       c: \\"1\\",
+      // -121665 * (121666^(-1)) (mod P)
       d: \\"52036cee2b6ffe73 8cc740797779e898 00700a4d4141d8ab 75eb4dca135978a3\\",
       n: \\"1000000000000000 0000000000000000 14def9dea2f79cd6 5812631a5cf5d3ed\\",
       hash: hash.sha256,
       gRed: false,
       g: [
         \\"216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51a\\",
+        // 4/5
         \\"6666666666666666666666666666666666666666666666666666666666666658\\"
       ]
     });
@@ -62450,6 +62576,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       n: \\"ffffffff ffffffff ffffffff fffffffe baaedce6 af48a03b bfd25e8c d0364141\\",
       h: \\"1\\",
       hash: hash.sha256,
+      // Precomputed endomorphism
       beta: \\"7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501ee\\",
       lambda: \\"5363ad4cc05c30e0a5261c028812645a122e22ea20816678df02967c1b23bd72\\",
       basis: [{
@@ -74146,7 +74273,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var result = getHashes();
   console.log(result);
 })();
-/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
-/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+/*! Bundled license information:
+
+@jspm/core/nodelibs/browser/chunk-44e51b61.js:
+  (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
+
+@jspm/core/nodelibs/browser/crypto.js:
+  (*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> *)
+*/
 "
 `;
