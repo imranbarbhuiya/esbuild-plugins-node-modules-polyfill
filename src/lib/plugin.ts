@@ -1,9 +1,7 @@
 import { builtinModules } from 'node:module';
 import path from 'node:path';
 
-import { polyfillContent, polyfillPath } from 'modern-node-polyfills';
-
-import { escapeRegex, commonJsTemplate, removeEndingSlash } from './utils/util.js';
+import { escapeRegex, commonJsTemplate, getCachedPolyfillPath, getCachedPolyfillContent } from './utils/util.js';
 
 import type { OnResolveArgs, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
@@ -19,9 +17,7 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 	try {
 		const isCommonjs = args.namespace.endsWith('commonjs');
 
-		const resolved = await polyfillPath(removeEndingSlash(args.path));
-		const contents = (await polyfillContent(removeEndingSlash(args.path))).replaceAll('eval(', '(0,eval)(');
-
+		const resolved = await getCachedPolyfillPath(args.path);
 		const resolveDir = path.dirname(resolved);
 
 		if (isCommonjs) {
@@ -33,6 +29,8 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 				resolveDir,
 			};
 		}
+
+		const contents = await getCachedPolyfillContent(args.path);
 
 		return {
 			loader: 'js',
@@ -72,7 +70,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 			const resolver = async (args: OnResolveArgs) => {
 				const ignoreRequire = args.namespace === commonjsNamespace;
 
-				const pollyfill = await polyfillPath(args.path).catch(() => null);
+				const pollyfill = await getCachedPolyfillPath(args.path).catch(() => null);
 
 				if (!pollyfill) {
 					return;
