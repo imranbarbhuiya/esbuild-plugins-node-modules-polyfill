@@ -24,7 +24,7 @@ const normalizeNodeBuiltinPath = (path: string) => {
 };
 
 const polyfillPathCache: Map<string, Promise<string>> = new Map();
-export const getCachedPolyfillPath = async (_importPath: string): Promise<string> => {
+export const getCachedPolyfillPath = (_importPath: string): Promise<string> => {
 	const normalizedImportPath = normalizeNodeBuiltinPath(_importPath);
 
 	const cachedPromise = polyfillPathCache.get(normalizedImportPath);
@@ -43,7 +43,7 @@ const polyfillContentAndTransform = async (importPath: string) => {
 };
 
 const polyfillContentCache: Map<string, Promise<string>> = new Map();
-export const getCachedPolyfillContent = async (_importPath: string): Promise<string> => {
+export const getCachedPolyfillContent = (_importPath: string): Promise<string> => {
 	const normalizedImportPath = normalizeNodeBuiltinPath(_importPath);
 
 	const cachedPromise = polyfillContentCache.get(normalizedImportPath);
