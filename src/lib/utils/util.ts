@@ -39,7 +39,7 @@ export const getCachedPolyfillPath = (_importPath: string): Promise<string> => {
 
 const polyfillContentAndTransform = async (importPath: string) => {
 	const content = await polyfillContent(importPath);
-	return content.replaceAll('eval(', '(0,eval)(');
+	return content.replace(/eval\(/g, '(0,eval)(');
 };
 
 const polyfillContentCache: Map<string, Promise<string>> = new Map();
