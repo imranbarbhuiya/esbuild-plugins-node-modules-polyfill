@@ -32,10 +32,14 @@
 		"node-modules-polyfill",
 		"esbuild",
 		"esbuild-plugin",
-		"polyfill"
+		"polyfill",
+		"node-modules",
+		"node-polyfill"
 	],
 	"dependencies": {
-		"modern-node-polyfills": "^1.0.0"
+		"@jspm/core": "^2.0.1",
+		"local-pkg": "^0.4.3",
+		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.6",

@@ -1,7 +1,8 @@
 import { builtinModules } from 'node:module';
 import path from 'node:path';
 
-import { escapeRegex, commonJsTemplate, getCachedPolyfillPath, getCachedPolyfillContent } from './utils/util.js';
+import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
+import { escapeRegex, commonJsTemplate } from './utils/util.js';
 
 import type { OnResolveArgs, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
