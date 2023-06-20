@@ -48,6 +48,6 @@ If you want to support me by donating, you can do so by using any of the followi
 
 Thanks goes to these wonderful people:
 
-<a href="https://github.com/imranbarbhuiya/TagScript/graphs/contributors">
+<a href="https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=imranbarbhuiya/esbuild-plugins-node-modules-polyfill" />
 </a>
