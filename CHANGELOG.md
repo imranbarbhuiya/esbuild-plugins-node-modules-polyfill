@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.16](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.15...v1.0.16) - (2023-06-20)
+
+## 🐛 Bug Fixes
+
+- Cache usage of modern-node-polyfills API (#115) ([c71714f](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/c71714f43b5dd92a9e3e535cf40d3c01880d09f9))
+
 # [1.0.14](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.13...v1.0.14) - (2023-05-30)
 
 ## 🐛 Bug Fixes
