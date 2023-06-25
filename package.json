@@ -38,12 +38,12 @@
 		"modern-node-polyfills": "^1.0.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.5",
-		"@commitlint/config-conventional": "^17.6.5",
+		"@commitlint/cli": "^17.6.6",
+		"@commitlint/config-conventional": "^17.6.6",
 		"@favware/cliff-jumper": "^2.1.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.18.5",
+		"esbuild": "^0.18.7",
 		"eslint": "^8.43.0",
 		"eslint-config-mahir": "^0.0.27",
 		"husky": "^8.0.3",
