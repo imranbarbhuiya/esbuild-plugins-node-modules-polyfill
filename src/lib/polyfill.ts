@@ -1,3 +1,10 @@
+/**
+ * `polyfillPath` and `getCachedPolyfillContent` are taken from below source with some modifications for my use case.
+ * https://github.com/Aslemammad/modern-node-polyfills
+ * @author Aslemammad
+ * @license MIT
+ */
+
 import { builtinModules } from 'node:module';
 import { resolve, join } from 'node:path';
 
