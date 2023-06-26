@@ -5,5 +5,5 @@
 		"noEmit": true,
 		"incremental": false
 	},
-	"include": ["src", "tests", "tsup.config.ts", "vitest.config.ts"]
+	"include": ["src", "globals", "tests", "tsup.config.ts", "vitest.config.ts"]
 }

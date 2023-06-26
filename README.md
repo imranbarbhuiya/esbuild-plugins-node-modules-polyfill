@@ -11,7 +11,7 @@
 
 ## Description
 
-Polyfills nodejs builtin modules for the browser.
+Polyfills nodejs builtin modules and globals for the browser.
 
 ## Features
 
@@ -19,6 +19,7 @@ Polyfills nodejs builtin modules for the browser.
 -   Offers CJS and ESM builds
 -   Full TypeScript & JavaScript support
 -   Supports `node:` protocol
+-   Optionally injects globals
 
 ## Install
 
@@ -34,6 +35,21 @@ import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill
 import { build } from 'esbuild';
 build({
 	plugins: [nodeModulesPolyfillPlugin()],
+});
+```
+
+Optionally inject globals when detected:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [nodeModulesPolyfillPlugin({
+		globals: {
+			process: true,
+			Buffer: true,
+		}
+	})],
 });
 ```
 

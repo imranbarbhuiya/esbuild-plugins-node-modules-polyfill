@@ -1,7 +1,7 @@
 {
 	"name": "esbuild-plugins-node-modules-polyfill",
 	"version": "1.0.16",
-	"description": "Polyfills nodejs builtin modules for the browser.",
+	"description": "Polyfills nodejs builtin modules and globals for the browser.",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
@@ -60,7 +60,8 @@
 	"files": [
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
-		"dist/**/*.d*"
+		"dist/**/*.d*",
+		"inject/**/*.js"
 	],
 	"repository": {
 		"type": "git",

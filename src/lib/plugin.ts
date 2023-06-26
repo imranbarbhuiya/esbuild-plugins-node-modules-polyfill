@@ -9,6 +9,10 @@ import type esbuild from 'esbuild';
 const NAME = 'node-modules-polyfills';
 
 export interface NodePolyfillsOptions {
+	globals?: {
+		Buffer?: boolean;
+		process?: boolean;
+	};
 	name?: string;
 	namespace?: string;
 }
@@ -47,7 +51,7 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 };
 
 export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): Plugin => {
-	const { namespace = NAME, name = NAME } = options;
+	const { globals = {}, namespace = NAME, name = NAME } = options;
 	if (namespace.endsWith('commonjs')) {
 		throw new Error(`namespace ${namespace} must not end with commonjs`);
 	}
@@ -62,6 +66,16 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				initialOptions.define.global = 'globalThis';
 			} else if (!initialOptions.define) {
 				initialOptions.define = { global: 'globalThis' };
+			}
+
+			initialOptions.inject = initialOptions.inject ?? [];
+
+			if (globals.Buffer) {
+				initialOptions.inject.push(path.resolve(__dirname, '../globals/Buffer.js'));
+			}
+
+			if (globals.process) {
+				initialOptions.inject.push(path.resolve(__dirname, '../globals/process.js'));
 			}
 
 			onLoad({ filter: /.*/, namespace }, loader);
