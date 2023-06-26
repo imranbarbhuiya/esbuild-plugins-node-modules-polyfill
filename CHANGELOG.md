@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.16...v1.1.0) - (2023-06-26)
+
+## 🐛 Bug Fixes
+
+- Port modern polyfill code to add caching in internal call (#122) ([ed22079](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/ed22079cffd435e3f1e1598d3bd9c62e4ab70631))
+- Handle frozen default exports (#120) ([d7e6226](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/d7e622678ad329e4783c7a51fbad033fc09d5186))
+- Repo url ([8d764b1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/8d764b1758bb61eff309888b60b6733969f9127a))
+
+## 🚀 Features
+
+- Support `process` and `Buffer` globals (#121) ([c345cf6](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/c345cf6ec397b78ef296c2c2ffd274b3178363cf))
+
 # [1.0.16](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.15...v1.0.16) - (2023-06-20)
 
 ## 🐛 Bug Fixes
