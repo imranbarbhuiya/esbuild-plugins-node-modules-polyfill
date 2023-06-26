@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Polyfill Test > GIVEN a file that imports a node builtin file THEN polyfill it 1`] = `
+exports[`Polyfill Test > GIVEN a file that imports a node builtin THEN polyfill it 1`] = `
 "\\"use strict\\";
 (() => {
   // node-modules-polyfills:util

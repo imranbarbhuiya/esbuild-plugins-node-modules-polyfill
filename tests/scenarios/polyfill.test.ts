@@ -15,7 +15,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 }
 
 describe('Polyfill Test', () => {
-	test('GIVEN a file that imports a node builtin file THEN polyfill it', async () => {
+	test('GIVEN a file that imports a node builtin THEN polyfill it', async () => {
 		const config = createConfig();
 
 		await esbuild.build(config);
