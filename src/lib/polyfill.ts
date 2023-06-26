@@ -26,7 +26,7 @@ async function polyfillPath(importPath: string) {
 
 	if (!exportPath || !exportFullPath) {
 		throw new Error(
-			'resolving failed, please try creating an issue in github.com/aslemammad/modern-node-polyfills',
+			'resolving failed, please try creating an issue in https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill',
 		);
 	}
 
