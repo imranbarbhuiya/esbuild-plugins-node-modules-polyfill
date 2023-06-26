@@ -61,7 +61,7 @@
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
 		"dist/**/*.d*",
-		"inject/**/*.js"
+		"globals/**/*.js"
 	],
 	"repository": {
 		"type": "git",
