@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.3](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.2...v1.1.3) - (2023-06-30)
+
+## 🐛 Bug Fixes
+
+- Regex to not match relative files ([c795019](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/c79501951ce5f0077fad1ec8d002078609710367))
+
 # [1.1.2](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.1...v1.1.2) - (2023-06-30)
 
 ## 🐛 Bug Fixes
