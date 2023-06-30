@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
       - name: Deprecate versions
-        run: true || yarn npm-deprecate --name "*pr-${PR_NUMBER}*" -d -v
+        run: yarn npm-deprecate --name "*pr-${PR_NUMBER}*" -d -v
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
