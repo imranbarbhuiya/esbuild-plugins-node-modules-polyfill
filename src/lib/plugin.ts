@@ -81,13 +81,14 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
-			const filter = new RegExp(`(?:node:)?${builtinModules.map(escapeRegex).join('|')}`);
+			const filter = new RegExp(`^(?:node:)?(?:${builtinModules.map(escapeRegex).join('|')})`);
+
 			const resolver = async (args: OnResolveArgs) => {
 				const ignoreRequire = args.namespace === commonjsNamespace;
 
-				const pollyfill = await getCachedPolyfillPath(args.path).catch(() => null);
+				const polyfill = await getCachedPolyfillPath(args.path).catch(() => null);
 
-				if (!pollyfill) {
+				if (!polyfill) {
 					return;
 				}
 
