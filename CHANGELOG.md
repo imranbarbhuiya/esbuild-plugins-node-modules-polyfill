@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.0...v1.1.1) - (2023-06-30)
+
+## 🐛 Bug Fixes
+
+- Remove esm formats as it breaks the plugin on resolve ([17aed11](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/17aed11cc413af53f2b951b0f58768e3bf924c05))
+- Add node 14-20 test workflow ([515bd0f](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/515bd0fc056e62fd689baff22dea975a383a4d7b))
+
 # [1.1.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.0.16...v1.1.0) - (2023-06-26)
 
 ## 🐛 Bug Fixes
