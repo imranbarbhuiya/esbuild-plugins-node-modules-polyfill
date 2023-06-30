@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.2](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.1...v1.1.2) - (2023-06-30)
+
+## 🐛 Bug Fixes
+
+- Remove module from package.json ([0f1a60c](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/0f1a60c8be834e354d0a82d838549e9d43d92621))
+
 # [1.1.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.0...v1.1.1) - (2023-06-30)
 
 ## 🐛 Bug Fixes
