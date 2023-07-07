@@ -38,6 +38,18 @@ build({
 });
 ```
 
+Optionally configure which modules to polyfill:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [nodeModulesPolyfillPlugin({
+		modules: ['crypto'],
+	})],
+});
+```
+
 Optionally inject globals when detected:
 
 ```ts

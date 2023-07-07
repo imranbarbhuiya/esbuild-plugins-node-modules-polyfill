@@ -14,6 +14,7 @@ export interface NodePolyfillsOptions {
 		Buffer?: boolean;
 		process?: boolean;
 	};
+	modules?: string[];
 	name?: string;
 	namespace?: string;
 }
@@ -52,7 +53,7 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 };
 
 export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): Plugin => {
-	const { globals = {}, namespace = NAME, name = NAME } = options;
+	const { globals = {}, modules = builtinModules, namespace = NAME, name = NAME } = options;
 	if (namespace.endsWith('commonjs')) {
 		throw new Error(`namespace ${namespace} must not end with commonjs`);
 	}
@@ -81,7 +82,12 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
-			const filter = new RegExp(`^(?:node:)?(?:${builtinModules.map(escapeRegex).join('|')})`);
+			const filter = new RegExp(
+				`^(?:node:)?(?:${modules
+					.filter((mod) => builtinModules.includes(mod))
+					.map(escapeRegex)
+					.join('|')})$`,
+			);
 
 			const resolver = async (args: OnResolveArgs) => {
 				const ignoreRequire = args.namespace === commonjsNamespace;
