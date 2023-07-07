@@ -22,4 +22,24 @@ describe('Polyfill Test', () => {
 
 		await assertFileContent('./fixtures/output/polyfill.js');
 	});
+
+	test('GIVEN a file that imports a node builtin and opts into polyfill THEN polyfill it', async () => {
+		const config = createConfig({
+			modules: ['util'],
+		});
+
+		await esbuild.build(config);
+
+		await assertFileContent('./fixtures/output/polyfill.js');
+	});
+
+	test("GIVEN a file that imports a node builtin and doesn't opt into polyfill THEN don't polyfill it", async () => {
+		const config = createConfig({
+			modules: [],
+		});
+
+		await esbuild.build(config);
+
+		await assertFileContent('./fixtures/output/polyfill.js');
+	});
 });
