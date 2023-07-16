@@ -43,7 +43,7 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.18.13",
 		"eslint": "^8.45.0",
-		"eslint-config-mahir": "^0.0.27",
+		"eslint-config-mahir": "^0.0.29",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.3",
 		"pinst": "^3.0.0",
