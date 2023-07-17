@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.3.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.2.0...v1.3.0) - (2023-07-17)
+
+## 🚀 Features
+
+- Optionally provide empty polyfills (#132) ([6642f2f](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/6642f2f134f3c16c114d27c25e2f3966534c7ed4))
+
 # [1.2.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.1.3...v1.2.0) - (2023-07-07)
 
 ## 🚀 Features
