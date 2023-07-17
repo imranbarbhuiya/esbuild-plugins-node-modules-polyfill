@@ -33,9 +33,29 @@ describe('Polyfill Test', () => {
 		await assertFileContent('./fixtures/output/polyfill.js');
 	});
 
+	test('GIVEN a file that imports a node builtin and opts into an empty polyfill THEN provide an empty module', async () => {
+		const config = createConfig({
+			modules: { util: 'empty' },
+		});
+
+		await esbuild.build(config);
+
+		await assertFileContent('./fixtures/output/polyfill.js');
+	});
+
 	test("GIVEN a file that imports a node builtin and doesn't opt into polyfill THEN don't polyfill it", async () => {
 		const config = createConfig({
 			modules: [],
+		});
+
+		await esbuild.build(config);
+
+		await assertFileContent('./fixtures/output/polyfill.js');
+	});
+
+	test("GIVEN a file that imports a node builtin and explicitly opts out of polyfill THEN don't polyfill it", async () => {
+		const config = createConfig({
+			modules: { util: false },
 		});
 
 		await esbuild.build(config);

@@ -50,6 +50,21 @@ build({
 });
 ```
 
+Optionally provide empty polyfills:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [nodeModulesPolyfillPlugin({
+		modules: {
+			fs: 'empty',
+			crypto: true,
+		}
+	})],
+});
+```
+
 Optionally inject globals when detected:
 
 ```ts
