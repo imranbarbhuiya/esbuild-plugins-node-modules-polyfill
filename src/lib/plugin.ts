@@ -2,7 +2,7 @@ import { builtinModules } from 'node:module';
 import path from 'node:path';
 
 import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
-import { escapeRegex, commonJsTemplate } from './utils/util.js';
+import { escapeRegex, commonJsTemplate, normalizeNodeBuiltinPath } from './utils/util.js';
 
 import type { OnResolveArgs, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
@@ -14,7 +14,7 @@ export interface NodePolyfillsOptions {
 		Buffer?: boolean;
 		process?: boolean;
 	};
-	modules?: string[];
+	modules?: string[] | Record<string, boolean | 'empty'>;
 	name?: string;
 	namespace?: string;
 }
@@ -53,12 +53,21 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 };
 
 export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): Plugin => {
-	const { globals = {}, modules = builtinModules, namespace = NAME, name = NAME } = options;
+	const { globals = {}, modules: modulesOption = builtinModules, namespace = NAME, name = NAME } = options;
 	if (namespace.endsWith('commonjs')) {
 		throw new Error(`namespace ${namespace} must not end with commonjs`);
 	}
 
+	if (namespace.endsWith('empty')) {
+		throw new Error(`namespace ${namespace} must not end with empty`);
+	}
+
+	const modules = Array.isArray(modulesOption)
+		? Object.fromEntries(modulesOption.map((mod) => [mod, true]))
+		: modulesOption;
+
 	const commonjsNamespace = `${namespace}-commonjs`;
+	const emptyNamespace = `${namespace}-empty`;
 
 	return {
 		name,
@@ -80,24 +89,46 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				initialOptions.inject.push(path.resolve(__dirname, '../globals/process.js'));
 			}
 
+			onLoad({ filter: /.*/, namespace: emptyNamespace }, () => {
+				return {
+					loader: 'js',
+					// Use an empty CommonJS module here instead of ESM to avoid
+					// "No matching export" errors in esbuild for anything that
+					// is imported from this file.
+					contents: 'module.exports = {}',
+				};
+			});
+
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
 			const filter = new RegExp(
-				`^(?:node:)?(?:${modules
-					.filter((mod) => builtinModules.includes(mod))
+				`^(?:node:)?(?:${Object.keys(modules)
+					.filter((moduleName) => builtinModules.includes(moduleName))
 					.map(escapeRegex)
 					.join('|')})$`,
 			);
 
 			const resolver = async (args: OnResolveArgs) => {
-				const ignoreRequire = args.namespace === commonjsNamespace;
+				const moduleName = normalizeNodeBuiltinPath(args.path);
 
-				const polyfill = await getCachedPolyfillPath(args.path).catch(() => null);
+				if (!modules[moduleName]) {
+					return;
+				}
+
+				if (modules[moduleName] === 'empty') {
+					return {
+						namespace: emptyNamespace,
+						path: args.path,
+					};
+				}
+
+				const polyfill = await getCachedPolyfillPath(moduleName).catch(() => null);
 
 				if (!polyfill) {
 					return;
 				}
 
+				const ignoreRequire = args.namespace === commonjsNamespace;
 				const isCommonjs = !ignoreRequire && args.kind === 'require-call';
 
 				return {
