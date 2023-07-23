@@ -41,7 +41,7 @@
 		"@favware/cliff-jumper": "^2.1.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.18.15",
+		"esbuild": "^0.18.16",
 		"eslint": "^8.45.0",
 		"eslint-config-mahir": "^0.0.29",
 		"husky": "^8.0.3",
