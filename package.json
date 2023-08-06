@@ -41,16 +41,16 @@
 		"@favware/cliff-jumper": "^2.1.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.18.17",
+		"esbuild": "^0.18.18",
 		"eslint": "^8.46.0",
-		"eslint-config-mahir": "^0.0.30",
+		"eslint-config-mahir": "^0.0.31",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.3",
 		"pinst": "^3.0.0",
-		"prettier": "^3.0.0",
-		"tsup": "^7.1.0",
+		"prettier": "^3.0.1",
+		"tsup": "^7.2.0",
 		"typescript": "^5.1.6",
-		"vitest": "^0.33.0"
+		"vitest": "^0.34.1"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0"
