@@ -36,13 +36,13 @@
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.7",
-		"@commitlint/config-conventional": "^17.6.7",
+		"@commitlint/cli": "^17.7.1",
+		"@commitlint/config-conventional": "^17.7.0",
 		"@favware/cliff-jumper": "^2.1.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.18.18",
-		"eslint": "^8.46.0",
+		"esbuild": "^0.19.1",
+		"eslint": "^8.47.0",
 		"eslint-config-mahir": "^0.0.31",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.3",
