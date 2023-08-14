@@ -4,7 +4,7 @@ import path from 'node:path';
 import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
 import { escapeRegex, commonJsTemplate, normalizeNodeBuiltinPath } from './utils/util.js';
 
-import type { OnResolveArgs, Plugin } from 'esbuild';
+import type { OnResolveArgs, OnResolveResult, Plugin } from 'esbuild';
 import type esbuild from 'esbuild';
 
 const NAME = 'node-modules-polyfills';
@@ -108,7 +108,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 					.join('|')})$`,
 			);
 
-			const resolver = async (args: OnResolveArgs) => {
+			const resolver = async (args: OnResolveArgs): Promise<OnResolveResult | undefined> => {
 				const moduleName = normalizeNodeBuiltinPath(args.path);
 
 				if (!modules[moduleName]) {
@@ -119,6 +119,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 					return {
 						namespace: emptyNamespace,
 						path: args.path,
+						sideEffects: false,
 					};
 				}
 
@@ -134,6 +135,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				return {
 					namespace: isCommonjs ? commonjsNamespace : namespace,
 					path: args.path,
+					sideEffects: false,
 				};
 			};
 
