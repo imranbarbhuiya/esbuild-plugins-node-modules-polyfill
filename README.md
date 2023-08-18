@@ -20,6 +20,7 @@ Polyfills nodejs builtin modules and globals for the browser.
 -   Full TypeScript & JavaScript support
 -   Supports `node:` protocol
 -   Optionally injects globals
+-   Optionally provides empty fallbacks
 
 ## Install
 
@@ -59,6 +60,21 @@ build({
 	plugins: [nodeModulesPolyfillPlugin({
 		modules: {
 			fs: 'empty',
+			crypto: true,
+		}
+	})],
+});
+```
+
+Optionally provide empty fallbacks for any unpolyfilled or unconfigured modules:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [nodeModulesPolyfillPlugin({
+		fallback: 'empty',
+		modules: {
 			crypto: true,
 		}
 	})],

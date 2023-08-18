@@ -10,6 +10,7 @@ import type esbuild from 'esbuild';
 const NAME = 'node-modules-polyfills';
 
 export interface NodePolyfillsOptions {
+	fallback?: 'empty' | 'none';
 	globals?: {
 		Buffer?: boolean;
 		process?: boolean;
@@ -53,7 +54,7 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 };
 
 export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): Plugin => {
-	const { globals = {}, modules: modulesOption = builtinModules, namespace = NAME, name = NAME } = options;
+	const { globals = {}, modules: modulesOption = builtinModules, fallback, namespace = NAME, name = NAME } = options;
 	if (namespace.endsWith('commonjs')) {
 		throw new Error(`namespace ${namespace} must not end with commonjs`);
 	}
@@ -101,32 +102,42 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
-			const filter = new RegExp(
-				`^(?:node:)?(?:${Object.keys(modules)
-					.filter((moduleName) => builtinModules.includes(moduleName))
-					.map(escapeRegex)
-					.join('|')})$`,
-			);
+
+			// If we are using empty fallbacks, we need to handle all builtin modules so that we can replace their contents,
+			// otherwise we only need to handle the modules that are configured (which is everything by default)
+			const bundledModules =
+				fallback === 'empty'
+					? builtinModules
+					: Object.keys(modules).filter((moduleName) => builtinModules.includes(moduleName));
+
+			const filter = new RegExp(`^(?:node:)?(?:${bundledModules.map(escapeRegex).join('|')})$`);
 
 			const resolver = async (args: OnResolveArgs): Promise<OnResolveResult | undefined> => {
 				const moduleName = normalizeNodeBuiltinPath(args.path);
 
+				const emptyResult = {
+					namespace: emptyNamespace,
+					path: args.path,
+					sideEffects: false,
+				};
+
+				const fallbackResult =
+					fallback === 'empty'
+						? emptyResult // Stub it out with an empty module
+						: undefined; // Opt out of resolving it entirely so esbuild/other plugins can handle it
+
 				if (!modules[moduleName]) {
-					return;
+					return fallbackResult;
 				}
 
 				if (modules[moduleName] === 'empty') {
-					return {
-						namespace: emptyNamespace,
-						path: args.path,
-						sideEffects: false,
-					};
+					return emptyResult;
 				}
 
 				const polyfill = await getCachedPolyfillPath(moduleName).catch(() => null);
 
 				if (!polyfill) {
-					return;
+					return fallbackResult;
 				}
 
 				const ignoreRequire = args.namespace === commonjsNamespace;
