@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.4.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.4.0...v1.4.1) - (2023-08-23)
+
+## 🐛 Bug Fixes
+
+- Support package.json browser field (#150) ([6e84c9b](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/6e84c9b012dab7b923629a58a11d5ba0d22d0428))
+
 # [1.4.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.3.2...v1.4.0) - (2023-08-19)
 
 ## 🚀 Features

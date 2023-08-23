@@ -1,6 +1,6 @@
 {
 	"name": "esbuild-plugins-node-modules-polyfill",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "Polyfills nodejs builtin modules and globals for the browser.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -45,7 +45,7 @@
 		"eslint": "^8.47.0",
 		"eslint-config-mahir": "^0.0.31",
 		"husky": "^8.0.3",
-		"lint-staged": "^14.0.0",
+		"lint-staged": "^14.0.1",
 		"pinst": "^3.0.0",
 		"prettier": "^3.0.2",
 		"tsup": "^7.2.0",
