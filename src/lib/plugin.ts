@@ -125,21 +125,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
 					const browserFieldValue = packageJson?.browser?.[args.path];
-					if (browserFieldValue !== undefined) {
-						// If the module is disabled for browser builds, provide our standard empty module
-						if (browserFieldValue === false) {
-							return emptyResult;
-						}
-
-						// If it's an alias to another module for browser builds, skip resolving the polyfill
-						if (typeof browserFieldValue === 'string') {
-							return;
-						}
-
-						throw new Error(
-							`The "browser" field in package.json (resolved from ${args.resolveDir}) must be a string or false, received ${browserFieldValue}`,
-						);
-					}
+					if (browserFieldValue !== undefined) return;
 				}
 
 				const moduleName = normalizeNodeBuiltinPath(args.path);
