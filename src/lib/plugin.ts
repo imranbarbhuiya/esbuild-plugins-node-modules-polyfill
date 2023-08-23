@@ -1,6 +1,8 @@
 import { builtinModules } from 'node:module';
 import path from 'node:path';
 
+import { loadPackageJSON } from 'local-pkg';
+
 import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
 import { escapeRegex, commonJsTemplate, normalizeNodeBuiltinPath } from './utils/util.js';
 
@@ -113,13 +115,20 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 			const filter = new RegExp(`^(?:node:)?(?:${bundledModules.map(escapeRegex).join('|')})$`);
 
 			const resolver = async (args: OnResolveArgs): Promise<OnResolveResult | undefined> => {
-				const moduleName = normalizeNodeBuiltinPath(args.path);
-
 				const emptyResult = {
 					namespace: emptyNamespace,
 					path: args.path,
 					sideEffects: false,
 				};
+
+				// https://github.com/defunctzombie/package-browser-field-spec
+				if (initialOptions.platform === 'browser') {
+					const packageJson = await loadPackageJSON(args.resolveDir);
+					const browserFieldValue = packageJson?.browser?.[args.path];
+					if (browserFieldValue !== undefined) return;
+				}
+
+				const moduleName = normalizeNodeBuiltinPath(args.path);
 
 				const fallbackResult =
 					fallback === 'empty'
