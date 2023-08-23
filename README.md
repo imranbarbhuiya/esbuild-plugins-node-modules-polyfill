@@ -19,6 +19,7 @@ Polyfills nodejs builtin modules and globals for the browser.
 -   Offers CJS and ESM builds
 -   Full TypeScript & JavaScript support
 -   Supports `node:` protocol
+-   Supports [`browser` field in `package.json`](https://github.com/defunctzombie/package-browser-field-spec)
 -   Optionally injects globals
 -   Optionally provides empty fallbacks
 

@@ -11,10 +11,10 @@ export function createEsbuildConfig(
 	nodePolyfillsOptions?: NodePolyfillsOptions,
 ): BuildOptions {
 	return {
+		platform: 'node',
 		...buildOptions,
 		outdir: buildAbsolutePath('./fixtures/output'),
 		bundle: true,
-		platform: 'node',
 		plugins: [nodeModulesPolyfillPlugin(nodePolyfillsOptions)],
 	};
 }
