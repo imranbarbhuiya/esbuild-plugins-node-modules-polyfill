@@ -138,7 +138,7 @@ build({
 
 ### Fail the build when certain modules are used:
 
-> **Warn**
+> **Warning**
 > The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
@@ -159,7 +159,7 @@ const buildResult = await build({
 
 ### Fail the build when a module is not polyfilled or configured:
 
-> **Warn**
+> **Warning**
 > The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
