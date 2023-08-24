@@ -40,92 +40,141 @@ build({
 });
 ```
 
-Optionally configure which modules to polyfill:
+### Inject globals when detected:
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulesPolyfillPlugin({
-		modules: ['crypto'],
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			globals: {
+				process: true,
+				Buffer: true,
+			},
+		}),
+	],
 });
 ```
 
-Optionally provide empty polyfills:
+### Configure which modules to polyfill:
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulesPolyfillPlugin({
-		modules: {
-			fs: 'empty',
-			crypto: true,
-		}
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			modules: ['crypto'],
+		}),
+	],
 });
 ```
-
-Optionally provide empty fallbacks for any unpolyfilled or unconfigured modules:
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulesPolyfillPlugin({
-		fallback: 'empty',
-		modules: {
-			crypto: true,
-		}
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			modules: {
+				crypto: true,
+				fs: false,
+			},
+		}),
+	],
 });
 ```
 
-Optionally inject globals when detected:
+### Provide empty polyfills:
+
+### Provide empty polyfills for specific modules:
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 build({
-	plugins: [nodeModulesPolyfillPlugin({
-		globals: {
-			process: true,
-			Buffer: true,
-		}
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			modules: {
+				fs: 'empty',
+				crypto: true,
+			},
+		}),
+	],
 });
 ```
 
-Optionally fail the build when certain modules are used (note that the `write` build option must be `false` to support this):
+#### Provide empty fallbacks for any unpolyfilled modules:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			fallback: 'empty',
+		}),
+	],
+});
+```
+
+#### Provide empty fallbacks for any unconfigured modules:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			fallback: 'empty',
+			modules: {
+				crypto: true,
+			},
+		}),
+	],
+});
+```
+
+### Fail the build when certain modules are used:
+
+> **Note**
+> The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 const buildResult = await build({
 	write: false,
-	plugins: [nodeModulesPolyfillPlugin({
-		modules: {
-			crypto: 'error',
-			path: true,
-		},
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			modules: {
+				crypto: 'error',
+				path: true,
+			},
+		}),
+	],
 });
 ```
 
-Optionally fail the build when a module is not polyfilled or configured (note that the `write` build option must be `false` to support this):
+### Fail the build when a module is not polyfilled or configured:
+
+> **Note**
+> The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
 import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
 import { build } from 'esbuild';
 const buildResult = await build({
 	write: false,
-	plugins: [nodeModulesPolyfillPlugin({
-		fallback: 'error',
-		modules: {
-			path: true,
-		}
-	})],
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			fallback: 'error',
+			modules: {
+				path: true,
+			},
+		}),
+	],
 });
 ```
 
