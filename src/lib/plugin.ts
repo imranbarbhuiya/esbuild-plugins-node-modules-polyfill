@@ -156,7 +156,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 						path: args.path,
 						sideEffects: false,
 						pluginData: {
-							importer: path.relative(root, args.importer),
+							importer: path.relative(root, args.importer).replace(/\\/g, '/'),
 						},
 					},
 					none: undefined,
