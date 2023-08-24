@@ -29,9 +29,10 @@ exports[`Browser Field False Test > GIVEN a file in a browser target build that 
     mod
   ));
 
-  // (disabled):constants
+  // node-modules-polyfills-empty:constants
   var require_constants = __commonJS({
-    \\"(disabled):constants\\"() {
+    \\"node-modules-polyfills-empty:constants\\"(exports, module) {
+      module.exports = {};
     }
   });
 

@@ -125,7 +125,20 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
 					const browserFieldValue = packageJson?.browser?.[args.path];
-					if (browserFieldValue !== undefined) return;
+
+					// This is here to support consumers who have used the
+					// "external" option to exclude all Node builtins (e.g.
+					// Remix v1 does this), otherwise the import/require is left
+					// in the output and throws an error at runtime. Ideally we
+					// would just return undefined for any browser field value,
+					// and we can safely switch to this in a major version.
+					if (browserFieldValue === false) {
+						return emptyResult;
+					}
+
+					if (browserFieldValue !== undefined) {
+						return;
+					}
 				}
 
 				const moduleName = normalizeNodeBuiltinPath(args.path);
