@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.5.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.4.1...v1.5.0) - (2023-08-24)
+
+## 🐛 Bug Fixes
+
+- Use empty polyfill if browser field is false (#151) ([3946db8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/3946db8eca299559b708fdc1b0863b9d4582ef2c))
+
+## 📝 Documentation
+
+- Update readme ([12bc0dd](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/12bc0dd100b138910f91d80f569815cbbe59fa12))
+
+## 🚀 Features
+
+- Allow modules to be marked as errors (#152) ([c02060d](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/c02060d2c854b874fce98a2e4bada314f524faa6))
+
 # [1.4.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.4.0...v1.4.1) - (2023-08-23)
 
 ## 🐛 Bug Fixes
