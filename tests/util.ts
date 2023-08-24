@@ -7,14 +7,14 @@ import { nodeModulesPolyfillPlugin, type NodePolyfillsOptions } from '../dist/in
 import type { BuildOptions } from 'esbuild';
 
 export function createEsbuildConfig(
-	buildOptions: BuildOptions,
+	buildOptions: Omit<BuildOptions, 'plugins'>,
 	nodePolyfillsOptions?: NodePolyfillsOptions,
 ): BuildOptions {
 	return {
 		platform: 'node',
-		...buildOptions,
 		outdir: buildAbsolutePath('./fixtures/output'),
 		bundle: true,
+		...buildOptions,
 		plugins: [nodeModulesPolyfillPlugin(nodePolyfillsOptions)],
 	};
 }

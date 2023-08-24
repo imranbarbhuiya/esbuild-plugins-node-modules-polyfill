@@ -97,6 +97,38 @@ build({
 });
 ```
 
+Optionally fail the build when certain modules are used (note that the `write` build option must be `false` to support this):
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+const buildResult = await build({
+	write: false,
+	plugins: [nodeModulesPolyfillPlugin({
+		modules: {
+			crypto: 'error',
+			path: true,
+		},
+	})],
+});
+```
+
+Optionally fail the build when a module is not polyfilled or configured (note that the `write` build option must be `false` to support this):
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+const buildResult = await build({
+	write: false,
+	plugins: [nodeModulesPolyfillPlugin({
+		fallback: 'error',
+		modules: {
+			path: true,
+		}
+	})],
+});
+```
+
 ## Buy me some doughnuts
 
 If you want to support me by donating, you can do so by using any of the following methods. Thank you very much in advance!
