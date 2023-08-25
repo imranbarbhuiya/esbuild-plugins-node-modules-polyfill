@@ -178,6 +178,36 @@ const buildResult = await build({
 });
 ```
 
+### Provide a custom error formatter for when a module is not polyfilled or configured:
+
+Return an esbuild `PartialMessage` object from the `formatError` function to override any properties of the default error message.
+
+> **Warning**
+> The `write` option in `esbuild` must be `false` to support this.
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+const buildResult = await build({
+	write: false,
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			fallback: 'error',
+			modules: {
+				path: true,
+			},
+			formatError({ moduleName, importer, polyfillExists }) {
+				return {
+					text: polyfillExists
+						? `Polyfill has not been configured for "${moduleName}", imported by "${importer}"`
+						: `Polyfill does not exist for "${moduleName}", imported by "${importer}"`
+				};
+			}
+		}),
+	],
+});
+```
+
 ## Buy me some doughnuts
 
 If you want to support me by donating, you can do so by using any of the following methods. Thank you very much in advance!

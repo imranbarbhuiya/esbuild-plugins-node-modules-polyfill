@@ -14,6 +14,14 @@ const NAME = 'node-modules-polyfills';
 
 export interface NodePolyfillsOptions {
 	fallback?: 'empty' | 'error' | 'none';
+	formatError?(
+		this: void,
+		args: {
+			importer: string;
+			moduleName: string;
+			polyfillExists: boolean;
+		},
+	): PartialMessage | Promise<PartialMessage>;
 	globals?: {
 		Buffer?: boolean;
 		process?: boolean;
@@ -61,6 +69,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 		globals = {},
 		modules: modulesOption = builtinModules,
 		fallback = 'none',
+		formatError,
 		namespace = NAME,
 		name = NAME,
 	} = options;
@@ -211,7 +220,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			onResolve({ filter }, resolver);
 
-			onEnd(({ outputFiles = [] }) => {
+			onEnd(async ({ outputFiles = [] }) => {
 				// This logic needs to be run when the build is complete because
 				// we need to check the output files after tree-shaking has been
 				// performed. If we did this in the onLoad hook, we could throw
@@ -233,13 +242,18 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 				for (const file of jsFiles) {
 					const matches = file.text.matchAll(
-						/__POLYFILL_ERROR_START__::MODULE::(?<module>.+?)::IMPORTER::(?<importer>.+?)::__POLYFILL_ERROR_END__/g,
+						/__POLYFILL_ERROR_START__::MODULE::(?<moduleName>.+?)::IMPORTER::(?<importer>.+?)::__POLYFILL_ERROR_END__/g,
 					);
 
 					for (const { groups } of matches) {
+						const { moduleName, importer } = groups!;
+						const polyfillExists = (await getCachedPolyfillPath(moduleName).catch(() => null)) !== null;
 						errors.push({
 							pluginName: name,
-							text: `Module "${groups!.module}" is not polyfilled, imported by "${groups!.importer}"`,
+							text: polyfillExists
+								? `Polyfill has not been configured for "${moduleName}", imported by "${importer}"`
+								: `Polyfill does not exist for "${moduleName}", imported by "${importer}"`,
+							...(formatError ? await formatError({ moduleName, importer, polyfillExists }) : {}),
 						});
 					}
 				}

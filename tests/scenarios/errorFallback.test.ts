@@ -41,8 +41,70 @@ describe('Error Fallback Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Module \\"node:crypto\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
-			  "Module \\"node:trace_events\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill does not exist for \\"node:trace_events\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			]
+		`);
+		expect(errors).toHaveLength(2);
+	});
+
+	test('GIVEN an error formatter has been provided THEN use the custom errors instead', async () => {
+		const config = createConfig(
+			{
+				write: false,
+			},
+			{
+				fallback: 'error',
+				formatError(args) {
+					return {
+						notes: [{ text: 'This is a custom note' }],
+						text: `args: ${JSON.stringify(args)}`,
+					};
+				},
+				modules: {
+					path: true,
+					trace_events: true, // This will be a fallback since it's not polyfilled
+				},
+			},
+		);
+
+		let errors: Message[] | undefined;
+
+		try {
+			await esbuild.build(config);
+		} catch (error) {
+			// @ts-expect-error error isn't type safe
+			errors = error.errors;
+		}
+
+		expect(errors).toMatchInlineSnapshot(`
+			[
+			  {
+			    "detail": -1,
+			    "id": "",
+			    "location": null,
+			    "notes": [
+			      {
+			        "location": null,
+			        "text": "This is a custom note",
+			      },
+			    ],
+			    "pluginName": "node-modules-polyfills",
+			    "text": "args: {\\"moduleName\\":\\"node:crypto\\",\\"importer\\":\\"tests/fixtures/input/errorFallback.ts\\",\\"polyfillExists\\":true}",
+			  },
+			  {
+			    "detail": -1,
+			    "id": "",
+			    "location": null,
+			    "notes": [
+			      {
+			        "location": null,
+			        "text": "This is a custom note",
+			      },
+			    ],
+			    "pluginName": "node-modules-polyfills",
+			    "text": "args: {\\"moduleName\\":\\"node:trace_events\\",\\"importer\\":\\"tests/fixtures/input/errorFallback.ts\\",\\"polyfillExists\\":false}",
+			  },
 			]
 		`);
 		expect(errors).toHaveLength(2);
@@ -75,8 +137,8 @@ describe('Error Fallback Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Module \\"node:crypto\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
-			  "Module \\"node:trace_events\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill does not exist for \\"node:trace_events\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
 			]
 		`);
 		expect(errors).toHaveLength(2);
@@ -110,8 +172,8 @@ describe('Error Fallback Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Module \\"node:crypto\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
-			  "Module \\"node:trace_events\\" is not polyfilled, imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
+			  "Polyfill does not exist for \\"node:trace_events\\", imported by \\"tests/fixtures/input/errorFallback.ts\\"",
 			]
 		`);
 		expect(errors).toHaveLength(2);
