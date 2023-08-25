@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.6.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.5.0...v1.6.0) - (2023-08-25)
+
+## 🚀 Features
+
+- Support custom error formatting (#153) ([769e642](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/769e642c53e6dae26d7ecd5fedc26d0f15fad50c))
+
 # [1.5.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.4.1...v1.5.0) - (2023-08-24)
 
 ## 🐛 Bug Fixes

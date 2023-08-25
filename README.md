@@ -178,7 +178,7 @@ const buildResult = await build({
 });
 ```
 
-### Provide a custom error formatter for when a module is not polyfilled or configured:
+### Provide a custom error formatter when a module is not polyfilled or configured:
 
 Return an esbuild `PartialMessage` object from the `formatError` function to override any properties of the default error message.
 
@@ -200,9 +200,9 @@ const buildResult = await build({
 				return {
 					text: polyfillExists
 						? `Polyfill has not been configured for "${moduleName}", imported by "${importer}"`
-						: `Polyfill does not exist for "${moduleName}", imported by "${importer}"`
+						: `Polyfill does not exist for "${moduleName}", imported by "${importer}"`,
 				};
-			}
+			},
 		}),
 	],
 });
