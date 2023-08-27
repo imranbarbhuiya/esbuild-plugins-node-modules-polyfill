@@ -1839,11 +1839,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
   // tests/fixtures/input/globalBuffer.ts
   console.log(Buffer.from(\\"Hello world\\"));
 })();
-/*! Bundled license information:
-
-@jspm/core/nodelibs/browser/buffer.js:
-  (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
-*/
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 "
 `;
 

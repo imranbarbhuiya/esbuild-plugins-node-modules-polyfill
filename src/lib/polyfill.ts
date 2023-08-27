@@ -1,14 +1,7 @@
-/**
- * `polyfillPath` and `getCachedPolyfillContent` are taken from below source with some modifications for my use case.
- * https://github.com/Aslemammad/modern-node-polyfills
- * @author Aslemammad
- * @license MIT
- */
-
+import { readFile } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import { resolve, join } from 'node:path';
 
-import { build } from 'esbuild';
 import { loadPackageJSON, resolveModule } from 'local-pkg';
 import { resolve as resolveExports } from 'resolve.exports';
 
@@ -20,7 +13,7 @@ async function polyfillPath(importPath: string) {
 
 	const jspmPath = resolve(
 		require.resolve(`@jspm/core/nodelibs/${importPath}`),
-		// ensure "fs/promises" is resolved properly
+		// ensure sub path modules are resolved properly
 		'../../..' + (importPath.includes('/') ? '/..' : ''),
 	);
 
@@ -57,14 +50,7 @@ export const getCachedPolyfillPath = (importPath: string): Promise<string> => {
 export const polyfillContentAndTransform = async (importPath: string) => {
 	const exportFullPath = await getCachedPolyfillPath(importPath);
 
-	const content = (
-		await build({
-			write: false,
-			format: 'esm',
-			bundle: true,
-			entryPoints: [exportFullPath],
-		})
-	).outputFiles[0]!.text;
+	const content = await readFile(exportFullPath, 'utf8');
 
 	return content.replace(/eval\(/g, '(0,eval)(');
 };

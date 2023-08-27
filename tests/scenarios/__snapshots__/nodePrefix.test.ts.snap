@@ -3,7 +3,7 @@
 exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: prefix file THEN polyfill it 1`] = `
 "\\"use strict\\";
 (() => {
-  // node-modules-polyfills:node:util
+  // node_modules/@jspm/core/nodelibs/browser/chunk-5decc758.js
   var e;
   var t;
   var n;
@@ -121,6 +121,8 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   T.umask;
   T.version;
   T.versions;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-b4205b57.js
   var t2 = \\"function\\" == typeof Symbol && \\"symbol\\" == typeof Symbol.toStringTag;
   var e2 = Object.prototype.toString;
   var o2 = function(o3) {
@@ -584,6 +586,8 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     }
     return Object.setPrototypeOf(t3, Object.getPrototypeOf(e3)), Object.defineProperties(t3, ee(e3)), t3;
   };
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-ce0fbc82.js
   X._extend;
   X.callbackify;
   X.debuglog;
@@ -635,6 +639,8 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   var types = X.types;
   var TextEncoder = self.TextEncoder;
   var TextDecoder = self.TextDecoder;
+
+  // node-modules-polyfills:node:util
   var _extend2 = X._extend;
   var callbackify2 = X.callbackify;
   var debuglog2 = X.debuglog;

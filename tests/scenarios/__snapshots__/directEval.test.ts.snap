@@ -3,7 +3,7 @@
 exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output shouldn't contain direct eval 1`] = `
 "\\"use strict\\";
 (() => {
-  // node-modules-polyfills:crypto
+  // node_modules/@jspm/core/nodelibs/browser/chunk-4bd36a8f.js
   var e;
   var t;
   var n = \\"object\\" == typeof Reflect ? Reflect : null;
@@ -183,6 +183,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   y.defaultMaxListeners;
   y.init;
   y.listenerCount;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-5decc758.js
   var e2;
   var t2;
   var n2;
@@ -300,6 +302,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   T.umask;
   T.version;
   T.versions;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-b4205b57.js
   var t3 = \\"function\\" == typeof Symbol && \\"symbol\\" == typeof Symbol.toStringTag;
   var e3 = Object.prototype.toString;
   var o3 = function(o6) {
@@ -763,6 +767,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }
     return Object.setPrototypeOf(t6, Object.getPrototypeOf(e8)), Object.defineProperties(t6, ee(e8)), t6;
   };
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-ce0fbc82.js
   X._extend;
   X.callbackify;
   X.debuglog;
@@ -814,6 +820,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var types = X.types;
   var TextEncoder = self.TextEncoder;
   var TextDecoder = self.TextDecoder;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-2eac56ff.js
   var exports = {};
   var _dewExec = false;
   var _global = typeof globalThis !== \\"undefined\\" ? globalThis : typeof self !== \\"undefined\\" ? self : globalThis;
@@ -1002,6 +1010,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   process.umask;
   process.version;
   process.versions;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-4ccc3a29.js
   for (r$13 = { byteLength: function(r6) {
     var t6 = u$2(r6), e8 = t6[0], n6 = t6[1];
     return 3 * (e8 + n6) / 4 - n6;
@@ -1994,6 +2004,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   };
   e$12.StringDecoder;
   e$12.StringDecoder;
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-44e51b61.js
   var exports$2$1 = {};
   var _dewExec$2$1 = false;
   function dew$2$1() {
@@ -6283,6 +6295,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     exports2 = pipeline;
     return exports2;
   }
+
+  // node_modules/@jspm/core/nodelibs/browser/chunk-c3d025d9.js
   var exports3 = {};
   var _dewExec3 = false;
   function dew3() {
@@ -6300,6 +6314,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     exports3.pipeline = dew2();
     return exports3;
   }
+
+  // node-modules-polyfills:crypto
   var exports$2Q = {};
   var _dewExec$2P = false;
   function dew$2P() {
@@ -13977,16 +13993,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -16707,16 +16723,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -19693,7 +19709,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (J$5)
       return z$9;
     J$5 = true;
-    var e$222, r6 = T;
+    var e$22, r6 = T;
     function s6(e8) {
       var t6 = this;
       this.next = null, this.entry = null, this.finish = function() {
@@ -19715,7 +19731,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function O4() {
     }
     function T5(t6, n6, i6) {
-      e$222 = e$222 || ee$1(), t6 = t6 || {}, \\"boolean\\" != typeof i6 && (i6 = n6 instanceof e$222), this.objectMode = !!t6.objectMode, i6 && (this.objectMode = this.objectMode || !!t6.writableObjectMode), this.highWaterMark = p6(this, t6, \\"writableHighWaterMark\\", i6), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
+      e$22 = e$22 || ee$1(), t6 = t6 || {}, \\"boolean\\" != typeof i6 && (i6 = n6 instanceof e$22), this.objectMode = !!t6.objectMode, i6 && (this.objectMode = this.objectMode || !!t6.writableObjectMode), this.highWaterMark = p6(this, t6, \\"writableHighWaterMark\\", i6), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
       var a6 = false === t6.decodeStrings;
       this.decodeStrings = !a6, this.defaultEncoding = t6.defaultEncoding || \\"utf8\\", this.length = 0, this.writing = false, this.corked = 0, this.sync = true, this.bufferProcessing = false, this.onwrite = function(e8) {
         !function(e9, t7) {
@@ -19736,7 +19752,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = false, this.errorEmitted = false, this.emitClose = false !== t6.emitClose, this.autoDestroy = !!t6.autoDestroy, this.bufferedRequestCount = 0, this.corkedRequestsFree = new s6(this);
     }
     function P4(t6) {
-      var n6 = this instanceof (e$222 = e$222 || ee$1());
+      var n6 = this instanceof (e$22 = e$22 || ee$1());
       if (!n6 && !c6.call(P4, this))
         return new P4(t6);
       this._writableState = new T5(t6, this, n6), this.writable = true, t6 && (\\"function\\" == typeof t6.write && (this._write = t6.write), \\"function\\" == typeof t6.writev && (this._writev = t6.writev), \\"function\\" == typeof t6.destroy && (this._destroy = t6.destroy), \\"function\\" == typeof t6.final && (this._final = t6.final)), u6.call(this);
@@ -20443,7 +20459,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (K$1$1)
       return Y$1$1;
     K$1$1 = true;
-    var e$222, r6 = T;
+    var e$22, r6 = T;
     function s6(e8) {
       var t6 = this;
       this.next = null, this.entry = null, this.finish = function() {
@@ -20465,7 +20481,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function O4() {
     }
     function T5(t6, n6, i6) {
-      e$222 = e$222 || Z$1$1(), t6 = t6 || {}, \\"boolean\\" != typeof i6 && (i6 = n6 instanceof e$222), this.objectMode = !!t6.objectMode, i6 && (this.objectMode = this.objectMode || !!t6.writableObjectMode), this.highWaterMark = p6(this, t6, \\"writableHighWaterMark\\", i6), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
+      e$22 = e$22 || Z$1$1(), t6 = t6 || {}, \\"boolean\\" != typeof i6 && (i6 = n6 instanceof e$22), this.objectMode = !!t6.objectMode, i6 && (this.objectMode = this.objectMode || !!t6.writableObjectMode), this.highWaterMark = p6(this, t6, \\"writableHighWaterMark\\", i6), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
       var a6 = false === t6.decodeStrings;
       this.decodeStrings = !a6, this.defaultEncoding = t6.defaultEncoding || \\"utf8\\", this.length = 0, this.writing = false, this.corked = 0, this.sync = true, this.bufferProcessing = false, this.onwrite = function(e8) {
         !function(e9, t7) {
@@ -20486,7 +20502,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = false, this.errorEmitted = false, this.emitClose = false !== t6.emitClose, this.autoDestroy = !!t6.autoDestroy, this.bufferedRequestCount = 0, this.corkedRequestsFree = new s6(this);
     }
     function x4(t6) {
-      var n6 = this instanceof (e$222 = e$222 || Z$1$1());
+      var n6 = this instanceof (e$22 = e$22 || Z$1$1());
       if (!n6 && !c6.call(x4, this))
         return new x4(t6);
       this._writableState = new T5(t6, this, n6), this.writable = true, t6 && (\\"function\\" == typeof t6.write && (this._write = t6.write), \\"function\\" == typeof t6.writev && (this._writev = t6.writev), \\"function\\" == typeof t6.destroy && (this._destroy = t6.destroy), \\"function\\" == typeof t6.final && (this._final = t6.final)), d5.call(this);
@@ -24821,16 +24837,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -27551,16 +27567,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -39024,16 +39040,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -44813,16 +44829,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -49615,16 +49631,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -52508,16 +52524,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -58993,16 +59009,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -64782,16 +64798,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -69584,16 +69600,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -72477,16 +72493,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             var itwdf_ = itwdf;
             for (var j4 = 0; j4 < s6; j4++) {
               var re3 = rtws[p6 + j4];
-              var ie22 = itws[p6 + j4];
+              var ie2 = itws[p6 + j4];
               var ro = rtws[p6 + j4 + s6];
               var io = itws[p6 + j4 + s6];
               var rx = rtwdf_ * ro - itwdf_ * io;
               io = rtwdf_ * io + itwdf_ * ro;
               ro = rx;
               rtws[p6 + j4] = re3 + ro;
-              itws[p6 + j4] = ie22 + io;
+              itws[p6 + j4] = ie2 + io;
               rtws[p6 + j4 + s6] = re3 - ro;
-              itws[p6 + j4 + s6] = ie22 - io;
+              itws[p6 + j4 + s6] = ie2 - io;
               if (j4 !== l6) {
                 rx = rtwdf * rtwdf_ - itwdf * itwdf_;
                 itwdf_ = rtwdf * itwdf_ + itwdf * rtwdf_;
@@ -74273,13 +74289,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var result = getHashes();
   console.log(result);
 })();
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /*! Bundled license information:
 
 @jspm/core/nodelibs/browser/chunk-44e51b61.js:
   (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
-
-@jspm/core/nodelibs/browser/crypto.js:
-  (*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> *)
 */
 "
 `;
