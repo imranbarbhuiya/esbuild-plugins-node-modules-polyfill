@@ -42,15 +42,15 @@
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.19.2",
-		"eslint": "^8.47.0",
+		"eslint": "^8.48.0",
 		"eslint-config-mahir": "^0.0.31",
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
 		"pinst": "^3.0.0",
 		"prettier": "^3.0.2",
 		"tsup": "^7.2.0",
-		"typescript": "^5.1.6",
-		"vitest": "^0.34.2"
+		"typescript": "^5.2.2",
+		"vitest": "^0.34.3"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0"
@@ -86,7 +86,7 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8"
 	},
-	"packageManager": "yarn@3.6.2",
+	"packageManager": "yarn@3.6.3",
 	"engines": {
 		"node": ">=14.0.0"
 	}
