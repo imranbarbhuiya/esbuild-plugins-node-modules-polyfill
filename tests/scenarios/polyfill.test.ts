@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/polyfill.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/polyfill/polyfill.ts')],
 		},
 		pluginOptions,
 	);

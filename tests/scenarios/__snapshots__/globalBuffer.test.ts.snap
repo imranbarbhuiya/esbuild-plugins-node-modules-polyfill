@@ -1836,7 +1836,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
   var INSPECT_MAX_BYTES = exports.INSPECT_MAX_BYTES;
   var kMaxLength = exports.kMaxLength;
 
-  // tests/fixtures/input/globalBuffer.ts
+  // tests/fixtures/input/globalBuffer/globalBuffer.ts
   console.log(Buffer.from(\\"Hello world\\"));
 })();
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
@@ -1846,7 +1846,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
 exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global when the polyfill is disabled THEN ignore polyfill 1`] = `
 "\\"use strict\\";
 (() => {
-  // tests/fixtures/input/globalBuffer.ts
+  // tests/fixtures/input/globalBuffer/globalBuffer.ts
   console.log(Buffer.from(\\"Hello world\\"));
 })();
 "

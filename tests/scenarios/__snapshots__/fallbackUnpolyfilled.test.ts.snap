@@ -36,7 +36,7 @@ exports[`Fallback Test (Unpolyfilled) > GIVEN a file that imports a node builtin
     }
   });
 
-  // tests/fixtures/input/fallbackUnpolyfilled.ts
+  // tests/fixtures/input/fallbackUnpolyfilled/fallbackUnpolyfilled.ts
   var traceEvents = __toESM(require_node_trace_events());
   console.log(typeof traceEvents);
 })();
@@ -76,7 +76,7 @@ exports[`Fallback Test (Unpolyfilled) > GIVEN a file that imports a node builtin
     mod
   ));
 
-  // tests/fixtures/input/fallbackUnpolyfilled.ts
+  // tests/fixtures/input/fallbackUnpolyfilled/fallbackUnpolyfilled.ts
   var traceEvents = __toESM(__require(\\"node:trace_events\\"));
   console.log(typeof traceEvents);
 })();

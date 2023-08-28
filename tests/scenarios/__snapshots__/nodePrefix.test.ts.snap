@@ -669,7 +669,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   var TextEncoder2 = X.TextEncoder = globalThis.TextEncoder;
   var TextDecoder2 = X.TextDecoder = globalThis.TextDecoder;
 
-  // tests/fixtures/input/nodePrefix.ts
+  // tests/fixtures/input/nodePrefix/nodePrefix.ts
   var data = {
     name: \\"esbuild\\"
   };

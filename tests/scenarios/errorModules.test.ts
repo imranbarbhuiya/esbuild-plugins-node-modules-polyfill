@@ -8,7 +8,7 @@ function createConfig(buildOptions: Omit<BuildOptions, 'plugin'>, pluginOptions?
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/errorModules.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/errorModules/errorModules.ts')],
 			...buildOptions,
 		},
 		pluginOptions,
@@ -41,8 +41,8 @@ describe('Error Modules Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
-			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
 			]
 		`);
 		expect(errors).toHaveLength(2);
@@ -90,7 +90,7 @@ describe('Error Modules Test', () => {
 			      },
 			    ],
 			    "pluginName": "node-modules-polyfills",
-			    "text": "args: {\\"moduleName\\":\\"node:crypto\\",\\"importer\\":\\"tests/fixtures/input/errorModules.ts\\",\\"polyfillExists\\":true}",
+			    "text": "args: {\\"moduleName\\":\\"node:crypto\\",\\"importer\\":\\"tests/fixtures/input/errorModules/errorModules.ts\\",\\"polyfillExists\\":true}",
 			  },
 			  {
 			    "detail": -1,
@@ -103,7 +103,7 @@ describe('Error Modules Test', () => {
 			      },
 			    ],
 			    "pluginName": "node-modules-polyfills",
-			    "text": "args: {\\"moduleName\\":\\"node:fs\\",\\"importer\\":\\"tests/fixtures/input/errorModules.ts\\",\\"polyfillExists\\":true}",
+			    "text": "args: {\\"moduleName\\":\\"node:fs\\",\\"importer\\":\\"tests/fixtures/input/errorModules/errorModules.ts\\",\\"polyfillExists\\":true}",
 			  },
 			]
 		`);
@@ -137,8 +137,8 @@ describe('Error Modules Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
-			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
 			]
 		`);
 		expect(errors).toHaveLength(2);
@@ -173,8 +173,8 @@ describe('Error Modules Test', () => {
 
 		expect(errors?.map((error) => error.text)).toMatchInlineSnapshot(`
 			[
-			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
-			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:crypto\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
+			  "Polyfill has not been configured for \\"node:fs\\", imported by \\"tests/fixtures/input/errorModules/errorModules.ts\\"",
 			]
 		`);
 		expect(errors).toHaveLength(2);
