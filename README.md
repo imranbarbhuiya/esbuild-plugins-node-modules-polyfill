@@ -52,6 +52,12 @@ build({
 				process: true,
 				Buffer: true,
 			},
+			// You'll probably need to polyfill the modules too
+			// since the global polyfills import from them:
+			modules: {
+				process: true,
+				buffer: true,
+			},
 		}),
 	],
 });
