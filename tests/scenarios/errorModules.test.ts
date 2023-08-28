@@ -4,10 +4,7 @@ import { buildAbsolutePath, createEsbuildConfig } from '../util';
 
 import type { NodePolyfillsOptions } from '../../dist';
 
-function createConfig(
-	buildOptions: Pick<BuildOptions, 'write' | 'outExtension'>,
-	pluginOptions?: NodePolyfillsOptions,
-): BuildOptions {
+function createConfig(buildOptions: Omit<BuildOptions, 'plugin'>, pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',

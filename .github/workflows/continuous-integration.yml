@@ -47,5 +47,7 @@ jobs:
         run: yarn --immutable
       - name: Build Code
         run: yarn build
+      - name: Run TypeCheck
+        run: yarn typecheck
       - name: Test Code
         run: yarn test
