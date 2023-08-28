@@ -287,7 +287,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
     setSourceMapsEnabled
   };
 
-  // tests/fixtures/input/globalProcess.ts
+  // tests/fixtures/input/globalProcess/globalProcess.ts
   console.log(process.version);
   console.log(\\"production\\");
 })();
@@ -297,7 +297,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
 exports[`Global Process Test > GIVEN a file that references the "process" global when the polyfill is disabled THEN ignore polyfill 1`] = `
 "\\"use strict\\";
 (() => {
-  // tests/fixtures/input/globalProcess.ts
+  // tests/fixtures/input/globalProcess/globalProcess.ts
   console.log(process.version);
   console.log(\\"production\\");
 })();

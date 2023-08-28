@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/directEval.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/directEval/directEval.ts')],
 		},
 		pluginOptions,
 	);

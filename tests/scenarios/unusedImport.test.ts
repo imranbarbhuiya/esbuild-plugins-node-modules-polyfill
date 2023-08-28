@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'esm',
-			entryPoints: [buildAbsolutePath('./fixtures/input/unusedImport.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/unusedImport/unusedImport.ts')],
 		},
 		pluginOptions,
 	);

@@ -669,7 +669,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin THEN polyfill 
   var TextEncoder2 = X.TextEncoder = globalThis.TextEncoder;
   var TextDecoder2 = X.TextDecoder = globalThis.TextDecoder;
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/polyfill/polyfill.ts
   var data = {
     name: \\"esbuild\\"
   };
@@ -690,7 +690,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin and doesn't op
     throw Error('Dynamic require of \\"' + x + '\\" is not supported');
   });
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/polyfill/polyfill.ts
   var import_util = __require(\\"util\\");
   var data = {
     name: \\"esbuild\\"
@@ -712,7 +712,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin and explicitly
     throw Error('Dynamic require of \\"' + x + '\\" is not supported');
   });
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/polyfill/polyfill.ts
   var import_util = __require(\\"util\\");
   var data = {
     name: \\"esbuild\\"
@@ -759,7 +759,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin and opts into 
     }
   });
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/polyfill/polyfill.ts
   var import_util = __toESM(require_util());
   var data = {
     name: \\"esbuild\\"
@@ -1439,7 +1439,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin and opts into 
   var TextEncoder2 = X.TextEncoder = globalThis.TextEncoder;
   var TextDecoder2 = X.TextDecoder = globalThis.TextDecoder;
 
-  // tests/fixtures/input/polyfill.ts
+  // tests/fixtures/input/polyfill/polyfill.ts
   var data = {
     name: \\"esbuild\\"
   };

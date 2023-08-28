@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/fallbackPolyfilled.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/fallbackPolyfilled/fallbackPolyfilled.ts')],
 		},
 		pluginOptions,
 	);

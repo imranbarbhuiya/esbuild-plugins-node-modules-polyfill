@@ -4,7 +4,7 @@ exports[`Unused Import Test > GIVEN a file that imports from a module exporting 
 "// tests/fixtures/input/unusedImport/exports.ts
 var message = \\"Hello world\\";
 
-// tests/fixtures/input/unusedImport.ts
+// tests/fixtures/input/unusedImport/unusedImport.ts
 console.log(message);
 "
 `;

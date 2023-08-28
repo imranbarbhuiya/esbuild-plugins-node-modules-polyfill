@@ -74285,7 +74285,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var rng = exports4.rng;
   var webcrypto = exports4.webcrypto;
 
-  // tests/fixtures/input/directEval.ts
+  // tests/fixtures/input/directEval/directEval.ts
   var result = getHashes();
   console.log(result);
 })();

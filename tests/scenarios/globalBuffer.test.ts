@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/globalBuffer.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/globalBuffer/globalBuffer.ts')],
 		},
 		pluginOptions,
 	);

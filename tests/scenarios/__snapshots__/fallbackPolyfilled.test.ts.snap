@@ -669,7 +669,7 @@ exports[`Fallback Test (Polyfilled) > GIVEN a file that imports a node builtin t
   var W_OK = constants.W_OK;
   var X_OK = constants.X_OK;
 
-  // tests/fixtures/input/fallbackPolyfilled.ts
+  // tests/fixtures/input/fallbackPolyfilled/fallbackPolyfilled.ts
   var util = __toESM(require_node_util());
   console.log(typeof node_constants_exports);
   console.log(typeof util);

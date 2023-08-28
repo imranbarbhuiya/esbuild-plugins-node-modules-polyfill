@@ -8,7 +8,7 @@ function createConfig(pluginOptions?: NodePolyfillsOptions): BuildOptions {
 	return createEsbuildConfig(
 		{
 			format: 'iife',
-			entryPoints: [buildAbsolutePath('./fixtures/input/globalProcess.ts')],
+			entryPoints: [buildAbsolutePath('./fixtures/input/globalProcess/globalProcess.ts')],
 
 			// Ensure that environment variables can still be injected via `define`
 			define: { 'process.env.NODE_ENV': '"production"' },
