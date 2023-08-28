@@ -52,16 +52,13 @@ build({
 				process: true,
 				Buffer: true,
 			},
-			// You'll probably need to polyfill the modules too
-			// since the global polyfills import from them:
-			modules: {
-				process: true,
-				buffer: true,
-			},
 		}),
 	],
 });
 ```
+
+> **Note**
+> If you are utilizing the [`modules`][#configure-which-modules-to-polyfill] option, ensure that you include polyfills for the global modules you are using.
 
 ### Configure which modules to polyfill:
 
