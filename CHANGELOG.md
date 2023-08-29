@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.6.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.0...v1.6.1) - (2023-08-29)
+
+## 🐛 Bug Fixes
+
+- Dont bundle the content ([5ad8f06](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/5ad8f06bb48dc9174f9b17e4f5ffcfc27368950f))
+
+## 📝 Documentation
+
+- Add modules to global polyfills usage (#157) ([54e8d46](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/54e8d469829d9900df3bb8f9a3169fa3aac2307c))
+
+## 🧪 Testing
+
+- Use consistent folder structure for fixtures (#158) ([776d755](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/776d755839c8ace60e35716cd4271897e0da8d47))
+- Ensure tree-shaken modules avoid fallback (#156) ([f6da65b](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/f6da65b12cf27a8813f4273d69d0b23034032f5a))
+
 # [1.6.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.5.0...v1.6.0) - (2023-08-25)
 
 ## 🚀 Features
