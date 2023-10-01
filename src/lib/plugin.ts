@@ -174,7 +174,13 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				// https://github.com/defunctzombie/package-browser-field-spec
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
-					const browserFieldValue = packageJson?.browser?.[args.path];
+					const browserFieldValue = packageJson?.browser as unknown as
+						| string
+						| Record<string, string | false>
+						| undefined;
+
+					if (typeof browserFieldValue === 'string') return;
+					const browserFieldValueForModule = browserFieldValue?.[args.path];
 
 					// This is here to support consumers who have used the
 					// "external" option to exclude all Node builtins (e.g.
@@ -182,11 +188,11 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 					// in the output and throws an error at runtime. Ideally we
 					// would just return undefined for any browser field value,
 					// and we can safely switch to this in a major version.
-					if (browserFieldValue === false) {
+					if (browserFieldValueForModule === false) {
 						return result.empty;
 					}
 
-					if (browserFieldValue !== undefined) {
+					if (browserFieldValueForModule !== undefined) {
 						return;
 					}
 				}

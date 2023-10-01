@@ -32,7 +32,7 @@
 	],
 	"dependencies": {
 		"@jspm/core": "^2.0.1",
-		"local-pkg": "^0.4.3",
+		"local-pkg": "^0.5.0",
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
