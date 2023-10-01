@@ -36,12 +36,12 @@
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.7.1",
+		"@commitlint/cli": "^17.7.2",
 		"@commitlint/config-conventional": "^17.7.0",
 		"@favware/cliff-jumper": "^2.2.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.19.3",
+		"esbuild": "^0.19.4",
 		"eslint": "^8.50.0",
 		"eslint-config-mahir": "^0.0.33",
 		"husky": "^8.0.3",
@@ -50,7 +50,7 @@
 		"prettier": "^3.0.3",
 		"tsup": "^7.2.0",
 		"typescript": "^5.2.2",
-		"vitest": "^0.34.5"
+		"vitest": "^0.34.6"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0"
