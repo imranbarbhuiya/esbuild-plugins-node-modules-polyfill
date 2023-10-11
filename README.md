@@ -58,7 +58,7 @@ build({
 ```
 
 > **Note**
-> If you are utilizing the [`modules`][#configure-which-modules-to-polyfill] option, ensure that you include polyfills for the global modules you are using.
+> If you are utilizing the [`modules`](#configure-which-modules-to-polyfill) option, ensure that you include polyfills for the global modules you are using.
 
 ### Configure which modules to polyfill:
 
