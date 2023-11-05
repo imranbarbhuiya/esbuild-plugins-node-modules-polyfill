@@ -38,11 +38,11 @@
 	"devDependencies": {
 		"@commitlint/cli": "^18.2.0",
 		"@commitlint/config-conventional": "^18.1.0",
-		"@favware/cliff-jumper": "^2.2.0",
+		"@favware/cliff-jumper": "^2.2.1",
 		"@favware/npm-deprecate": "^1.0.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.19.5",
-		"eslint": "^8.52.0",
+		"eslint": "^8.53.0",
 		"eslint-config-mahir": "^0.0.35",
 		"husky": "^8.0.3",
 		"lint-staged": "^15.0.2",
