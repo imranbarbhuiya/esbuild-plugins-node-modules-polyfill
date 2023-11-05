@@ -26,7 +26,7 @@ export interface NodePolyfillsOptions {
 		Buffer?: boolean;
 		process?: boolean;
 	};
-	modules?: string[] | Record<string, boolean | 'empty' | 'error'>;
+	modules?: Record<string, boolean | 'empty' | 'error'> | string[];
 	name?: string;
 	namespace?: string;
 }
@@ -175,9 +175,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
 					const browserFieldValue = packageJson?.browser as unknown as
-						| string
-						| Record<string, string | false>
-						| undefined;
+						Record<string, string | false> | string | undefined;
 
 					if (typeof browserFieldValue === 'string') return;
 					const browserFieldValueForModule = browserFieldValue?.[args.path];
