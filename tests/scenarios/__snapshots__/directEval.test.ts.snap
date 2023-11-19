@@ -5946,7 +5946,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
       for (var i6 in stream2) {
         if (this[i6] === void 0 && typeof stream2[i6] === \\"function\\") {
-          this[i6] = function methodWrap(method) {
+          this[i6] = /* @__PURE__ */ function methodWrap(method) {
             return function methodWrapReturnFunction() {
               return stream2[method].apply(stream2, arguments);
             };
@@ -9548,7 +9548,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
       for (var i6 in stream2) {
         if (this[i6] === void 0 && typeof stream2[i6] === \\"function\\") {
-          this[i6] = function methodWrap(method) {
+          this[i6] = /* @__PURE__ */ function methodWrap(method) {
             return function methodWrapReturnFunction() {
               return stream2[method].apply(stream2, arguments);
             };
@@ -19308,7 +19308,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var j$a = function e5(t6, n6, r6) {
     if (\\"function\\" == typeof n6)
       return e5(t6, null, n6);
-    n6 || (n6 = {}), r6 = function(e8) {
+    n6 || (n6 = {}), r6 = /* @__PURE__ */ function(e8) {
       var t7 = false;
       return function() {
         if (!t7) {
@@ -19382,7 +19382,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
     var n6, r6 = this[A$c];
     if (r6)
-      n6 = new Promise(function(e9, t7) {
+      n6 = new Promise(/* @__PURE__ */ function(e9, t7) {
         return function(n7, r7) {
           e9.then(function() {
             if (t7[C$9])
@@ -19604,7 +19604,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         p6(\\"onend\\"), e8.end();
       }
       r6.endEmitted ? u6.nextTick(i6) : n6.once(\\"end\\", i6), e8.on(\\"unpipe\\", a6);
-      var s6 = function(e9) {
+      var s6 = /* @__PURE__ */ function(e9) {
         return function() {
           var t7 = e9._readableState;
           p6(\\"pipeOnDrain\\", t7.awaitDrain), t7.awaitDrain && t7.awaitDrain--, 0 === t7.awaitDrain && f7(e9, \\"data\\") && (t7.flowing = true, J3(e9));
@@ -19676,7 +19676,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }), e8.on(\\"data\\", function(i7) {
         (p6(\\"wrapped data\\"), n6.decoder && (i7 = n6.decoder.write(i7)), n6.objectMode && null == i7) || (n6.objectMode || i7 && i7.length) && (t6.push(i7) || (r6 = true, e8.pause()));
       }), e8)
-        void 0 === this[i6] && \\"function\\" == typeof e8[i6] && (this[i6] = function(t7) {
+        void 0 === this[i6] && \\"function\\" == typeof e8[i6] && (this[i6] = /* @__PURE__ */ function(t7) {
           return function() {
             return e8[t7].apply(e8, arguments);
           };
@@ -19928,7 +19928,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var n$1$12 = function e6(n6, o6, a6) {
     if (\\"function\\" == typeof o6)
       return e6(n6, null, o6);
-    o6 || (o6 = {}), a6 = function(e8) {
+    o6 || (o6 = {}), a6 = /* @__PURE__ */ function(e8) {
       var r6 = false;
       return function() {
         if (!r6) {
@@ -20132,7 +20132,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
     var n6, r6 = this[L$1$1];
     if (r6)
-      n6 = new Promise(function(e9, t7) {
+      n6 = new Promise(/* @__PURE__ */ function(e9, t7) {
         return function(n7, r7) {
           e9.then(function() {
             if (t7[D$1$1])
@@ -20354,7 +20354,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         p6(\\"onend\\"), e8.end();
       }
       r6.endEmitted ? u6.nextTick(i6) : n6.once(\\"end\\", i6), e8.on(\\"unpipe\\", a6);
-      var s6 = function(e9) {
+      var s6 = /* @__PURE__ */ function(e9) {
         return function() {
           var t7 = e9._readableState;
           p6(\\"pipeOnDrain\\", t7.awaitDrain), t7.awaitDrain && t7.awaitDrain--, 0 === t7.awaitDrain && f7(e9, \\"data\\") && (t7.flowing = true, J3(e9));
@@ -20426,7 +20426,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }), e8.on(\\"data\\", function(i7) {
         (p6(\\"wrapped data\\"), n6.decoder && (i7 = n6.decoder.write(i7)), n6.objectMode && null == i7) || (n6.objectMode || i7 && i7.length) && (t6.push(i7) || (r6 = true, e8.pause()));
       }), e8)
-        void 0 === this[i6] && \\"function\\" == typeof e8[i6] && (this[i6] = function(t7) {
+        void 0 === this[i6] && \\"function\\" == typeof e8[i6] && (this[i6] = /* @__PURE__ */ function(t7) {
           return function() {
             return e8[t7].apply(e8, arguments);
           };
@@ -20751,7 +20751,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       throw r6;
   }
   function u$2$1(r6, o6, e8, i6) {
-    i6 = function(r7) {
+    i6 = /* @__PURE__ */ function(r7) {
       var n6 = false;
       return function() {
         n6 || (n6 = true, r7.apply(void 0, arguments));
@@ -29492,7 +29492,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var g$2 = w$4.alloc(128);
   var B$1 = { md5: 16, sha1: 20, sha224: 28, sha256: 32, sha384: 48, sha512: 64, rmd160: 20, ripemd160: 20 };
   function T$1(r6, e8, t6) {
-    var n6 = function(r7) {
+    var n6 = /* @__PURE__ */ function(r7) {
       function e9(e10) {
         return y$2(r7).update(e10).digest();
       }
