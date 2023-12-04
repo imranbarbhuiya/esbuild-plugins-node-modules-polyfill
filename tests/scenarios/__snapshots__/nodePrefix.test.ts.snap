@@ -1,19 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: prefix file THEN polyfill it 1`] = `
-"\\"use strict\\";
+""use strict";
 (() => {
   // node_modules/@jspm/core/nodelibs/browser/chunk-5decc758.js
   var e;
   var t;
   var n;
-  var r = \\"undefined\\" != typeof globalThis ? globalThis : \\"undefined\\" != typeof self ? self : globalThis;
+  var r = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : globalThis;
   var o = e = {};
   function i() {
-    throw new Error(\\"setTimeout has not been defined\\");
+    throw new Error("setTimeout has not been defined");
   }
   function u() {
-    throw new Error(\\"clearTimeout has not been defined\\");
+    throw new Error("clearTimeout has not been defined");
   }
   function c(e3) {
     if (t === setTimeout)
@@ -32,12 +32,12 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   }
   !function() {
     try {
-      t = \\"function\\" == typeof setTimeout ? setTimeout : i;
+      t = "function" == typeof setTimeout ? setTimeout : i;
     } catch (e3) {
       t = i;
     }
     try {
-      n = \\"function\\" == typeof clearTimeout ? clearTimeout : u;
+      n = "function" == typeof clearTimeout ? clearTimeout : u;
     } catch (e3) {
       n = u;
     }
@@ -88,14 +88,14 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     s.push(new m(e3, t3)), 1 !== s.length || f || c(d);
   }, m.prototype.run = function() {
     (this || r).fun.apply(null, (this || r).array);
-  }, o.title = \\"browser\\", o.browser = true, o.env = {}, o.argv = [], o.version = \\"\\", o.versions = {}, o.on = p, o.addListener = p, o.once = p, o.off = p, o.removeListener = p, o.removeAllListeners = p, o.emit = p, o.prependListener = p, o.prependOnceListener = p, o.listeners = function(e3) {
+  }, o.title = "browser", o.browser = true, o.env = {}, o.argv = [], o.version = "", o.versions = {}, o.on = p, o.addListener = p, o.once = p, o.off = p, o.removeListener = p, o.removeAllListeners = p, o.emit = p, o.prependListener = p, o.prependOnceListener = p, o.listeners = function(e3) {
     return [];
   }, o.binding = function(e3) {
-    throw new Error(\\"process.binding is not supported\\");
+    throw new Error("process.binding is not supported");
   }, o.cwd = function() {
-    return \\"/\\";
+    return "/";
   }, o.chdir = function(e3) {
-    throw new Error(\\"process.chdir is not supported\\");
+    throw new Error("process.chdir is not supported");
   }, o.umask = function() {
     return 0;
   };
@@ -123,13 +123,13 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   T.versions;
 
   // node_modules/@jspm/core/nodelibs/browser/chunk-b4205b57.js
-  var t2 = \\"function\\" == typeof Symbol && \\"symbol\\" == typeof Symbol.toStringTag;
+  var t2 = "function" == typeof Symbol && "symbol" == typeof Symbol.toStringTag;
   var e2 = Object.prototype.toString;
   var o2 = function(o3) {
-    return !(t2 && o3 && \\"object\\" == typeof o3 && Symbol.toStringTag in o3) && \\"[object Arguments]\\" === e2.call(o3);
+    return !(t2 && o3 && "object" == typeof o3 && Symbol.toStringTag in o3) && "[object Arguments]" === e2.call(o3);
   };
   var n2 = function(t3) {
-    return !!o2(t3) || null !== t3 && \\"object\\" == typeof t3 && \\"number\\" == typeof t3.length && t3.length >= 0 && \\"[object Array]\\" !== e2.call(t3) && \\"[object Function]\\" === e2.call(t3.callee);
+    return !!o2(t3) || null !== t3 && "object" == typeof t3 && "number" == typeof t3.length && t3.length >= 0 && "[object Array]" !== e2.call(t3) && "[object Function]" === e2.call(t3.callee);
   };
   var r2 = function() {
     return o2(arguments);
@@ -138,22 +138,22 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   var l2 = r2 ? o2 : n2;
   var t$1 = Object.prototype.toString;
   var o$1 = Function.prototype.toString;
-  var n$1 = /^\\\\s*(?:function)?\\\\*/;
-  var e$1 = \\"function\\" == typeof Symbol && \\"symbol\\" == typeof Symbol.toStringTag;
+  var n$1 = /^\\s*(?:function)?\\*/;
+  var e$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.toStringTag;
   var r$1 = Object.getPrototypeOf;
   var c2 = function() {
     if (!e$1)
       return false;
     try {
-      return Function(\\"return function*() {}\\")();
+      return Function("return function*() {}")();
     } catch (t3) {
     }
   }();
   var u2 = c2 ? r$1(c2) : {};
   var i2 = function(c3) {
-    return \\"function\\" == typeof c3 && (!!n$1.test(o$1.call(c3)) || (e$1 ? r$1(c3) === u2 : \\"[object GeneratorFunction]\\" === t$1.call(c3)));
+    return "function" == typeof c3 && (!!n$1.test(o$1.call(c3)) || (e$1 ? r$1(c3) === u2 : "[object GeneratorFunction]" === t$1.call(c3)));
   };
-  var t$2 = \\"function\\" == typeof Object.create ? function(t3, e3) {
+  var t$2 = "function" == typeof Object.create ? function(t3, e3) {
     e3 && (t3.super_ = e3, t3.prototype = Object.create(e3.prototype, { constructor: { value: t3, enumerable: false, writable: true, configurable: true } }));
   } : function(t3, e3) {
     if (e3) {
@@ -164,7 +164,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     }
   };
   var i$1 = function(e3) {
-    return e3 && \\"object\\" == typeof e3 && \\"function\\" == typeof e3.copy && \\"function\\" == typeof e3.fill && \\"function\\" == typeof e3.readUInt8;
+    return e3 && "object" == typeof e3 && "function" == typeof e3.copy && "function" == typeof e3.fill && "function" == typeof e3.readUInt8;
   };
   var o$2 = {};
   var u$1 = i$1;
@@ -173,11 +173,11 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   function c$1(e3) {
     return e3.call.bind(e3);
   }
-  var s2 = \\"undefined\\" != typeof BigInt;
-  var p2 = \\"undefined\\" != typeof Symbol;
+  var s2 = "undefined" != typeof BigInt;
+  var p2 = "undefined" != typeof Symbol;
   var y = p2 && void 0 !== Symbol.toStringTag;
-  var l$1 = \\"undefined\\" != typeof Uint8Array;
-  var d2 = \\"undefined\\" != typeof ArrayBuffer;
+  var l$1 = "undefined" != typeof Uint8Array;
+  var d2 = "undefined" != typeof ArrayBuffer;
   if (l$1 && y)
     var g = Object.getPrototypeOf(Uint8Array.prototype), b = c$1(Object.getOwnPropertyDescriptor(g, Symbol.toStringTag).get);
   var m2 = c$1(Object.prototype.toString);
@@ -189,7 +189,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   if (p2)
     var v = c$1(Symbol.prototype.valueOf);
   function O(e3, t3) {
-    if (\\"object\\" != typeof e3)
+    if ("object" != typeof e3)
       return false;
     try {
       return t3(e3), true;
@@ -201,67 +201,67 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     return l$1 && y ? void 0 !== b(e3) : B(e3) || k(e3) || E(e3) || D(e3) || U(e3) || P(e3) || x(e3) || I(e3) || M(e3) || z(e3) || F(e3);
   }
   function B(e3) {
-    return l$1 && y ? \\"Uint8Array\\" === b(e3) : \\"[object Uint8Array]\\" === m2(e3) || u$1(e3) && void 0 !== e3.buffer;
+    return l$1 && y ? "Uint8Array" === b(e3) : "[object Uint8Array]" === m2(e3) || u$1(e3) && void 0 !== e3.buffer;
   }
   function k(e3) {
-    return l$1 && y ? \\"Uint8ClampedArray\\" === b(e3) : \\"[object Uint8ClampedArray]\\" === m2(e3);
+    return l$1 && y ? "Uint8ClampedArray" === b(e3) : "[object Uint8ClampedArray]" === m2(e3);
   }
   function E(e3) {
-    return l$1 && y ? \\"Uint16Array\\" === b(e3) : \\"[object Uint16Array]\\" === m2(e3);
+    return l$1 && y ? "Uint16Array" === b(e3) : "[object Uint16Array]" === m2(e3);
   }
   function D(e3) {
-    return l$1 && y ? \\"Uint32Array\\" === b(e3) : \\"[object Uint32Array]\\" === m2(e3);
+    return l$1 && y ? "Uint32Array" === b(e3) : "[object Uint32Array]" === m2(e3);
   }
   function U(e3) {
-    return l$1 && y ? \\"Int8Array\\" === b(e3) : \\"[object Int8Array]\\" === m2(e3);
+    return l$1 && y ? "Int8Array" === b(e3) : "[object Int8Array]" === m2(e3);
   }
   function P(e3) {
-    return l$1 && y ? \\"Int16Array\\" === b(e3) : \\"[object Int16Array]\\" === m2(e3);
+    return l$1 && y ? "Int16Array" === b(e3) : "[object Int16Array]" === m2(e3);
   }
   function x(e3) {
-    return l$1 && y ? \\"Int32Array\\" === b(e3) : \\"[object Int32Array]\\" === m2(e3);
+    return l$1 && y ? "Int32Array" === b(e3) : "[object Int32Array]" === m2(e3);
   }
   function I(e3) {
-    return l$1 && y ? \\"Float32Array\\" === b(e3) : \\"[object Float32Array]\\" === m2(e3);
+    return l$1 && y ? "Float32Array" === b(e3) : "[object Float32Array]" === m2(e3);
   }
   function M(e3) {
-    return l$1 && y ? \\"Float64Array\\" === b(e3) : \\"[object Float64Array]\\" === m2(e3);
+    return l$1 && y ? "Float64Array" === b(e3) : "[object Float64Array]" === m2(e3);
   }
   function z(e3) {
-    return l$1 && y ? \\"BigInt64Array\\" === b(e3) : \\"[object BigInt64Array]\\" === m2(e3);
+    return l$1 && y ? "BigInt64Array" === b(e3) : "[object BigInt64Array]" === m2(e3);
   }
   function F(e3) {
-    return l$1 && y ? \\"BigUint64Array\\" === b(e3) : \\"[object BigUint64Array]\\" === m2(e3);
+    return l$1 && y ? "BigUint64Array" === b(e3) : "[object BigUint64Array]" === m2(e3);
   }
   function T2(e3) {
-    return \\"[object Map]\\" === m2(e3);
+    return "[object Map]" === m2(e3);
   }
   function N(e3) {
-    return \\"[object Set]\\" === m2(e3);
+    return "[object Set]" === m2(e3);
   }
   function W(e3) {
-    return \\"[object WeakMap]\\" === m2(e3);
+    return "[object WeakMap]" === m2(e3);
   }
   function $(e3) {
-    return \\"[object WeakSet]\\" === m2(e3);
+    return "[object WeakSet]" === m2(e3);
   }
   function C(e3) {
-    return \\"[object ArrayBuffer]\\" === m2(e3);
+    return "[object ArrayBuffer]" === m2(e3);
   }
   function V(e3) {
-    return \\"undefined\\" != typeof ArrayBuffer && (C.working ? C(e3) : e3 instanceof ArrayBuffer);
+    return "undefined" != typeof ArrayBuffer && (C.working ? C(e3) : e3 instanceof ArrayBuffer);
   }
   function G(e3) {
-    return \\"[object DataView]\\" === m2(e3);
+    return "[object DataView]" === m2(e3);
   }
   function R(e3) {
-    return \\"undefined\\" != typeof DataView && (G.working ? G(e3) : e3 instanceof DataView);
+    return "undefined" != typeof DataView && (G.working ? G(e3) : e3 instanceof DataView);
   }
   function J(e3) {
-    return \\"[object SharedArrayBuffer]\\" === m2(e3);
+    return "[object SharedArrayBuffer]" === m2(e3);
   }
   function _(e3) {
-    return \\"undefined\\" != typeof SharedArrayBuffer && (J.working ? J(e3) : e3 instanceof SharedArrayBuffer);
+    return "undefined" != typeof SharedArrayBuffer && (J.working ? J(e3) : e3 instanceof SharedArrayBuffer);
   }
   function H(e3) {
     return O(e3, h2);
@@ -279,37 +279,37 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     return p2 && O(e3, v);
   }
   o$2.isArgumentsObject = f2, o$2.isGeneratorFunction = a2, o$2.isPromise = function(e3) {
-    return \\"undefined\\" != typeof Promise && e3 instanceof Promise || null !== e3 && \\"object\\" == typeof e3 && \\"function\\" == typeof e3.then && \\"function\\" == typeof e3.catch;
+    return "undefined" != typeof Promise && e3 instanceof Promise || null !== e3 && "object" == typeof e3 && "function" == typeof e3.then && "function" == typeof e3.catch;
   }, o$2.isArrayBufferView = function(e3) {
     return d2 && ArrayBuffer.isView ? ArrayBuffer.isView(e3) : S(e3) || R(e3);
-  }, o$2.isTypedArray = S, o$2.isUint8Array = B, o$2.isUint8ClampedArray = k, o$2.isUint16Array = E, o$2.isUint32Array = D, o$2.isInt8Array = U, o$2.isInt16Array = P, o$2.isInt32Array = x, o$2.isFloat32Array = I, o$2.isFloat64Array = M, o$2.isBigInt64Array = z, o$2.isBigUint64Array = F, T2.working = \\"undefined\\" != typeof Map && T2(/* @__PURE__ */ new Map()), o$2.isMap = function(e3) {
-    return \\"undefined\\" != typeof Map && (T2.working ? T2(e3) : e3 instanceof Map);
-  }, N.working = \\"undefined\\" != typeof Set && N(/* @__PURE__ */ new Set()), o$2.isSet = function(e3) {
-    return \\"undefined\\" != typeof Set && (N.working ? N(e3) : e3 instanceof Set);
-  }, W.working = \\"undefined\\" != typeof WeakMap && W(/* @__PURE__ */ new WeakMap()), o$2.isWeakMap = function(e3) {
-    return \\"undefined\\" != typeof WeakMap && (W.working ? W(e3) : e3 instanceof WeakMap);
-  }, $.working = \\"undefined\\" != typeof WeakSet && $(/* @__PURE__ */ new WeakSet()), o$2.isWeakSet = function(e3) {
+  }, o$2.isTypedArray = S, o$2.isUint8Array = B, o$2.isUint8ClampedArray = k, o$2.isUint16Array = E, o$2.isUint32Array = D, o$2.isInt8Array = U, o$2.isInt16Array = P, o$2.isInt32Array = x, o$2.isFloat32Array = I, o$2.isFloat64Array = M, o$2.isBigInt64Array = z, o$2.isBigUint64Array = F, T2.working = "undefined" != typeof Map && T2(/* @__PURE__ */ new Map()), o$2.isMap = function(e3) {
+    return "undefined" != typeof Map && (T2.working ? T2(e3) : e3 instanceof Map);
+  }, N.working = "undefined" != typeof Set && N(/* @__PURE__ */ new Set()), o$2.isSet = function(e3) {
+    return "undefined" != typeof Set && (N.working ? N(e3) : e3 instanceof Set);
+  }, W.working = "undefined" != typeof WeakMap && W(/* @__PURE__ */ new WeakMap()), o$2.isWeakMap = function(e3) {
+    return "undefined" != typeof WeakMap && (W.working ? W(e3) : e3 instanceof WeakMap);
+  }, $.working = "undefined" != typeof WeakSet && $(/* @__PURE__ */ new WeakSet()), o$2.isWeakSet = function(e3) {
     return $(e3);
-  }, C.working = \\"undefined\\" != typeof ArrayBuffer && C(new ArrayBuffer()), o$2.isArrayBuffer = V, G.working = \\"undefined\\" != typeof ArrayBuffer && \\"undefined\\" != typeof DataView && G(new DataView(new ArrayBuffer(1), 0, 1)), o$2.isDataView = R, J.working = \\"undefined\\" != typeof SharedArrayBuffer && J(new SharedArrayBuffer()), o$2.isSharedArrayBuffer = _, o$2.isAsyncFunction = function(e3) {
-    return \\"[object AsyncFunction]\\" === m2(e3);
+  }, C.working = "undefined" != typeof ArrayBuffer && C(new ArrayBuffer()), o$2.isArrayBuffer = V, G.working = "undefined" != typeof ArrayBuffer && "undefined" != typeof DataView && G(new DataView(new ArrayBuffer(1), 0, 1)), o$2.isDataView = R, J.working = "undefined" != typeof SharedArrayBuffer && J(new SharedArrayBuffer()), o$2.isSharedArrayBuffer = _, o$2.isAsyncFunction = function(e3) {
+    return "[object AsyncFunction]" === m2(e3);
   }, o$2.isMapIterator = function(e3) {
-    return \\"[object Map Iterator]\\" === m2(e3);
+    return "[object Map Iterator]" === m2(e3);
   }, o$2.isSetIterator = function(e3) {
-    return \\"[object Set Iterator]\\" === m2(e3);
+    return "[object Set Iterator]" === m2(e3);
   }, o$2.isGeneratorObject = function(e3) {
-    return \\"[object Generator]\\" === m2(e3);
+    return "[object Generator]" === m2(e3);
   }, o$2.isWebAssemblyCompiledModule = function(e3) {
-    return \\"[object WebAssembly.Module]\\" === m2(e3);
+    return "[object WebAssembly.Module]" === m2(e3);
   }, o$2.isNumberObject = H, o$2.isStringObject = Z, o$2.isBooleanObject = q, o$2.isBigIntObject = K, o$2.isSymbolObject = L, o$2.isBoxedPrimitive = function(e3) {
     return H(e3) || Z(e3) || q(e3) || K(e3) || L(e3);
   }, o$2.isAnyArrayBuffer = function(e3) {
     return l$1 && (V(e3) || _(e3));
-  }, [\\"isProxy\\", \\"isExternal\\", \\"isModuleNamespaceObject\\"].forEach(function(e3) {
+  }, ["isProxy", "isExternal", "isModuleNamespaceObject"].forEach(function(e3) {
     Object.defineProperty(o$2, e3, { enumerable: false, value: function() {
-      throw new Error(e3 + \\" is not supported in userland\\");
+      throw new Error(e3 + " is not supported in userland");
     } });
   });
-  var Q = \\"undefined\\" != typeof globalThis ? globalThis : \\"undefined\\" != typeof self ? self : globalThis;
+  var Q = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : globalThis;
   var X = {};
   var Y = T;
   var ee = Object.getOwnPropertyDescriptors || function(e3) {
@@ -322,30 +322,30 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     if (!ge(e3)) {
       for (var t3 = [], r3 = 0; r3 < arguments.length; r3++)
         t3.push(oe(arguments[r3]));
-      return t3.join(\\" \\");
+      return t3.join(" ");
     }
     r3 = 1;
     for (var n3 = arguments, i3 = n3.length, o3 = String(e3).replace(te, function(e4) {
-      if (\\"%%\\" === e4)
-        return \\"%\\";
+      if ("%%" === e4)
+        return "%";
       if (r3 >= i3)
         return e4;
       switch (e4) {
-        case \\"%s\\":
+        case "%s":
           return String(n3[r3++]);
-        case \\"%d\\":
+        case "%d":
           return Number(n3[r3++]);
-        case \\"%j\\":
+        case "%j":
           try {
             return JSON.stringify(n3[r3++]);
           } catch (e5) {
-            return \\"[Circular]\\";
+            return "[Circular]";
           }
         default:
           return e4;
       }
     }), u3 = n3[r3]; r3 < i3; u3 = n3[++r3])
-      le(u3) || !he(u3) ? o3 += \\" \\" + u3 : o3 += \\" \\" + oe(u3);
+      le(u3) || !he(u3) ? o3 += " " + u3 : o3 += " " + oe(u3);
     return o3;
   }, X.deprecate = function(e3, t3) {
     if (void 0 !== Y && true === Y.noDeprecation)
@@ -368,7 +368,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   var ne = /^$/;
   if (Y.env.NODE_DEBUG) {
     ie = Y.env.NODE_DEBUG;
-    ie = ie.replace(/[|\\\\\\\\{}()[\\\\]^$+?.]/g, \\"\\\\\\\\$&\\").replace(/\\\\*/g, \\".*\\").replace(/,/g, \\"$|^\\").toUpperCase(), ne = new RegExp(\\"^\\" + ie + \\"$\\", \\"i\\");
+    ie = ie.replace(/[|\\\\{}()[\\]^$+?.]/g, "\\\\$&").replace(/\\*/g, ".*").replace(/,/g, "$|^").toUpperCase(), ne = new RegExp("^" + ie + "$", "i");
   }
   var ie;
   function oe(e3, t3) {
@@ -377,7 +377,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
   }
   function ue(e3, t3) {
     var r3 = oe.styles[t3];
-    return r3 ? \\"\\\\x1B[\\" + oe.colors[r3][0] + \\"m\\" + e3 + \\"\\\\x1B[\\" + oe.colors[r3][1] + \\"m\\" : e3;
+    return r3 ? "\\x1B[" + oe.colors[r3][0] + "m" + e3 + "\\x1B[" + oe.colors[r3][1] + "m" : e3;
   }
   function fe(e3, t3) {
     return e3;
@@ -389,17 +389,17 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     }
     var i3 = function(e4, t4) {
       if (be(t4))
-        return e4.stylize(\\"undefined\\", \\"undefined\\");
+        return e4.stylize("undefined", "undefined");
       if (ge(t4)) {
-        var r4 = \\"'\\" + JSON.stringify(t4).replace(/^\\"|\\"$/g, \\"\\").replace(/'/g, \\"\\\\\\\\'\\").replace(/\\\\\\\\\\"/g, '\\"') + \\"'\\";
-        return e4.stylize(r4, \\"string\\");
+        var r4 = "'" + JSON.stringify(t4).replace(/^"|"$/g, "").replace(/'/g, "\\\\'").replace(/\\\\"/g, '"') + "'";
+        return e4.stylize(r4, "string");
       }
       if (de(t4))
-        return e4.stylize(\\"\\" + t4, \\"number\\");
+        return e4.stylize("" + t4, "number");
       if (ye(t4))
-        return e4.stylize(\\"\\" + t4, \\"boolean\\");
+        return e4.stylize("" + t4, "boolean");
       if (le(t4))
-        return e4.stylize(\\"null\\", \\"null\\");
+        return e4.stylize("null", "null");
     }(e3, t3);
     if (i3)
       return i3;
@@ -409,93 +409,93 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
         t4[e5] = true;
       }), t4;
     }(o3);
-    if (e3.showHidden && (o3 = Object.getOwnPropertyNames(t3)), Ae(t3) && (o3.indexOf(\\"message\\") >= 0 || o3.indexOf(\\"description\\") >= 0))
+    if (e3.showHidden && (o3 = Object.getOwnPropertyNames(t3)), Ae(t3) && (o3.indexOf("message") >= 0 || o3.indexOf("description") >= 0))
       return ce(t3);
     if (0 === o3.length) {
       if (we(t3)) {
-        var f3 = t3.name ? \\": \\" + t3.name : \\"\\";
-        return e3.stylize(\\"[Function\\" + f3 + \\"]\\", \\"special\\");
+        var f3 = t3.name ? ": " + t3.name : "";
+        return e3.stylize("[Function" + f3 + "]", "special");
       }
       if (me(t3))
-        return e3.stylize(RegExp.prototype.toString.call(t3), \\"regexp\\");
+        return e3.stylize(RegExp.prototype.toString.call(t3), "regexp");
       if (je(t3))
-        return e3.stylize(Date.prototype.toString.call(t3), \\"date\\");
+        return e3.stylize(Date.prototype.toString.call(t3), "date");
       if (Ae(t3))
         return ce(t3);
     }
-    var a3, c3 = \\"\\", s3 = false, p3 = [\\"{\\", \\"}\\"];
-    (pe(t3) && (s3 = true, p3 = [\\"[\\", \\"]\\"]), we(t3)) && (c3 = \\" [Function\\" + (t3.name ? \\": \\" + t3.name : \\"\\") + \\"]\\");
-    return me(t3) && (c3 = \\" \\" + RegExp.prototype.toString.call(t3)), je(t3) && (c3 = \\" \\" + Date.prototype.toUTCString.call(t3)), Ae(t3) && (c3 = \\" \\" + ce(t3)), 0 !== o3.length || s3 && 0 != t3.length ? r3 < 0 ? me(t3) ? e3.stylize(RegExp.prototype.toString.call(t3), \\"regexp\\") : e3.stylize(\\"[Object]\\", \\"special\\") : (e3.seen.push(t3), a3 = s3 ? function(e4, t4, r4, n4, i4) {
+    var a3, c3 = "", s3 = false, p3 = ["{", "}"];
+    (pe(t3) && (s3 = true, p3 = ["[", "]"]), we(t3)) && (c3 = " [Function" + (t3.name ? ": " + t3.name : "") + "]");
+    return me(t3) && (c3 = " " + RegExp.prototype.toString.call(t3)), je(t3) && (c3 = " " + Date.prototype.toUTCString.call(t3)), Ae(t3) && (c3 = " " + ce(t3)), 0 !== o3.length || s3 && 0 != t3.length ? r3 < 0 ? me(t3) ? e3.stylize(RegExp.prototype.toString.call(t3), "regexp") : e3.stylize("[Object]", "special") : (e3.seen.push(t3), a3 = s3 ? function(e4, t4, r4, n4, i4) {
       for (var o4 = [], u4 = 0, f4 = t4.length; u4 < f4; ++u4)
-        ke(t4, String(u4)) ? o4.push(se(e4, t4, r4, n4, String(u4), true)) : o4.push(\\"\\");
+        ke(t4, String(u4)) ? o4.push(se(e4, t4, r4, n4, String(u4), true)) : o4.push("");
       return i4.forEach(function(i5) {
-        i5.match(/^\\\\d+$/) || o4.push(se(e4, t4, r4, n4, i5, true));
+        i5.match(/^\\d+$/) || o4.push(se(e4, t4, r4, n4, i5, true));
       }), o4;
     }(e3, t3, r3, u3, o3) : o3.map(function(n4) {
       return se(e3, t3, r3, u3, n4, s3);
     }), e3.seen.pop(), function(e4, t4, r4) {
       var n4 = 0;
       if (e4.reduce(function(e5, t5) {
-        return n4++, t5.indexOf(\\"\\\\n\\") >= 0 && n4++, e5 + t5.replace(/\\\\u001b\\\\[\\\\d\\\\d?m/g, \\"\\").length + 1;
+        return n4++, t5.indexOf("\\n") >= 0 && n4++, e5 + t5.replace(/\\u001b\\[\\d\\d?m/g, "").length + 1;
       }, 0) > 60)
-        return r4[0] + (\\"\\" === t4 ? \\"\\" : t4 + \\"\\\\n \\") + \\" \\" + e4.join(\\",\\\\n  \\") + \\" \\" + r4[1];
-      return r4[0] + t4 + \\" \\" + e4.join(\\", \\") + \\" \\" + r4[1];
+        return r4[0] + ("" === t4 ? "" : t4 + "\\n ") + " " + e4.join(",\\n  ") + " " + r4[1];
+      return r4[0] + t4 + " " + e4.join(", ") + " " + r4[1];
     }(a3, c3, p3)) : p3[0] + c3 + p3[1];
   }
   function ce(e3) {
-    return \\"[\\" + Error.prototype.toString.call(e3) + \\"]\\";
+    return "[" + Error.prototype.toString.call(e3) + "]";
   }
   function se(e3, t3, r3, n3, i3, o3) {
     var u3, f3, a3;
-    if ((a3 = Object.getOwnPropertyDescriptor(t3, i3) || { value: t3[i3] }).get ? f3 = a3.set ? e3.stylize(\\"[Getter/Setter]\\", \\"special\\") : e3.stylize(\\"[Getter]\\", \\"special\\") : a3.set && (f3 = e3.stylize(\\"[Setter]\\", \\"special\\")), ke(n3, i3) || (u3 = \\"[\\" + i3 + \\"]\\"), f3 || (e3.seen.indexOf(a3.value) < 0 ? (f3 = le(r3) ? ae(e3, a3.value, null) : ae(e3, a3.value, r3 - 1)).indexOf(\\"\\\\n\\") > -1 && (f3 = o3 ? f3.split(\\"\\\\n\\").map(function(e4) {
-      return \\"  \\" + e4;
-    }).join(\\"\\\\n\\").substr(2) : \\"\\\\n\\" + f3.split(\\"\\\\n\\").map(function(e4) {
-      return \\"   \\" + e4;
-    }).join(\\"\\\\n\\")) : f3 = e3.stylize(\\"[Circular]\\", \\"special\\")), be(u3)) {
-      if (o3 && i3.match(/^\\\\d+$/))
+    if ((a3 = Object.getOwnPropertyDescriptor(t3, i3) || { value: t3[i3] }).get ? f3 = a3.set ? e3.stylize("[Getter/Setter]", "special") : e3.stylize("[Getter]", "special") : a3.set && (f3 = e3.stylize("[Setter]", "special")), ke(n3, i3) || (u3 = "[" + i3 + "]"), f3 || (e3.seen.indexOf(a3.value) < 0 ? (f3 = le(r3) ? ae(e3, a3.value, null) : ae(e3, a3.value, r3 - 1)).indexOf("\\n") > -1 && (f3 = o3 ? f3.split("\\n").map(function(e4) {
+      return "  " + e4;
+    }).join("\\n").substr(2) : "\\n" + f3.split("\\n").map(function(e4) {
+      return "   " + e4;
+    }).join("\\n")) : f3 = e3.stylize("[Circular]", "special")), be(u3)) {
+      if (o3 && i3.match(/^\\d+$/))
         return f3;
-      (u3 = JSON.stringify(\\"\\" + i3)).match(/^\\"([a-zA-Z_][a-zA-Z_0-9]*)\\"$/) ? (u3 = u3.substr(1, u3.length - 2), u3 = e3.stylize(u3, \\"name\\")) : (u3 = u3.replace(/'/g, \\"\\\\\\\\'\\").replace(/\\\\\\\\\\"/g, '\\"').replace(/(^\\"|\\"$)/g, \\"'\\"), u3 = e3.stylize(u3, \\"string\\"));
+      (u3 = JSON.stringify("" + i3)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (u3 = u3.substr(1, u3.length - 2), u3 = e3.stylize(u3, "name")) : (u3 = u3.replace(/'/g, "\\\\'").replace(/\\\\"/g, '"').replace(/(^"|"$)/g, "'"), u3 = e3.stylize(u3, "string"));
     }
-    return u3 + \\": \\" + f3;
+    return u3 + ": " + f3;
   }
   function pe(e3) {
     return Array.isArray(e3);
   }
   function ye(e3) {
-    return \\"boolean\\" == typeof e3;
+    return "boolean" == typeof e3;
   }
   function le(e3) {
     return null === e3;
   }
   function de(e3) {
-    return \\"number\\" == typeof e3;
+    return "number" == typeof e3;
   }
   function ge(e3) {
-    return \\"string\\" == typeof e3;
+    return "string" == typeof e3;
   }
   function be(e3) {
     return void 0 === e3;
   }
   function me(e3) {
-    return he(e3) && \\"[object RegExp]\\" === ve(e3);
+    return he(e3) && "[object RegExp]" === ve(e3);
   }
   function he(e3) {
-    return \\"object\\" == typeof e3 && null !== e3;
+    return "object" == typeof e3 && null !== e3;
   }
   function je(e3) {
-    return he(e3) && \\"[object Date]\\" === ve(e3);
+    return he(e3) && "[object Date]" === ve(e3);
   }
   function Ae(e3) {
-    return he(e3) && (\\"[object Error]\\" === ve(e3) || e3 instanceof Error);
+    return he(e3) && ("[object Error]" === ve(e3) || e3 instanceof Error);
   }
   function we(e3) {
-    return \\"function\\" == typeof e3;
+    return "function" == typeof e3;
   }
   function ve(e3) {
     return Object.prototype.toString.call(e3);
   }
   function Oe(e3) {
-    return e3 < 10 ? \\"0\\" + e3.toString(10) : e3.toString(10);
+    return e3 < 10 ? "0" + e3.toString(10) : e3.toString(10);
   }
   X.debuglog = function(e3) {
     if (e3 = e3.toUpperCase(), !re[e3])
@@ -503,29 +503,29 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
         var t3 = Y.pid;
         re[e3] = function() {
           var r3 = X.format.apply(X, arguments);
-          console.error(\\"%s %d: %s\\", e3, t3, r3);
+          console.error("%s %d: %s", e3, t3, r3);
         };
       } else
         re[e3] = function() {
         };
     return re[e3];
-  }, X.inspect = oe, oe.colors = { bold: [1, 22], italic: [3, 23], underline: [4, 24], inverse: [7, 27], white: [37, 39], grey: [90, 39], black: [30, 39], blue: [34, 39], cyan: [36, 39], green: [32, 39], magenta: [35, 39], red: [31, 39], yellow: [33, 39] }, oe.styles = { special: \\"cyan\\", number: \\"yellow\\", boolean: \\"yellow\\", undefined: \\"grey\\", null: \\"bold\\", string: \\"green\\", date: \\"magenta\\", regexp: \\"red\\" }, X.types = o$2, X.isArray = pe, X.isBoolean = ye, X.isNull = le, X.isNullOrUndefined = function(e3) {
+  }, X.inspect = oe, oe.colors = { bold: [1, 22], italic: [3, 23], underline: [4, 24], inverse: [7, 27], white: [37, 39], grey: [90, 39], black: [30, 39], blue: [34, 39], cyan: [36, 39], green: [32, 39], magenta: [35, 39], red: [31, 39], yellow: [33, 39] }, oe.styles = { special: "cyan", number: "yellow", boolean: "yellow", undefined: "grey", null: "bold", string: "green", date: "magenta", regexp: "red" }, X.types = o$2, X.isArray = pe, X.isBoolean = ye, X.isNull = le, X.isNullOrUndefined = function(e3) {
     return null == e3;
   }, X.isNumber = de, X.isString = ge, X.isSymbol = function(e3) {
-    return \\"symbol\\" == typeof e3;
+    return "symbol" == typeof e3;
   }, X.isUndefined = be, X.isRegExp = me, X.types.isRegExp = me, X.isObject = he, X.isDate = je, X.types.isDate = je, X.isError = Ae, X.types.isNativeError = Ae, X.isFunction = we, X.isPrimitive = function(e3) {
-    return null === e3 || \\"boolean\\" == typeof e3 || \\"number\\" == typeof e3 || \\"string\\" == typeof e3 || \\"symbol\\" == typeof e3 || void 0 === e3;
+    return null === e3 || "boolean" == typeof e3 || "number" == typeof e3 || "string" == typeof e3 || "symbol" == typeof e3 || void 0 === e3;
   }, X.isBuffer = i$1;
-  var Se = [\\"Jan\\", \\"Feb\\", \\"Mar\\", \\"Apr\\", \\"May\\", \\"Jun\\", \\"Jul\\", \\"Aug\\", \\"Sep\\", \\"Oct\\", \\"Nov\\", \\"Dec\\"];
+  var Se = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function Be() {
-    var e3 = /* @__PURE__ */ new Date(), t3 = [Oe(e3.getHours()), Oe(e3.getMinutes()), Oe(e3.getSeconds())].join(\\":\\");
-    return [e3.getDate(), Se[e3.getMonth()], t3].join(\\" \\");
+    var e3 = /* @__PURE__ */ new Date(), t3 = [Oe(e3.getHours()), Oe(e3.getMinutes()), Oe(e3.getSeconds())].join(":");
+    return [e3.getDate(), Se[e3.getMonth()], t3].join(" ");
   }
   function ke(e3, t3) {
     return Object.prototype.hasOwnProperty.call(e3, t3);
   }
   X.log = function() {
-    console.log(\\"%s - %s\\", Be(), X.format.apply(X, arguments));
+    console.log("%s - %s", Be(), X.format.apply(X, arguments));
   }, X.inherits = t$2, X._extend = function(e3, t3) {
     if (!t3 || !he(t3))
       return e3;
@@ -533,21 +533,21 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
       e3[r3[n3]] = t3[r3[n3]];
     return e3;
   };
-  var Ee = \\"undefined\\" != typeof Symbol ? Symbol(\\"util.promisify.custom\\") : void 0;
+  var Ee = "undefined" != typeof Symbol ? Symbol("util.promisify.custom") : void 0;
   function De(e3, t3) {
     if (!e3) {
-      var r3 = new Error(\\"Promise was rejected with a falsy value\\");
+      var r3 = new Error("Promise was rejected with a falsy value");
       r3.reason = e3, e3 = r3;
     }
     return t3(e3);
   }
   X.promisify = function(e3) {
-    if (\\"function\\" != typeof e3)
-      throw new TypeError('The \\"original\\" argument must be of type Function');
+    if ("function" != typeof e3)
+      throw new TypeError('The "original" argument must be of type Function');
     if (Ee && e3[Ee]) {
       var t3;
-      if (\\"function\\" != typeof (t3 = e3[Ee]))
-        throw new TypeError('The \\"util.promisify.custom\\" argument must be of type Function');
+      if ("function" != typeof (t3 = e3[Ee]))
+        throw new TypeError('The "util.promisify.custom" argument must be of type Function');
       return Object.defineProperty(t3, Ee, { value: t3, enumerable: false, writable: false, configurable: true }), t3;
     }
     function t3() {
@@ -567,14 +567,14 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     }
     return Object.setPrototypeOf(t3, Object.getPrototypeOf(e3)), Ee && Object.defineProperty(t3, Ee, { value: t3, enumerable: false, writable: false, configurable: true }), Object.defineProperties(t3, ee(e3));
   }, X.promisify.custom = Ee, X.callbackify = function(e3) {
-    if (\\"function\\" != typeof e3)
-      throw new TypeError('The \\"original\\" argument must be of type Function');
+    if ("function" != typeof e3)
+      throw new TypeError('The "original" argument must be of type Function');
     function t3() {
       for (var t4 = [], r3 = 0; r3 < arguments.length; r3++)
         t4.push(arguments[r3]);
       var n3 = t4.pop();
-      if (\\"function\\" != typeof n3)
-        throw new TypeError(\\"The last argument must be of type Function\\");
+      if ("function" != typeof n3)
+        throw new TypeError("The last argument must be of type Function");
       var i3 = this || Q, o3 = function() {
         return n3.apply(i3, arguments);
       };
@@ -671,7 +671,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
 
   // tests/fixtures/input/nodePrefix/nodePrefix.ts
   var data = {
-    name: \\"esbuild\\"
+    name: "esbuild"
   };
   var result = inspect2(data, { depth: 0, colors: true });
   console.log(result);

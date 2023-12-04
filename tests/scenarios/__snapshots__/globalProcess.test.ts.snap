@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Global Process Test > GIVEN a file that references the "process" global THEN polyfill it 1`] = `
-"\\"use strict\\";
+""use strict";
 (() => {
   // node-modules-polyfills:node:process
   function unimplemented(name) {
-    throw new Error(\\"Node.js process \\" + name + \\" is not supported by JSPM core outside of Node.js\\");
+    throw new Error("Node.js process " + name + " is not supported by JSPM core outside of Node.js");
   }
   var queue = [];
   var draining = false;
@@ -60,52 +60,52 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   Item.prototype.run = function() {
     this.fun.apply(null, this.array);
   };
-  var title = \\"browser\\";
-  var arch = \\"x64\\";
-  var platform = \\"browser\\";
+  var title = "browser";
+  var arch = "x64";
+  var platform = "browser";
   var env = {
-    PATH: \\"/usr/bin\\",
-    LANG: navigator.language + \\".UTF-8\\",
-    PWD: \\"/\\",
-    HOME: \\"/home\\",
-    TMP: \\"/tmp\\"
+    PATH: "/usr/bin",
+    LANG: navigator.language + ".UTF-8",
+    PWD: "/",
+    HOME: "/home",
+    TMP: "/tmp"
   };
-  var argv = [\\"/usr/bin/node\\"];
+  var argv = ["/usr/bin/node"];
   var execArgv = [];
-  var version = \\"v16.8.0\\";
+  var version = "v16.8.0";
   var versions = {};
   var emitWarning = function(message, type) {
-    console.warn((type ? type + \\": \\" : \\"\\") + message);
+    console.warn((type ? type + ": " : "") + message);
   };
   var binding = function(name) {
-    unimplemented(\\"binding\\");
+    unimplemented("binding");
   };
   var umask = function(mask) {
     return 0;
   };
   var cwd = function() {
-    return \\"/\\";
+    return "/";
   };
   var chdir = function(dir) {
   };
   var release = {
-    name: \\"node\\",
-    sourceUrl: \\"\\",
-    headersUrl: \\"\\",
-    libUrl: \\"\\"
+    name: "node",
+    sourceUrl: "",
+    headersUrl: "",
+    libUrl: ""
   };
   function noop() {
   }
   var _rawDebug = noop;
   var moduleLoadList = [];
   function _linkedBinding(name) {
-    unimplemented(\\"_linkedBinding\\");
+    unimplemented("_linkedBinding");
   }
   var domain = {};
   var _exiting = false;
   var config = {};
   function dlopen(name) {
-    unimplemented(\\"dlopen\\");
+    unimplemented("dlopen");
   }
   function _getActiveRequests() {
     return [];
@@ -126,7 +126,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   var allowedNodeEnvironmentFlags = {};
   function assert(condition, message) {
     if (!condition)
-      throw new Error(message || \\"assertion error\\");
+      throw new Error(message || "assertion error");
   }
   var features = {
     inspector: false,
@@ -155,14 +155,14 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   var abort = noop;
   var pid = 2;
   var ppid = 1;
-  var execPath = \\"/bin/usr/node\\";
+  var execPath = "/bin/usr/node";
   var debugPort = 9229;
-  var argv0 = \\"node\\";
+  var argv0 = "node";
   var _preload_modules = [];
   var setSourceMapsEnabled = noop;
   var _performance = {
-    now: typeof performance !== \\"undefined\\" ? performance.now.bind(performance) : void 0,
-    timing: typeof performance !== \\"undefined\\" ? performance.timing : void 0
+    now: typeof performance !== "undefined" ? performance.now.bind(performance) : void 0,
+    timing: typeof performance !== "undefined" ? performance.timing : void 0
   };
   if (_performance.now === void 0) {
     nowOffset = Date.now();
@@ -193,7 +193,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   }
   hrtime.bigint = function(time) {
     var diff = hrtime(time);
-    if (typeof BigInt === \\"undefined\\") {
+    if (typeof BigInt === "undefined") {
       return diff[0] * nanoPerSec + diff[1];
     }
     return BigInt(diff[0] * nanoPerSec) + BigInt(diff[1]);
@@ -289,17 +289,17 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
 
   // tests/fixtures/input/globalProcess/globalProcess.ts
   console.log(process.version);
-  console.log(\\"production\\");
+  console.log("production");
 })();
 "
 `;
 
 exports[`Global Process Test > GIVEN a file that references the "process" global when the polyfill is disabled THEN ignore polyfill 1`] = `
-"\\"use strict\\";
+""use strict";
 (() => {
   // tests/fixtures/input/globalProcess/globalProcess.ts
   console.log(process.version);
-  console.log(\\"production\\");
+  console.log("production");
 })();
 "
 `;
