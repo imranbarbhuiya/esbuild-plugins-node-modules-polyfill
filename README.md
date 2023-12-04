@@ -141,7 +141,7 @@ build({
 
 ### Fail the build when certain modules are used:
 
-> **Warning**
+> [!Important]
 > The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
@@ -162,7 +162,7 @@ const buildResult = await build({
 
 ### Fail the build when a module is not polyfilled or configured:
 
-> **Warning**
+> [!Important]
 > The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
@@ -185,7 +185,7 @@ const buildResult = await build({
 
 Return an esbuild `PartialMessage` object from the `formatError` function to override any properties of the default error message.
 
-> **Warning**
+> [!Important]
 > The `write` option in `esbuild` must be `false` to support this.
 
 ```ts
