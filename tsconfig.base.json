@@ -15,7 +15,8 @@
 		"moduleResolution": "node",
 		"lib": ["dom", "es2021"],
 		"declaration": true,
-		"outDir": "dist"
+		"outDir": "dist",
+		"skipLibCheck": true
 	},
 	"includes": ["src/**/*.ts"]
 }
