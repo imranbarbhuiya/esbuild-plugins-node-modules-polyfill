@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.6.2](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.2...v1.6.2) - (2024-01-28)
+
+## 🐛 Bug Fixes
+
+- Esbuild version and add node types ([49827c1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/49827c10a4c525af185e759f1c643b9bb1e4c9b2))
+- Bump local-pkg ([448e8cd](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/448e8cdab5c64cbb60251c42496aadd7b81299be))
+
 # [1.6.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.0...v1.6.1) - (2023-08-29)
 
 ## 🐛 Bug Fixes
