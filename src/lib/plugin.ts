@@ -14,14 +14,14 @@ const NAME = 'node-modules-polyfills';
 
 export interface NodePolyfillsOptions {
 	fallback?: 'empty' | 'error' | 'none';
-	formatError?(
+	formatError?: (
 		this: void,
 		args: {
 			importer: string;
 			moduleName: string;
 			polyfillExists: boolean;
 		},
-	): PartialMessage | Promise<PartialMessage>;
+	) => PartialMessage | Promise<PartialMessage>;
 	globals?: {
 		Buffer?: boolean;
 		process?: boolean;
