@@ -1,6 +1,6 @@
 {
 	"root": true,
-	"extends": ["mahir/common", "mahir/node", "mahir/typescript", "mahir/prettier"],
+	"extends": ["mahir/common", "mahir/node", "mahir/typescript"],
 	"ignorePatterns": ["**/dist/*"],
 	"rules": {
 		"unicorn/prefer-string-replace-all": "off"

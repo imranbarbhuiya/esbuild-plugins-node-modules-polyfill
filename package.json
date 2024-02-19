@@ -36,22 +36,22 @@
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^18.6.0",
-		"@commitlint/config-conventional": "^18.6.0",
+		"@commitlint/cli": "^18.6.1",
+		"@commitlint/config-conventional": "^18.6.2",
 		"@favware/cliff-jumper": "^2.2.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.11.17",
+		"@types/node": "^20.11.19",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.20.0",
+		"esbuild": "^0.20.1",
 		"eslint": "^8.56.0",
-		"eslint-config-mahir": "^0.0.38",
-		"husky": "^9.0.10",
+		"eslint-config-mahir": "^0.0.43",
+		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
 		"pinst": "^3.0.0",
 		"prettier": "^3.2.5",
 		"tsup": "^8.0.2",
 		"typescript": "^5.3.3",
-		"vitest": "^1.2.2"
+		"vitest": "^1.3.0"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0 || ^0.20.0"

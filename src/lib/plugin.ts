@@ -73,17 +73,11 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 		namespace = NAME,
 		name = NAME,
 	} = options;
-	if (namespace.endsWith('commonjs')) {
-		throw new Error(`namespace ${namespace} must not end with commonjs`);
-	}
+	if (namespace.endsWith('commonjs')) throw new Error(`namespace ${namespace} must not end with commonjs`);
 
-	if (namespace.endsWith('empty')) {
-		throw new Error(`namespace ${namespace} must not end with empty`);
-	}
+	if (namespace.endsWith('empty')) throw new Error(`namespace ${namespace} must not end with empty`);
 
-	if (namespace.endsWith('error')) {
-		throw new Error(`namespace ${namespace} must not end with error`);
-	}
+	if (namespace.endsWith('error')) throw new Error(`namespace ${namespace} must not end with error`);
 
 	const modules = Array.isArray(modulesOption)
 		? Object.fromEntries(modulesOption.map((mod) => [mod, true]))
@@ -105,41 +99,30 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 			const root = initialOptions.absWorkingDir ?? process.cwd();
 
 			// polyfills contain global keyword, it must be defined
-			if (initialOptions.define && !initialOptions.define.global) {
-				initialOptions.define.global = 'globalThis';
-			} else if (!initialOptions.define) {
-				initialOptions.define = { global: 'globalThis' };
-			}
+			if (initialOptions.define && !initialOptions.define.global) initialOptions.define.global = 'globalThis';
+			else if (!initialOptions.define) initialOptions.define = { global: 'globalThis' };
 
 			initialOptions.inject = initialOptions.inject ?? [];
 
-			if (globals.Buffer) {
-				initialOptions.inject.push(path.resolve(__dirname, '../globals/Buffer.js'));
-			}
+			if (globals.Buffer) initialOptions.inject.push(path.resolve(__dirname, '../globals/Buffer.js'));
 
-			if (globals.process) {
-				initialOptions.inject.push(path.resolve(__dirname, '../globals/process.js'));
-			}
+			if (globals.process) initialOptions.inject.push(path.resolve(__dirname, '../globals/process.js'));
 
-			onLoad({ filter: /.*/, namespace: emptyNamespace }, () => {
-				return {
-					loader: 'js',
-					// Use an empty CommonJS module here instead of ESM to avoid
-					// "No matching export" errors in esbuild for anything that
-					// is imported from this file.
-					contents: 'module.exports = {}',
-				};
-			});
+			onLoad({ filter: /.*/, namespace: emptyNamespace }, () => ({
+				loader: 'js',
+				// Use an empty CommonJS module here instead of ESM to avoid
+				// "No matching export" errors in esbuild for anything that
+				// is imported from this file.
+				contents: 'module.exports = {}',
+			}));
 
-			onLoad({ filter: /.*/, namespace: errorNamespace }, (args) => {
-				return {
-					loader: 'js',
-					contents: `module.exports = ${JSON.stringify(
-						// This encoded string is detected and parsed at the end of the build to report errors
-						`__POLYFILL_ERROR_START__::MODULE::${args.path}::IMPORTER::${args.pluginData.importer}::__POLYFILL_ERROR_END__`,
-					)}`,
-				};
-			});
+			onLoad({ filter: /.*/, namespace: errorNamespace }, (args) => ({
+				loader: 'js',
+				contents: `module.exports = ${JSON.stringify(
+					// This encoded string is detected and parsed at the end of the build to report errors
+					`__POLYFILL_ERROR_START__::MODULE::${args.path}::IMPORTER::${args.pluginData.importer}::__POLYFILL_ERROR_END__`,
+				)}`,
+			}));
 
 			onLoad({ filter: /.*/, namespace }, loader);
 			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
@@ -175,7 +158,9 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
 					const browserFieldValue = packageJson?.browser as unknown as
-						Record<string, string | false> | string | undefined;
+						| Record<string, string | false>
+						| string
+						| undefined;
 
 					if (typeof browserFieldValue === 'string') return;
 					const browserFieldValueForModule = browserFieldValue?.[args.path];
@@ -186,31 +171,21 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 					// in the output and throws an error at runtime. Ideally we
 					// would just return undefined for any browser field value,
 					// and we can safely switch to this in a major version.
-					if (browserFieldValueForModule === false) {
-						return result.empty;
-					}
+					if (browserFieldValueForModule === false) return result.empty;
 
-					if (browserFieldValueForModule !== undefined) {
-						return;
-					}
+					if (browserFieldValueForModule !== undefined) return;
 				}
 
 				const moduleName = normalizeNodeBuiltinPath(args.path);
 				const polyfillOption = modules[moduleName];
 
-				if (!polyfillOption) {
-					return result[fallback];
-				}
+				if (!polyfillOption) return result[fallback];
 
-				if (polyfillOption === 'error' || polyfillOption === 'empty') {
-					return result[polyfillOption];
-				}
+				if (polyfillOption === 'error' || polyfillOption === 'empty') return result[polyfillOption];
 
 				const polyfillPath = await getCachedPolyfillPath(moduleName).catch(() => null);
 
-				if (!polyfillPath) {
-					return result[fallback];
-				}
+				if (!polyfillPath) return result[fallback];
 
 				const ignoreRequire = args.namespace === commonjsNamespace;
 				const isCommonjs = !ignoreRequire && args.kind === 'require-call';
