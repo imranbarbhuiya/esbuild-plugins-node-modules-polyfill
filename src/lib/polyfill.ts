@@ -8,9 +8,8 @@ import { resolve as resolveExports } from 'resolve.exports';
 import { normalizeNodeBuiltinPath } from './utils/util.js';
 
 async function polyfillPath(importPath: string) {
-	if (!builtinModules.includes(importPath)) {
+	if (!builtinModules.includes(importPath))
 		throw new Error(`Node.js does not have ${importPath} in its builtin modules`);
-	}
 
 	const jspmPath = resolve(
 		require.resolve(`@jspm/core/nodelibs/${importPath}`),

@@ -92,9 +92,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 	return {
 		name,
 		setup: ({ onLoad, onResolve, onEnd, initialOptions }) => {
-			if (shouldDetectErrorModules && initialOptions.write !== false) {
+			if (shouldDetectErrorModules && initialOptions.write !== false)
 				throw new Error(`The "write" build option must be set to false when using the "error" polyfill type`);
-			}
 
 			const root = initialOptions.absWorkingDir ?? process.cwd();
 
