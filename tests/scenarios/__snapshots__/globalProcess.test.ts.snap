@@ -125,8 +125,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   var openStdin = noop;
   var allowedNodeEnvironmentFlags = {};
   function assert(condition, message) {
-    if (!condition)
-      throw new Error(message || "assertion error");
+    if (!condition) throw new Error(message || "assertion error");
   }
   var features = {
     inspector: false,

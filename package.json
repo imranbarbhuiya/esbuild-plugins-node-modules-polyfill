@@ -40,9 +40,9 @@
 		"@commitlint/config-conventional": "^19.2.2",
 		"@favware/cliff-jumper": "^3.0.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.12.8",
+		"@types/node": "^20.12.11",
 		"cz-conventional-changelog": "^3.3.0",
-		"esbuild": "^0.20.2",
+		"esbuild": "^0.21.1",
 		"eslint": "^8.57.0",
 		"eslint-config-mahir": "^0.0.43",
 		"husky": "^9.0.11",
@@ -54,7 +54,7 @@
 		"vitest": "^1.6.0"
 	},
 	"peerDependencies": {
-		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0 || ^0.20.0"
+		"esbuild": "^0.14.0 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -90,5 +90,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.2.1"
+	"packageManager": "yarn@4.2.2"
 }
