@@ -40,7 +40,7 @@
 		"@commitlint/config-conventional": "^19.2.2",
 		"@favware/cliff-jumper": "^3.0.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.14.2",
+		"@types/node": "^20.14.8",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.21.5",
 		"eslint": "^8.57.0",
@@ -50,7 +50,7 @@
 		"pinst": "^3.0.0",
 		"prettier": "^3.3.2",
 		"tsup": "^8.1.0",
-		"typescript": "^5.4.5",
+		"typescript": "^5.5.2",
 		"vitest": "^1.6.0"
 	},
 	"peerDependencies": {
@@ -90,5 +90,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.3.0"
+	"packageManager": "yarn@4.3.1"
 }
