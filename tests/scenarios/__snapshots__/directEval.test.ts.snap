@@ -45319,6 +45319,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       switch (type) {
         case "CERTIFICATE":
           ndata = asn1.certificate.decode(data, "der").tbsCertificate.subjectPublicKeyInfo;
+        // falls through
         case "PUBLIC KEY":
           if (!ndata) {
             ndata = asn1.PublicKey.decode(data, "der");
@@ -45342,9 +45343,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             default:
               throw new Error("unknown key id " + subtype);
           }
+        // throw new Error('unknown key type ' + type)
         case "ENCRYPTED PRIVATE KEY":
           data = asn1.EncryptedPrivateKey.decode(data, "der");
           data = decrypt(data, password);
+        // falls through
         case "PRIVATE KEY":
           ndata = asn1.PrivateKey.decode(data, "der");
           subtype = ndata.algorithm.algorithm.join(".");
@@ -45365,6 +45368,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             default:
               throw new Error("unknown key id " + subtype);
           }
+        // throw new Error('unknown key type ' + type)
         case "RSA PUBLIC KEY":
           return asn1.RSAPublicKey.decode(data, "der");
         case "RSA PRIVATE KEY":
@@ -64529,6 +64533,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       switch (type) {
         case "CERTIFICATE":
           ndata = asn1.certificate.decode(data, "der").tbsCertificate.subjectPublicKeyInfo;
+        // falls through
         case "PUBLIC KEY":
           if (!ndata) {
             ndata = asn1.PublicKey.decode(data, "der");
@@ -64552,9 +64557,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             default:
               throw new Error("unknown key id " + subtype);
           }
+        // throw new Error('unknown key type ' + type)
         case "ENCRYPTED PRIVATE KEY":
           data = asn1.EncryptedPrivateKey.decode(data, "der");
           data = decrypt(data, password);
+        // falls through
         case "PRIVATE KEY":
           ndata = asn1.PrivateKey.decode(data, "der");
           subtype = ndata.algorithm.algorithm.join(".");
@@ -64575,6 +64582,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             default:
               throw new Error("unknown key id " + subtype);
           }
+        // throw new Error('unknown key type ' + type)
         case "RSA PUBLIC KEY":
           return asn1.RSAPublicKey.decode(data, "der");
         case "RSA PRIVATE KEY":

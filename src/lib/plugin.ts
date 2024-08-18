@@ -91,6 +91,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 	return {
 		name,
+		// eslint-disable-next-line @typescript-eslint/unbound-method
 		setup: ({ onLoad, onResolve, onEnd, initialOptions }) => {
 			if (shouldDetectErrorModules && initialOptions.write !== false)
 				throw new Error(`The "write" build option must be set to false when using the "error" polyfill type`);
