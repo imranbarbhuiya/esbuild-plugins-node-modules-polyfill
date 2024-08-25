@@ -38,14 +38,14 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.4.0",
 		"@commitlint/config-conventional": "^19.2.2",
-		"@favware/cliff-jumper": "^4.0.3",
+		"@favware/cliff-jumper": "^4.1.0",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@types/node": "^20.16.0",
+		"@types/node": "^20.16.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.23.1",
 		"eslint": "^8.57.0",
 		"eslint-config-mahir": "^0.0.45",
-		"husky": "^9.1.4",
+		"husky": "^9.1.5",
 		"lint-staged": "^15.2.9",
 		"pinst": "^3.0.0",
 		"prettier": "^3.3.3",
@@ -90,5 +90,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.4.0"
+	"packageManager": "yarn@4.4.1"
 }
