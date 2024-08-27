@@ -2850,7 +2850,7 @@ __metadata:
     typescript: "npm:^5.5.4"
     vitest: "npm:^2.0.5"
   peerDependencies:
-    esbuild: ">=0.14.0 <=0.23.0"
+    esbuild: ">=0.14.0 ^0.23.0"
   languageName: unknown
   linkType: soft
 
