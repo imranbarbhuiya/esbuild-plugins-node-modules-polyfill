@@ -54,7 +54,7 @@
 		"vitest": "^2.0.5"
 	},
 	"peerDependencies": {
-		"esbuild": ">=0.14.0 <=0.23.0"
+		"esbuild": ">=0.14.0 ^0.23.0"
 	},
 	"files": [
 		"dist/**/*.js*",
