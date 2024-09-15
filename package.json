@@ -36,8 +36,8 @@
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.4.1",
-		"@commitlint/config-conventional": "^19.4.1",
+		"@commitlint/cli": "^19.5.0",
+		"@commitlint/config-conventional": "^19.5.0",
 		"@favware/cliff-jumper": "^4.1.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"@types/node": "^20.16.5",
@@ -45,13 +45,13 @@
 		"esbuild": "^0.23.1",
 		"eslint": "^8.57.0",
 		"eslint-config-mahir": "^0.0.45",
-		"husky": "^9.1.5",
+		"husky": "^9.1.6",
 		"lint-staged": "^15.2.10",
 		"pinst": "^3.0.0",
 		"prettier": "^3.3.3",
 		"tsup": "^8.2.4",
-		"typescript": "^5.5.4",
-		"vitest": "^2.0.5"
+		"typescript": "^5.6.2",
+		"vitest": "^2.1.1"
 	},
 	"peerDependencies": {
 		"esbuild": ">=0.14.0 ^0.23.0"
@@ -90,5 +90,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.4.1"
+	"packageManager": "yarn@4.5.0"
 }
