@@ -29,7 +29,6 @@ async function polyfillPath(importPath: string) {
 			'resolving failed, please try creating an issue in https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill',
 		);
 	}
-
 	return exportFullPath;
 }
 
@@ -54,8 +53,8 @@ export const polyfillContentAndTransform = async (importPath: string) => {
 };
 
 const polyfillContentCache: Map<string, Promise<string>> = new Map();
-export const getCachedPolyfillContent = (_importPath: string): Promise<string> => {
-	const normalizedImportPath = normalizeNodeBuiltinPath(_importPath);
+export const getCachedPolyfillContent = (importPath: string): Promise<string> => {
+	const normalizedImportPath = normalizeNodeBuiltinPath(importPath);
 
 	const cachedPromise = polyfillContentCache.get(normalizedImportPath);
 	if (cachedPromise) return cachedPromise;

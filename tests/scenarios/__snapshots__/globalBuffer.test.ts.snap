@@ -3,15 +3,15 @@
 exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global THEN polyfill it 1`] = `
 ""use strict";
 (() => {
-  // node-modules-polyfills:node:buffer
-  var exports$3 = {};
+  // node_modules/@jspm/core/nodelibs/browser/chunk-DtuTasat.js
+  var exports$2 = {};
   var _dewExec$2 = false;
   function dew$2() {
-    if (_dewExec$2) return exports$3;
+    if (_dewExec$2) return exports$2;
     _dewExec$2 = true;
-    exports$3.byteLength = byteLength;
-    exports$3.toByteArray = toByteArray;
-    exports$3.fromByteArray = fromByteArray;
+    exports$2.byteLength = byteLength;
+    exports$2.toByteArray = toByteArray;
+    exports$2.fromByteArray = fromByteArray;
     var lookup = [];
     var revLookup = [];
     var Arr = typeof Uint8Array !== "undefined" ? Uint8Array : Array;
@@ -97,14 +97,14 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
       }
       return parts.join("");
     }
-    return exports$3;
+    return exports$2;
   }
-  var exports$2 = {};
+  var exports$1 = {};
   var _dewExec$1 = false;
   function dew$1() {
-    if (_dewExec$1) return exports$2;
+    if (_dewExec$1) return exports$1;
     _dewExec$1 = true;
-    exports$2.read = function(buffer, offset, isLE, mLen, nBytes) {
+    exports$1.read = function(buffer, offset, isLE, mLen, nBytes) {
       var e, m;
       var eLen = nBytes * 8 - mLen - 1;
       var eMax = (1 << eLen) - 1;
@@ -134,7 +134,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
       }
       return (s ? -1 : 1) * m * Math.pow(2, e - mLen);
     };
-    exports$2.write = function(buffer, value, offset, isLE, mLen, nBytes) {
+    exports$1.write = function(buffer, value, offset, isLE, mLen, nBytes) {
       var e, m, c;
       var eLen = nBytes * 8 - mLen - 1;
       var eMax = (1 << eLen) - 1;
@@ -181,21 +181,21 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
       }
       buffer[offset + i - d] |= s * 128;
     };
-    return exports$2;
+    return exports$1;
   }
-  var exports$1 = {};
+  var exports = {};
   var _dewExec = false;
   function dew() {
-    if (_dewExec) return exports$1;
+    if (_dewExec) return exports;
     _dewExec = true;
     const base64 = dew$2();
     const ieee754 = dew$1();
     const customInspectSymbol = typeof Symbol === "function" && typeof Symbol["for"] === "function" ? Symbol["for"]("nodejs.util.inspect.custom") : null;
-    exports$1.Buffer = Buffer2;
-    exports$1.SlowBuffer = SlowBuffer;
-    exports$1.INSPECT_MAX_BYTES = 50;
+    exports.Buffer = Buffer2;
+    exports.SlowBuffer = SlowBuffer;
+    exports.INSPECT_MAX_BYTES = 50;
     const K_MAX_LENGTH = 2147483647;
-    exports$1.kMaxLength = K_MAX_LENGTH;
+    exports.kMaxLength = K_MAX_LENGTH;
     Buffer2.TYPED_ARRAY_SUPPORT = typedArraySupport();
     if (!Buffer2.TYPED_ARRAY_SUPPORT && typeof console !== "undefined" && typeof console.error === "function") {
       console.error("This browser lacks typed array (Uint8Array) support which is required by \`buffer\` v5.x. Use \`buffer\` v4.x if you require old browser support.");
@@ -609,7 +609,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
     };
     Buffer2.prototype.inspect = function inspect() {
       let str = "";
-      const max = exports$1.INSPECT_MAX_BYTES;
+      const max = exports.INSPECT_MAX_BYTES;
       str = this.toString("hex", 0, max).replace(/(.{2})/g, "$1 ").trim();
       if (this.length > max) str += " ... ";
       return "<Buffer " + str + ">";
@@ -1578,14 +1578,12 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
       if (value > max || value < min) {
         const n = typeof min === "bigint" ? "n" : "";
         let range;
-        if (byteLength2 > 3) {
+        {
           if (min === 0 || min === BigInt(0)) {
             range = \`>= 0\${n} and < 2\${n} ** \${(byteLength2 + 1) * 8}\${n}\`;
           } else {
             range = \`>= -(2\${n} ** \${(byteLength2 + 1) * 8 - 1}\${n}) and < 2 ** \${(byteLength2 + 1) * 8 - 1}\${n}\`;
           }
-        } else {
-          range = \`>= \${min}\${n} and <= \${max}\${n}\`;
         }
         throw new errors.ERR_OUT_OF_RANGE("value", range, value);
       }
@@ -1599,12 +1597,12 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
     function boundsError(value, length, type) {
       if (Math.floor(value) !== value) {
         validateNumber(value, type);
-        throw new errors.ERR_OUT_OF_RANGE(type || "offset", "an integer", value);
+        throw new errors.ERR_OUT_OF_RANGE("offset", "an integer", value);
       }
       if (length < 0) {
         throw new errors.ERR_BUFFER_OUT_OF_BOUNDS();
       }
-      throw new errors.ERR_OUT_OF_RANGE(type || "offset", \`>= \${type ? 1 : 0} and <= \${length}\`, value);
+      throw new errors.ERR_OUT_OF_RANGE("offset", \`>= \${0} and <= \${length}\`, value);
     }
     const INVALID_BASE64_RE = /[^+/0-9A-Za-z-_]/g;
     function base64clean(str) {
@@ -1718,21 +1716,27 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
     function BufferBigIntNotDefined() {
       throw new Error("BigInt not supported");
     }
-    return exports$1;
+    return exports;
   }
-  var exports = dew();
-  exports["Buffer"];
-  exports["SlowBuffer"];
-  exports["INSPECT_MAX_BYTES"];
-  exports["kMaxLength"];
-  var Buffer = exports.Buffer;
-  var INSPECT_MAX_BYTES = exports.INSPECT_MAX_BYTES;
-  var kMaxLength = exports.kMaxLength;
+
+  // node-modules-polyfills:node:buffer
+  var exports2 = dew();
+  exports2["Buffer"];
+  exports2["SlowBuffer"];
+  exports2["INSPECT_MAX_BYTES"];
+  exports2["kMaxLength"];
+  var Buffer = exports2.Buffer;
+  var INSPECT_MAX_BYTES = exports2.INSPECT_MAX_BYTES;
+  var kMaxLength = exports2.kMaxLength;
 
   // tests/fixtures/input/globalBuffer/globalBuffer.ts
   console.log(Buffer.from("Hello world"));
 })();
-/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+/*! Bundled license information:
+
+@jspm/core/nodelibs/browser/chunk-DtuTasat.js:
+  (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
+*/
 "
 `;
 

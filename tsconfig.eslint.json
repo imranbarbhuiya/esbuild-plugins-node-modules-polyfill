@@ -5,5 +5,5 @@
 		"noEmit": true,
 		"incremental": false
 	},
-	"include": ["src", "globals", "tests", "tsup.config.ts", "vitest.config.ts"]
+	"include": ["src", "globals", "tests", "tsup.config.ts", "vitest.config.ts", "eslint.config.mjs"]
 }
