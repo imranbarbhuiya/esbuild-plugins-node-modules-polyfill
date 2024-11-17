@@ -31,7 +31,7 @@
 		"node-polyfill"
 	],
 	"dependencies": {
-		"@jspm/core": "2.0.1",
+		"@jspm/core": "^2.1.0",
 		"local-pkg": "^0.5.0",
 		"resolve.exports": "^2.0.2"
 	},

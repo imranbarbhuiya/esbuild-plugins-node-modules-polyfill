@@ -1,7 +1,7 @@
-import { readFile } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import { resolve, join } from 'node:path';
 
+import { build } from 'esbuild';
 import { loadPackageJSON, resolveModule } from 'local-pkg';
 import { resolve as resolveExports } from 'resolve.exports';
 
@@ -47,7 +47,14 @@ export const getCachedPolyfillPath = (importPath: string): Promise<string> => {
 export const polyfillContentAndTransform = async (importPath: string) => {
 	const exportFullPath = await getCachedPolyfillPath(importPath);
 
-	const content = await readFile(exportFullPath, 'utf8');
+	const content = (
+		await build({
+			write: false,
+			format: 'esm',
+			bundle: true,
+			entryPoints: [exportFullPath],
+		})
+	).outputFiles[0].text;
 
 	return content.replace(/eval\(/g, '(0,eval)(');
 };
