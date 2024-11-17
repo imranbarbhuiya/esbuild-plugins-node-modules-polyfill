@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.6.8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.7...v1.6.8) - (2024-11-17)
+
+## 🐛 Bug Fixes
+
+- Accept node prefix in modules obj ([4b8b611](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/4b8b611b34d2561d280768604a4e9b0395a91be6))
+
 # [1.6.6](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.5...v1.6.6) - (2024-08-29)
 
 ## 🐛 Bug Fixes
