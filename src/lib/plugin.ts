@@ -91,7 +91,6 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 	return {
 		name,
-		// eslint-disable-next-line @typescript-eslint/unbound-method
 		setup: ({ onLoad, onResolve, onEnd, initialOptions }) => {
 			if (shouldDetectErrorModules && initialOptions.write !== false)
 				throw new Error(`The "write" build option must be set to false when using the "error" polyfill type`);
@@ -177,7 +176,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				}
 
 				const moduleName = normalizeNodeBuiltinPath(args.path);
-				const polyfillOption = modules[moduleName];
+
+				const polyfillOption = modules[moduleName] ?? modules[`node:${moduleName}`];
 
 				if (!polyfillOption) return result[fallback];
 

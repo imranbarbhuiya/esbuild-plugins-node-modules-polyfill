@@ -65,7 +65,7 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   var platform = "browser";
   var env = {
     PATH: "/usr/bin",
-    LANG: typeof navigator !== "undefined" ? navigator.language + ".UTF-8" : void 0,
+    LANG: navigator.language + ".UTF-8",
     PWD: "/",
     HOME: "/home",
     TMP: "/tmp"
@@ -96,7 +96,6 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
   };
   function noop() {
   }
-  var browser = true;
   var _rawDebug = noop;
   var moduleLoadList = [];
   function _linkedBinding(name) {
@@ -220,7 +219,6 @@ exports[`Global Process Test > GIVEN a file that references the "process" global
     versions,
     arch,
     platform,
-    browser,
     release,
     _rawDebug,
     moduleLoadList,

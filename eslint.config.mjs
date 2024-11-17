@@ -10,18 +10,20 @@ export default [
 	...node,
 	...typescript,
 	{
-		ignores: ['.github', '.yarn', 'dist'],
 		rules: {
 			'unicorn/prefer-string-replace-all': 'off',
 		},
 		languageOptions: {
 			parserOptions: {
 				projectService: {
-					allowDefaultProject: ['eslint.config.mjs', 'tsup.config.ts', 'vitest.config.ts', 'eslint.config.mjs'],
+					allowDefaultProject: ['tsup.config.ts', 'vitest.config.ts', 'eslint.config.mjs'],
 					defaultProject: 'tsconfig.eslint.json',
 				},
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
+	},
+	{
+		ignores: ['.github', '.yarn', 'dist'],
 	},
 ];

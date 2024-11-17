@@ -25,4 +25,15 @@ describe('Fallback Test (Polyfilled)', () => {
 
 		await assertFileContent('./fixtures/output/fallbackPolyfilled.js');
 	});
+
+	test('GIVEN a file that imports a node builtin that is defined in the modules config with node prefix THEN provide a proper polyfill', async () => {
+		const config = createConfig({
+			fallback: 'empty',
+			modules: ['node:constants'],
+		});
+
+		await esbuild.build(config);
+
+		await assertFileContent('./fixtures/output/fallbackPolyfilled.js');
+	});
 });
