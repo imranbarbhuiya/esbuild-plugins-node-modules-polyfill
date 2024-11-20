@@ -32,20 +32,20 @@
 	],
 	"dependencies": {
 		"@jspm/core": "^2.1.0",
-		"local-pkg": "^0.5.0",
+		"local-pkg": "^0.5.1",
 		"resolve.exports": "^2.0.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.5.0",
-		"@commitlint/config-conventional": "^19.5.0",
+		"@commitlint/cli": "^19.6.0",
+		"@commitlint/config-conventional": "^19.6.0",
 		"@favware/cliff-jumper": "^5.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
-		"@types/node": "^22.9.0",
+		"@types/node": "^22.9.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.24.0",
-		"eslint": "9.14.0",
+		"eslint": "9.15.0",
 		"eslint-config-mahir": "^1.0.5",
-		"husky": "^9.1.6",
+		"husky": "^9.1.7",
 		"lint-staged": "^15.2.10",
 		"pinst": "^3.0.0",
 		"prettier": "^3.3.3",
@@ -86,7 +86,7 @@
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"eslint": "9.14.0"
+		"eslint": "9.15.0"
 	},
 	"engines": {
 		"node": ">=14.0.0"
