@@ -33,7 +33,7 @@
 	"dependencies": {
 		"@jspm/core": "^2.1.0",
 		"local-pkg": "^0.5.1",
-		"resolve.exports": "^2.0.2"
+		"resolve.exports": "^2.0.3"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.0",
@@ -48,10 +48,10 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^15.2.10",
 		"pinst": "^3.0.0",
-		"prettier": "^3.4.1",
+		"prettier": "^3.4.2",
 		"tsup": "^8.3.5",
 		"typescript": "^5.7.2",
-		"vitest": "^2.1.6"
+		"vitest": "^2.1.8"
 	},
 	"peerDependencies": {
 		"esbuild": ">=0.14.0 <=0.24.x"
