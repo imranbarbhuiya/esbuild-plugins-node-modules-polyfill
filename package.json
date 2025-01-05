@@ -40,7 +40,7 @@
 		"@commitlint/config-conventional": "^19.6.0",
 		"@favware/cliff-jumper": "^5.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
-		"@types/node": "^22.10.2",
+		"@types/node": "^22.10.5",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.24.2",
 		"eslint": "9.17.0",
@@ -91,5 +91,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.5.3"
+	"packageManager": "yarn@4.6.0"
 }
