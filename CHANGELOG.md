@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.7.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.8...v1.7.0) - (2025-02-24)
+
+## 🐛 Bug Fixes
+
+- Type changes ([0bf239f](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/0bf239f0e2cdf3a7e404e65e8c1616a7b3d5ecd3))
+- **deps:** Update dependency local-pkg to v1 (#314) ([74012cd](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/74012cd9dde0c1c9557fa73830c3d16e4729904a))
+
+## 🚀 Features
+
+- Use jspm ^2.1.0 ([5961ffb](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/5961ffb742917aedeaeb9710f43bfe90945e5f93))
+
+## 🧪 Testing
+
+- Remove zlib test files ([427dc15](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/427dc15b085914737cbdce5a0860067f91c3336b))
+
 # [1.6.8](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.6.7...v1.6.8) - (2024-11-17)
 
 ## 🐛 Bug Fixes
