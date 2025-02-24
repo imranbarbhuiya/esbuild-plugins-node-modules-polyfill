@@ -10,9 +10,7 @@ export default [
 	...node,
 	...typescript,
 	{
-		rules: {
-			'unicorn/prefer-string-replace-all': 'off',
-		},
+		rules: { 'unicorn/prefer-string-replace-all': 'off' },
 		languageOptions: {
 			parserOptions: {
 				projectService: {
@@ -23,7 +21,5 @@ export default [
 			},
 		},
 	},
-	{
-		ignores: ['.github', '.yarn', 'dist'],
-	},
+	{ ignores: ['.github', '.yarn', 'dist', 'node_modules', 'yarn.lock'] },
 ];

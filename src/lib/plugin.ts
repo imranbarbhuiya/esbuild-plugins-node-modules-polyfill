@@ -16,16 +16,9 @@ export interface NodePolyfillsOptions {
 	fallback?: 'empty' | 'error' | 'none';
 	formatError?: (
 		this: void,
-		args: {
-			importer: string;
-			moduleName: string;
-			polyfillExists: boolean;
-		},
+		args: { importer: string; moduleName: string; polyfillExists: boolean },
 	) => PartialMessage | Promise<PartialMessage>;
-	globals?: {
-		Buffer?: boolean;
-		process?: boolean;
-	};
+	globals?: { Buffer?: boolean; process?: boolean };
 	modules?: Record<string, boolean | 'empty' | 'error'> | string[];
 	name?: string;
 	namespace?: string;
@@ -38,29 +31,14 @@ const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> =
 		const resolved = await getCachedPolyfillPath(args.path);
 		const resolveDir = path.dirname(resolved);
 
-		if (isCommonjs) {
-			return {
-				loader: 'js',
-				contents: commonJsTemplate({
-					importPath: args.path,
-				}),
-				resolveDir,
-			};
-		}
+		if (isCommonjs) return { loader: 'js', contents: commonJsTemplate({ importPath: args.path }), resolveDir };
 
 		const contents = await getCachedPolyfillContent(args.path);
 
-		return {
-			loader: 'js',
-			contents,
-			resolveDir,
-		};
+		return { loader: 'js', contents, resolveDir };
 	} catch (error) {
 		console.error('node-modules-polyfill', error);
-		return {
-			contents: `export {}`,
-			loader: 'js',
-		};
+		return { contents: `export {}`, loader: 'js' };
 	}
 };
 
@@ -80,8 +58,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 	if (namespace.endsWith('error')) throw new Error(`namespace ${namespace} must not end with error`);
 
 	const modules = Array.isArray(modulesOption)
-		? Object.fromEntries(modulesOption.map((mod) => [mod, true]))
-		: modulesOption;
+		? Object.fromEntries((modulesOption as string[]).map((mod) => [mod, true]))
+		: (modulesOption as Record<string, boolean | 'empty' | 'error'>);
 
 	const commonjsNamespace = `${namespace}-commonjs`;
 	const emptyNamespace = `${namespace}-empty`;
@@ -137,18 +115,12 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			const resolver = async (args: OnResolveArgs): Promise<OnResolveResult | undefined> => {
 				const result = {
-					empty: {
-						namespace: emptyNamespace,
-						path: args.path,
-						sideEffects: false,
-					},
+					empty: { namespace: emptyNamespace, path: args.path, sideEffects: false },
 					error: {
 						namespace: errorNamespace,
 						path: args.path,
 						sideEffects: false,
-						pluginData: {
-							importer: path.relative(root, args.importer).replace(/\\/g, '/'),
-						},
+						pluginData: { importer: path.relative(root, args.importer).replace(/\\/g, '/') },
 					},
 					none: undefined,
 				} as const satisfies Record<string, OnResolveResult | undefined>;
@@ -190,11 +162,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				const ignoreRequire = args.namespace === commonjsNamespace;
 				const isCommonjs = !ignoreRequire && args.kind === 'require-call';
 
-				return {
-					namespace: isCommonjs ? commonjsNamespace : namespace,
-					path: args.path,
-					sideEffects: false,
-				};
+				return { namespace: isCommonjs ? commonjsNamespace : namespace, path: args.path, sideEffects: false };
 			};
 
 			onResolve({ filter }, resolver);
