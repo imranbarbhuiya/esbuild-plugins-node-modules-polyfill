@@ -32,7 +32,7 @@
 	],
 	"dependencies": {
 		"@jspm/core": "^2.1.0",
-		"local-pkg": "^1.0.0",
+		"local-pkg": "^1.1.1",
 		"resolve.exports": "^2.0.3"
 	},
 	"devDependencies": {
@@ -40,7 +40,7 @@
 		"@commitlint/config-conventional": "^19.7.1",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
-		"@types/node": "^22.13.5",
+		"@types/node": "^22.13.8",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.25.0",
 		"eslint": "9.21.0",
@@ -48,9 +48,9 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^15.4.3",
 		"pinst": "^3.0.0",
-		"prettier": "^3.5.2",
-		"tsup": "^8.3.6",
-		"typescript": "^5.7.3",
+		"prettier": "^3.5.3",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.2",
 		"vitest": "^3.0.7"
 	},
 	"peerDependencies": {
@@ -91,5 +91,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.6.0"
+	"packageManager": "yarn@4.7.0"
 }
