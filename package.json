@@ -84,7 +84,7 @@
 		}
 	},
 	"resolutions": {
-		"ansi-regex": "^5.0.1",
+		"ansi-regex": "^6.1.0",
 		"minimist": "^1.2.8",
 		"eslint": "9.24.0"
 	},
