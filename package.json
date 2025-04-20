@@ -43,7 +43,7 @@
 		"@types/node": "^22.14.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.25.2",
-		"eslint": "9.24.0",
+		"eslint": "9.25.0",
 		"eslint-config-mahir": "^1.0.7",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.5.1",
@@ -86,10 +86,10 @@
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"eslint": "9.24.0"
+		"eslint": "9.25.0"
 	},
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.9.0"
+	"packageManager": "yarn@4.9.1"
 }
