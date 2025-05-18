@@ -103856,14 +103856,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
 /*! Bundled license information:
 
 @jspm/core/nodelibs/browser/chunk-DtuTasat.js:
-  (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
-
-@jspm/core/nodelibs/browser/chunk-CcCWfKp1.js:
-  (*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> *)
-
 @jspm/core/nodelibs/browser/chunk-B738Er4n.js:
   (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
 
+@jspm/core/nodelibs/browser/chunk-CcCWfKp1.js:
 @jspm/core/nodelibs/browser/crypto.js:
   (*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> *)
 */
