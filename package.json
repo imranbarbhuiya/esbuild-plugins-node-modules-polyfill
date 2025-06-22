@@ -40,18 +40,18 @@
 		"@commitlint/config-conventional": "^19.8.1",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
-		"@types/node": "^22.15.31",
+		"@types/node": "^22.15.32",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.25.5",
 		"eslint": "9.29.0",
 		"eslint-config-mahir": "^1.0.7",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.1",
+		"lint-staged": "^16.1.2",
 		"pinst": "^3.0.0",
 		"prettier": "^3.5.3",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3",
-		"vitest": "^3.2.3"
+		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
 		"esbuild": ">=0.14.0 <=0.25.x"
