@@ -89,6 +89,67 @@ build({
 });
 ```
 
+## Common Issues and Troubleshooting
+
+### "Could not resolve" errors for Node.js builtin modules
+
+If you encounter errors like:
+```
+ERROR: Could not resolve "crypto"
+ERROR: Could not resolve "node:process"  
+ERROR: Could not resolve "stream"
+```
+
+This typically happens when:
+
+1. **You're not using the plugin at all** - Make sure you've added `nodeModulesPolyfillPlugin()` to your esbuild plugins array
+2. **You have a custom `modules` configuration that's missing required modules** - When you specify `modules`, you're limiting the plugin to only polyfill those specific modules
+
+#### Solution for custom modules configuration:
+
+If you're using a custom `modules` configuration, make sure to include ALL the builtin modules that your code and dependencies use:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	platform: 'browser', // Important: set platform to browser
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			modules: [
+				'crypto',
+				'stream', 
+				'zlib',
+				'process', // Include process if dependencies import 'node:process'
+				// Add any other modules your dependencies use
+			],
+		}),
+	],
+});
+```
+
+#### Recommended approach:
+
+For most use cases, use the **default configuration** which polyfills all Node.js builtin modules:
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	platform: 'browser',
+	plugins: [nodeModulesPolyfillPlugin()], // Polyfills all builtin modules
+});
+```
+
+Only use custom `modules` configuration if you specifically need to exclude certain modules or have bundle size constraints.
+
+### Difference between globals and modules
+
+- **`globals`** - Injects global variables like `process` and `Buffer` that can be used without importing
+- **`modules`** - Polyfills importable modules like `import crypto from 'crypto'` or `import process from 'node:process'`
+
+Some packages import Node.js builtins as modules (e.g., `import process from 'node:process'`) instead of using globals. In these cases, you need the module to be polyfilled, not just the global.
+
 ### Provide empty polyfills:
 
 #### Provide empty polyfills for specific modules:

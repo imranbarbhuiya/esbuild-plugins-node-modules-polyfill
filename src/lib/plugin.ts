@@ -51,6 +51,9 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 		namespace = NAME,
 		name = NAME,
 	} = options;
+	
+	// Track if user provided custom modules configuration
+	const hasCustomModules = options.modules !== undefined;
 	if (namespace.endsWith('commonjs')) throw new Error(`namespace ${namespace} must not end with commonjs`);
 
 	if (namespace.endsWith('empty')) throw new Error(`namespace ${namespace} must not end with empty`);
@@ -106,8 +109,20 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 			// If we are using fallbacks, we need to handle all builtin modules so that we can replace their contents,
 			// otherwise we only need to handle the modules that are configured (which is everything by default)
+			// Special case: if user has custom modules config but some modules are missing (not explicitly false),
+			// we want to handle all builtins to provide helpful errors, but only when fallback is 'none'
+			const hasIncompleteModuleConfig = hasCustomModules && 
+				Array.isArray(modulesOption) && 
+				modulesOption.length > 0 && 
+				modulesOption.length < builtinModules.length &&
+				fallback === 'none';
+			
 			const bundledModules =
-				fallback === 'none'
+				fallback === 'none' && !hasCustomModules
+					? Object.keys(modules).filter((moduleName) => builtinModules.includes(moduleName))
+					: hasIncompleteModuleConfig
+					? builtinModules
+					: fallback === 'none'
 					? Object.keys(modules).filter((moduleName) => builtinModules.includes(moduleName))
 					: builtinModules;
 
@@ -151,7 +166,25 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 				const polyfillOption = modules[moduleName] ?? modules[`node:${moduleName}`];
 
-				if (!polyfillOption) return result[fallback];
+				if (!polyfillOption) {
+					// If user has custom modules config and this is a builtin module, provide helpful error
+					// But only if the module wasn't explicitly set to false and it's an array config with missing modules
+					if (hasIncompleteModuleConfig && builtinModules.includes(moduleName)) {
+						const helpMessage = [
+							`Could not resolve "${args.path}" because it's not included in your modules configuration.`,
+							``,
+							`To fix this, add "${moduleName}" to your modules array:`,
+							`  modules: [${(modulesOption as string[]).map(module => `'${module}'`).join(', ')}, '${moduleName}']`,
+							``,
+							`Or use the default configuration to polyfill all builtin modules:`,
+							`  nodeModulesPolyfillPlugin() // no options`,
+							``
+						].join('\n');
+						
+						throw new Error(helpMessage);
+					}
+					return result[fallback];
+				}
 
 				if (polyfillOption === 'error' || polyfillOption === 'empty') return result[polyfillOption];
 
