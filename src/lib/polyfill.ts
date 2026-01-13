@@ -33,24 +33,16 @@ async function polyfillPath(importPath: string) {
 }
 
 const polyfillPathCache: Map<string, Promise<string>> = new Map();
-const polyfillOverrides: Map<string, string> = new Map();
 
-export const setPolyfillOverrides = (overrides: Record<string, string>) => {
-	polyfillOverrides.clear();
-	for (const [moduleName, customPath] of Object.entries(overrides)) {
-		const normalizedModuleName = normalizeNodeBuiltinPath(moduleName);
-		polyfillOverrides.set(normalizedModuleName, customPath);
-	}
-};
-
-export const getCachedPolyfillPath = (importPath: string): Promise<string> => {
+export const getCachedPolyfillPath = (
+	importPath: string,
+	overrides?: Map<string, string>,
+): Promise<string> => {
 	const normalizedImportPath = normalizeNodeBuiltinPath(importPath);
 
 	// Check for custom override first
-	const override = polyfillOverrides.get(normalizedImportPath);
-	if (override) 
-		return Promise.resolve(override);
-	
+	const override = overrides?.get(normalizedImportPath);
+	if (override) return Promise.resolve(override);
 
 	const cachedPromise = polyfillPathCache.get(normalizedImportPath);
 	if (cachedPromise) return cachedPromise;
@@ -60,8 +52,8 @@ export const getCachedPolyfillPath = (importPath: string): Promise<string> => {
 	return promise;
 };
 
-export const polyfillContentAndTransform = async (importPath: string) => {
-	const exportFullPath = await getCachedPolyfillPath(importPath);
+export const polyfillContentAndTransform = async (importPath: string, overrides?: Map<string, string>) => {
+	const exportFullPath = await getCachedPolyfillPath(importPath, overrides);
 
 	const content = (
 		await build({
@@ -76,13 +68,18 @@ export const polyfillContentAndTransform = async (importPath: string) => {
 };
 
 const polyfillContentCache: Map<string, Promise<string>> = new Map();
-export const getCachedPolyfillContent = (importPath: string): Promise<string> => {
+export const getCachedPolyfillContent = (importPath: string, overrides?: Map<string, string>): Promise<string> => {
 	const normalizedImportPath = normalizeNodeBuiltinPath(importPath);
+
+	// If there are overrides, don't use cache since the override might be different for different instances
+	if (overrides?.has(normalizedImportPath)) 
+		return polyfillContentAndTransform(normalizedImportPath, overrides);
+	
 
 	const cachedPromise = polyfillContentCache.get(normalizedImportPath);
 	if (cachedPromise) return cachedPromise;
 
-	const promise = polyfillContentAndTransform(normalizedImportPath);
+	const promise = polyfillContentAndTransform(normalizedImportPath, overrides);
 	polyfillContentCache.set(normalizedImportPath, promise);
 	return promise;
 };

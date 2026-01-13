@@ -128,6 +128,10 @@ export default customProcess;
 > [!Note]
 > Custom overrides work with both `process` and `node:process` style imports. You can specify the override with or without the `node:` prefix.
 
+> [!Important]
+> - File paths should be **absolute paths** or **relative to the project root** (where esbuild is executed), not relative to the configuration file. This is important because esbuild will resolve these paths, and relative paths might not work as expected if you run the build command from a different directory.
+> - If a module is specified in both `overrides` and `modules` options (e.g., `overrides: { process: './custom.js' }` and `modules: { process: 'empty' }`), the **override takes precedence** and the `modules` configuration for that module will be ignored.
+
 ### Provide empty polyfills:
 
 #### Provide empty polyfills for specific modules:

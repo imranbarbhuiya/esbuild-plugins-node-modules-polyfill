@@ -43,8 +43,9 @@ describe('Custom Polyfill Override Test', () => {
 		await esbuild.build(config);
 
 		const result = await assertFileContent('./fixtures/output/customPolyfill.js');
-		
+
 		// The output should contain our custom process implementation
 		expect(result).toContain('custom-v1.0.0');
+		expect(result).toContain('Hello from custom process!');
 	});
 });
