@@ -21,5 +21,5 @@ export default [
 			},
 		},
 	},
-	{ ignores: ['.github', '.yarn', 'dist', 'node_modules', 'yarn.lock'] },
+	{ ignores: ['.github', '.yarn', 'dist', 'node_modules', 'yarn.lock', 'tests/fixtures'] },
 ];

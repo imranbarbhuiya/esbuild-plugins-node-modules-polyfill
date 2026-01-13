@@ -33,8 +33,22 @@ async function polyfillPath(importPath: string) {
 }
 
 const polyfillPathCache: Map<string, Promise<string>> = new Map();
+const polyfillOverrides: Map<string, string> = new Map();
+
+export const setPolyfillOverrides = (overrides: Record<string, string>) => {
+	polyfillOverrides.clear();
+	for (const [moduleName, customPath] of Object.entries(overrides)) {
+		const normalizedModuleName = normalizeNodeBuiltinPath(moduleName);
+		polyfillOverrides.set(normalizedModuleName, customPath);
+	}
+};
+
 export const getCachedPolyfillPath = (importPath: string): Promise<string> => {
 	const normalizedImportPath = normalizeNodeBuiltinPath(importPath);
+
+	// Check for custom override first
+	const override = polyfillOverrides.get(normalizedImportPath);
+	if (override) return Promise.resolve(override);
 
 	const cachedPromise = polyfillPathCache.get(normalizedImportPath);
 	if (cachedPromise) return cachedPromise;

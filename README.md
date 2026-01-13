@@ -22,6 +22,7 @@ Polyfills nodejs builtin modules and globals for the browser.
 -   Supports [`browser` field in `package.json`](https://github.com/defunctzombie/package-browser-field-spec)
 -   Optionally injects globals
 -   Optionally provides empty fallbacks
+-   Supports custom polyfill overrides
 
 ## Install
 
@@ -88,6 +89,48 @@ build({
 	],
 });
 ```
+
+### Override polyfills with custom implementations:
+
+You can provide custom polyfill implementations for specific modules. This is useful when you need to customize the behavior of a polyfill for your specific use case.
+
+```ts
+import { nodeModulesPolyfillPlugin } from 'esbuild-plugins-node-modules-polyfill';
+import { build } from 'esbuild';
+build({
+	plugins: [
+		nodeModulesPolyfillPlugin({
+			overrides: {
+				process: './my-custom-process-polyfill.js',
+			},
+		}),
+	],
+});
+```
+
+The custom polyfill file should export a default export with your implementation:
+
+```js
+// my-custom-process-polyfill.js
+const customProcess = {
+	env: {},
+	version: 'v1.0.0',
+	platform: 'browser',
+	stdout: {
+		write: (data) => console.log(data),
+	},
+	// ... other process properties
+};
+
+export default customProcess;
+```
+
+> [!Note]
+> Custom overrides work with both `process` and `node:process` style imports. You can specify the override with or without the `node:` prefix.
+
+> [!Important]
+> - File paths should be **absolute paths** or **relative to the project root** (where esbuild is executed), not relative to the configuration file. This is important because esbuild will resolve these paths, and relative paths might not work as expected if you run the build command from a different directory.
+> - If a module is specified in both `overrides` and `modules` options (e.g., `overrides: { process: './custom.js' }` and `modules: { process: 'empty' }`), the **override takes precedence** and the `modules` configuration for that module will be ignored.
 
 ### Provide empty polyfills:
 
