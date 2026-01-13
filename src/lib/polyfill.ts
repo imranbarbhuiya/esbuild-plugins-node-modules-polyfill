@@ -72,9 +72,7 @@ export const getCachedPolyfillContent = (importPath: string, overrides?: Map<str
 	const normalizedImportPath = normalizeNodeBuiltinPath(importPath);
 
 	// If there are overrides, don't use cache since the override might be different for different instances
-	if (overrides?.has(normalizedImportPath)) 
-		return polyfillContentAndTransform(normalizedImportPath, overrides);
-	
+	if (overrides?.has(normalizedImportPath)) return polyfillContentAndTransform(normalizedImportPath, overrides);
 
 	const cachedPromise = polyfillContentCache.get(normalizedImportPath);
 	if (cachedPromise) return cachedPromise;
