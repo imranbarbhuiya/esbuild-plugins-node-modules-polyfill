@@ -4,7 +4,7 @@ import process from 'node:process';
 
 import { loadPackageJSON } from 'local-pkg';
 
-import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
+import { getCachedPolyfillContent, getCachedPolyfillPath, setPolyfillOverrides } from './polyfill.js';
 import { escapeRegex, commonJsTemplate, normalizeNodeBuiltinPath } from './utils/util.js';
 
 import type { OnResolveArgs, OnResolveResult, PartialMessage, Plugin } from 'esbuild';
@@ -22,6 +22,7 @@ export interface NodePolyfillsOptions {
 	modules?: Record<string, boolean | 'empty' | 'error'> | string[];
 	name?: string;
 	namespace?: string;
+	overrides?: Record<string, string>;
 }
 
 const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> => {
@@ -50,12 +51,18 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 		formatError,
 		namespace = NAME,
 		name = NAME,
+		overrides = {},
 	} = options;
 	if (namespace.endsWith('commonjs')) throw new Error(`namespace ${namespace} must not end with commonjs`);
 
 	if (namespace.endsWith('empty')) throw new Error(`namespace ${namespace} must not end with empty`);
 
 	if (namespace.endsWith('error')) throw new Error(`namespace ${namespace} must not end with error`);
+
+	// Set the polyfill overrides
+	if (Object.keys(overrides).length > 0) 
+		setPolyfillOverrides(overrides);
+	
 
 	const modules = Array.isArray(modulesOption)
 		? Object.fromEntries((modulesOption as string[]).map((mod) => [mod, true]))
