@@ -4,7 +4,7 @@ import process from 'node:process';
 
 import { loadPackageJSON } from 'local-pkg';
 
-import { getCachedPolyfillContent, getCachedPolyfillPath } from './polyfill.js';
+import { getCachedPolyfillContent, getCachedPolyfillPath, setPolyfillOverrides } from './polyfill.js';
 import { escapeRegex, commonJsTemplate, normalizeNodeBuiltinPath } from './utils/util.js';
 
 import type { OnResolveArgs, OnResolveResult, PartialMessage, Plugin } from 'esbuild';
@@ -25,25 +25,23 @@ export interface NodePolyfillsOptions {
 	overrides?: Record<string, string>;
 }
 
-const loader =
-	(overrides?: Map<string, string>) =>
-	async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> => {
-		try {
-			const isCommonjs = args.namespace.endsWith('commonjs');
+const loader = async (args: esbuild.OnLoadArgs): Promise<esbuild.OnLoadResult> => {
+	try {
+		const isCommonjs = args.namespace.endsWith('commonjs');
 
-			const resolved = await getCachedPolyfillPath(args.path, overrides);
-			const resolveDir = path.dirname(resolved);
+		const resolved = await getCachedPolyfillPath(args.path);
+		const resolveDir = path.dirname(resolved);
 
-			if (isCommonjs) return { loader: 'js', contents: commonJsTemplate({ importPath: args.path }), resolveDir };
+		if (isCommonjs) return { loader: 'js', contents: commonJsTemplate({ importPath: args.path }), resolveDir };
 
-			const contents = await getCachedPolyfillContent(args.path, overrides);
+		const contents = await getCachedPolyfillContent(args.path);
 
-			return { loader: 'js', contents, resolveDir };
-		} catch (error) {
-			console.error('node-modules-polyfill', error);
-			return { contents: `export {}`, loader: 'js' };
-		}
-	};
+		return { loader: 'js', contents, resolveDir };
+	} catch (error) {
+		console.error('node-modules-polyfill', error);
+		return { contents: `export {}`, loader: 'js' };
+	}
+};
 
 export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): Plugin => {
 	const {
@@ -61,12 +59,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 	if (namespace.endsWith('error')) throw new Error(`namespace ${namespace} must not end with error`);
 
-	// Convert overrides to Map with normalized module names
-	const overridesMap = new Map<string, string>();
-	for (const [moduleName, customPath] of Object.entries(overrides)) {
-		const normalizedModuleName = normalizeNodeBuiltinPath(moduleName);
-		overridesMap.set(normalizedModuleName, customPath);
-	}
+	// Set the polyfill overrides
+	if (Object.keys(overrides).length > 0) setPolyfillOverrides(overrides);
 
 	const modules = Array.isArray(modulesOption)
 		? Object.fromEntries((modulesOption as string[]).map((mod) => [mod, true]))
@@ -112,8 +106,8 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				)}`,
 			}));
 
-			onLoad({ filter: /.*/, namespace }, loader(overridesMap));
-			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader(overridesMap));
+			onLoad({ filter: /.*/, namespace }, loader);
+			onLoad({ filter: /.*/, namespace: commonjsNamespace }, loader);
 
 			// If we are using fallbacks, we need to handle all builtin modules so that we can replace their contents,
 			// otherwise we only need to handle the modules that are configured (which is everything by default)
@@ -166,7 +160,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 				if (polyfillOption === 'error' || polyfillOption === 'empty') return result[polyfillOption];
 
-				const polyfillPath = await getCachedPolyfillPath(moduleName, overridesMap).catch(() => null);
+				const polyfillPath = await getCachedPolyfillPath(moduleName).catch(() => null);
 
 				if (!polyfillPath) return result[fallback];
 
@@ -205,7 +199,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 
 					for (const { groups } of matches) {
 						const { moduleName, importer } = groups!;
-						const polyfillExists = (await getCachedPolyfillPath(moduleName, overridesMap).catch(() => null)) !== null;
+						const polyfillExists = (await getCachedPolyfillPath(moduleName).catch(() => null)) !== null;
 						errors.push({
 							pluginName: name,
 							text: polyfillExists
