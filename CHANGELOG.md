@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.8.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.7.1...v1.8.0) - (2026-01-18)
+
+## 🚀 Features
+
+- Add support for custom polyfill overrides (#351) ([ce593aa](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/ce593aa599eac95ce5ad0b7a8e39e51f46337fde))
+
 # [1.7.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.7.0...v1.7.1) - (2025-06-11)
 
 ## 🐛 Bug Fixes
