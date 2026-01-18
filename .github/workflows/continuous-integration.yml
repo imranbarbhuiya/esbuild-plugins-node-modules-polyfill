@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
       - name: Add problem matcher
         run: echo "::add-matcher::.github/problemMatchers/eslint.json"
-      - name: Use Node.js v22
-        uses: actions/setup-node@v4.4.0
+      - name: Use Node.js v24
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
           registry-url: https://registry.npmjs.org/
       - name: Install Dependencies
@@ -31,17 +31,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22, 23, 24]
+        node: [20, 22, 24, 25]
       fail-fast: false
     env:
       YARN_IGNORE_NODE: 1
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
       - name: Add problem matcher
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
       - name: Use Node.js v{{ matrix.node }}
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: yarn
@@ -51,7 +51,7 @@ jobs:
       - name: Build Code
         run: yarn build
       - name: Run TypeCheck
-        if: ${{ matrix.node == 22 }}
+        if: ${{ matrix.node == 24 }}
         run: yarn typecheck
       - name: Test Code
         run: yarn test

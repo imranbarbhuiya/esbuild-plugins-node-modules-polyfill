@@ -24,17 +24,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           repository: ${{ github.event.inputs.repository || 'imranbarbhuiya/esbuild-plugins-node-modules-polyfill' }}
           ref: ${{ github.event.inputs.ref || 'main' }}
-      - name: Use Node.js v22
-        uses: actions/setup-node@v4.4.0
+      - name: Use Node.js v24
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
           registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
@@ -48,5 +49,4 @@ jobs:
           yarn bump --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --skip-changelog
           npm publish --tag ${TAG} --provenance
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
