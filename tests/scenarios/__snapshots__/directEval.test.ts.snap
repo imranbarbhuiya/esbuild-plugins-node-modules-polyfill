@@ -1699,7 +1699,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function numberIsNaN(obj) {
       return obj !== obj;
     }
-    const hexSliceLookupTable = function() {
+    const hexSliceLookupTable = (function() {
       const alphabet = "0123456789abcdef";
       const table = new Array(256);
       for (let i5 = 0; i5 < 16; ++i5) {
@@ -1709,7 +1709,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
       }
       return table;
-    }();
+    })();
     function defineBigIntMethod(fn) {
       return typeof BigInt === "undefined" ? BufferBigIntNotDefined : fn;
     }
@@ -2378,10 +2378,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var r5 = e7._events;
     if (void 0 === r5) return [];
     var i5 = r5[t5];
-    return void 0 === i5 ? [] : "function" == typeof i5 ? n5 ? [i5.listener || i5] : [i5] : n5 ? function(e8) {
+    return void 0 === i5 ? [] : "function" == typeof i5 ? n5 ? [i5.listener || i5] : [i5] : n5 ? (function(e8) {
       for (var t6 = new Array(e8.length), n6 = 0; n6 < t6.length; ++n6) t6[n6] = e8[n6].listener || e8[n6];
       return t6;
-    }(i5) : c(i5, i5.length);
+    })(i5) : c(i5, i5.length);
   }
   function p(e7) {
     var t5 = this._events;
@@ -2446,10 +2446,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         break;
       }
       if (i5 < 0) return this;
-      0 === i5 ? n5.shift() : !function(e8, t6) {
+      0 === i5 ? n5.shift() : !(function(e8, t6) {
         for (; t6 + 1 < e8.length; t6++) e8[t6] = e8[t6 + 1];
         e8.pop();
-      }(n5, i5), 1 === n5.length && (r5[e7] = n5[0]), void 0 !== r5.removeListener && this.emit("removeListener", e7, s5 || t5);
+      })(n5, i5), 1 === n5.length && (r5[e7] = n5[0]), void 0 !== r5.removeListener && this.emit("removeListener", e7, s5 || t5);
     }
     return this;
   }, o.prototype.off = o.prototype.removeListener, o.prototype.removeAllListeners = function(e7) {
@@ -2586,7 +2586,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
     }
   }
-  !function() {
+  !(function() {
     try {
       t$3 = "function" == typeof setTimeout ? setTimeout : i$2;
     } catch (e7) {
@@ -2597,7 +2597,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     } catch (e7) {
       n$2 = u$2;
     }
-  }();
+  })();
   var l$2;
   var s$1 = [];
   var f$1 = false;
@@ -2613,7 +2613,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         for (l$2 = s$1, s$1 = []; ++a$1 < t5; ) l$2 && l$2[a$1].run();
         a$1 = -1, t5 = s$1.length;
       }
-      l$2 = null, f$1 = false, function(e8) {
+      l$2 = null, f$1 = false, (function(e8) {
         if (n$2 === clearTimeout) return clearTimeout(e8);
         if ((n$2 === u$2 || !n$2) && clearTimeout) return n$2 = clearTimeout, clearTimeout(e8);
         try {
@@ -2625,7 +2625,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             return n$2.call(this || r$2, e8);
           }
         }
-      }(e7);
+      })(e7);
     }
   }
   function m$1(e7, t5) {
@@ -2680,9 +2680,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var n2 = function(t5) {
     return !!o2(t5) || null !== t5 && "object" == typeof t5 && "number" == typeof t5.length && t5.length >= 0 && "[object Array]" !== e2.call(t5) && "[object Function]" === e2.call(t5.callee);
   };
-  var r2 = function() {
+  var r2 = (function() {
     return o2(arguments);
-  }();
+  })();
   o2.isLegacyArguments = n2;
   var l2 = r2 ? o2 : n2;
   var t$1 = Object.prototype.toString;
@@ -2690,13 +2690,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var n$1 = /^\\s*(?:function)?\\*/;
   var e$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.toStringTag;
   var r$1 = Object.getPrototypeOf;
-  var c2 = function() {
+  var c2 = (function() {
     if (!e$1) return false;
     try {
       return Function("return function*() {}")();
     } catch (t5) {
     }
-  }();
+  })();
   var u2 = c2 ? r$1(c2) : {};
   var i2 = function(c5) {
     return "function" == typeof c5 && (!!n$1.test(o$1.call(c5)) || (e$1 ? r$1(c5) === u2 : "[object GeneratorFunction]" === t$1.call(c5)));
@@ -2726,13 +2726,17 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var y2 = p2 && void 0 !== Symbol.toStringTag;
   var l$1 = "undefined" != typeof Uint8Array;
   var d = "undefined" != typeof ArrayBuffer;
-  if (l$1 && y2) var g = Object.getPrototypeOf(Uint8Array.prototype), b = c$1(Object.getOwnPropertyDescriptor(g, Symbol.toStringTag).get);
+  if (l$1 && y2) g = Object.getPrototypeOf(Uint8Array.prototype), b = c$1(Object.getOwnPropertyDescriptor(g, Symbol.toStringTag).get);
+  var g;
+  var b;
   var m = c$1(Object.prototype.toString);
   var h2 = c$1(Number.prototype.valueOf);
   var j = c$1(String.prototype.valueOf);
   var A = c$1(Boolean.prototype.valueOf);
-  if (s2) var w = c$1(BigInt.prototype.valueOf);
-  if (p2) var v2 = c$1(Symbol.prototype.valueOf);
+  if (s2) w = c$1(BigInt.prototype.valueOf);
+  var w;
+  if (p2) v2 = c$1(Symbol.prototype.valueOf);
+  var v2;
   function O(e7, t5) {
     if ("object" != typeof e7) return false;
     try {
@@ -2848,11 +2852,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return H(e7) || Z(e7) || q(e7) || K(e7) || L(e7);
   }, o$2.isAnyArrayBuffer = function(e7) {
     return l$1 && (V(e7) || _(e7));
-  }, ["isProxy", "isExternal", "isModuleNamespaceObject"].forEach(function(e7) {
+  }, ["isProxy", "isExternal", "isModuleNamespaceObject"].forEach((function(e7) {
     Object.defineProperty(o$2, e7, { enumerable: false, value: function() {
       throw new Error(e7 + " is not supported in userland");
     } });
-  });
+  }));
   var Q = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : globalThis;
   var X = {};
   var Y = T$1;
@@ -2867,7 +2871,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return t5.join(" ");
     }
     r5 = 1;
-    for (var n5 = arguments, i5 = n5.length, o5 = String(e7).replace(te, function(e8) {
+    for (var n5 = arguments, i5 = n5.length, o5 = String(e7).replace(te, (function(e8) {
       if ("%%" === e8) return "%";
       if (r5 >= i5) return e8;
       switch (e8) {
@@ -2884,7 +2888,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         default:
           return e8;
       }
-    }), u5 = n5[r5]; r5 < i5; u5 = n5[++r5]) le(u5) || !he(u5) ? o5 += " " + u5 : o5 += " " + oe(u5);
+    })), u5 = n5[r5]; r5 < i5; u5 = n5[++r5]) le(u5) || !he(u5) ? o5 += " " + u5 : o5 += " " + oe(u5);
     return o5;
   }, X.deprecate = function(e7, t5) {
     if (void 0 !== Y && true === Y.noDeprecation) return e7;
@@ -2923,7 +2927,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       var n5 = t5.inspect(r5, e7);
       return ge(n5) || (n5 = ae(e7, n5, r5)), n5;
     }
-    var i5 = function(e8, t6) {
+    var i5 = (function(e8, t6) {
       if (be(t6)) return e8.stylize("undefined", "undefined");
       if (ge(t6)) {
         var r6 = "'" + JSON.stringify(t6).replace(/^"|"$/g, "").replace(/'/g, "\\\\'").replace(/\\\\"/g, '"') + "'";
@@ -2932,14 +2936,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       if (de(t6)) return e8.stylize("" + t6, "number");
       if (ye(t6)) return e8.stylize("" + t6, "boolean");
       if (le(t6)) return e8.stylize("null", "null");
-    }(e7, t5);
+    })(e7, t5);
     if (i5) return i5;
-    var o5 = Object.keys(t5), u5 = function(e8) {
+    var o5 = Object.keys(t5), u5 = (function(e8) {
       var t6 = {};
-      return e8.forEach(function(e9, r6) {
+      return e8.forEach((function(e9, r6) {
         t6[e9] = true;
-      }), t6;
-    }(o5);
+      })), t6;
+    })(o5);
     if (e7.showHidden && (o5 = Object.getOwnPropertyNames(t5)), Ae(t5) && (o5.indexOf("message") >= 0 || o5.indexOf("description") >= 0)) return ce(t5);
     if (0 === o5.length) {
       if (we(t5)) {
@@ -2952,31 +2956,31 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }
     var a5, c5 = "", s5 = false, p5 = ["{", "}"];
     (pe(t5) && (s5 = true, p5 = ["[", "]"]), we(t5)) && (c5 = " [Function" + (t5.name ? ": " + t5.name : "") + "]");
-    return me(t5) && (c5 = " " + RegExp.prototype.toString.call(t5)), je(t5) && (c5 = " " + Date.prototype.toUTCString.call(t5)), Ae(t5) && (c5 = " " + ce(t5)), 0 !== o5.length || s5 && 0 != t5.length ? r5 < 0 ? me(t5) ? e7.stylize(RegExp.prototype.toString.call(t5), "regexp") : e7.stylize("[Object]", "special") : (e7.seen.push(t5), a5 = s5 ? function(e8, t6, r6, n6, i6) {
+    return me(t5) && (c5 = " " + RegExp.prototype.toString.call(t5)), je(t5) && (c5 = " " + Date.prototype.toUTCString.call(t5)), Ae(t5) && (c5 = " " + ce(t5)), 0 !== o5.length || s5 && 0 != t5.length ? r5 < 0 ? me(t5) ? e7.stylize(RegExp.prototype.toString.call(t5), "regexp") : e7.stylize("[Object]", "special") : (e7.seen.push(t5), a5 = s5 ? (function(e8, t6, r6, n6, i6) {
       for (var o6 = [], u6 = 0, f7 = t6.length; u6 < f7; ++u6) ke(t6, String(u6)) ? o6.push(se(e8, t6, r6, n6, String(u6), true)) : o6.push("");
-      return i6.forEach(function(i7) {
+      return i6.forEach((function(i7) {
         i7.match(/^\\d+$/) || o6.push(se(e8, t6, r6, n6, i7, true));
-      }), o6;
-    }(e7, t5, r5, u5, o5) : o5.map(function(n6) {
+      })), o6;
+    })(e7, t5, r5, u5, o5) : o5.map((function(n6) {
       return se(e7, t5, r5, u5, n6, s5);
-    }), e7.seen.pop(), function(e8, t6, r6) {
+    })), e7.seen.pop(), (function(e8, t6, r6) {
       var n6 = 0;
-      if (e8.reduce(function(e9, t7) {
+      if (e8.reduce((function(e9, t7) {
         return n6++, t7.indexOf("\\n") >= 0 && n6++, e9 + t7.replace(/\\u001b\\[\\d\\d?m/g, "").length + 1;
-      }, 0) > 60) return r6[0] + ("" === t6 ? "" : t6 + "\\n ") + " " + e8.join(",\\n  ") + " " + r6[1];
+      }), 0) > 60) return r6[0] + ("" === t6 ? "" : t6 + "\\n ") + " " + e8.join(",\\n  ") + " " + r6[1];
       return r6[0] + t6 + " " + e8.join(", ") + " " + r6[1];
-    }(a5, c5, p5)) : p5[0] + c5 + p5[1];
+    })(a5, c5, p5)) : p5[0] + c5 + p5[1];
   }
   function ce(e7) {
     return "[" + Error.prototype.toString.call(e7) + "]";
   }
   function se(e7, t5, r5, n5, i5, o5) {
     var u5, f6, a5;
-    if ((a5 = Object.getOwnPropertyDescriptor(t5, i5) || { value: t5[i5] }).get ? f6 = a5.set ? e7.stylize("[Getter/Setter]", "special") : e7.stylize("[Getter]", "special") : a5.set && (f6 = e7.stylize("[Setter]", "special")), ke(n5, i5) || (u5 = "[" + i5 + "]"), f6 || (e7.seen.indexOf(a5.value) < 0 ? (f6 = le(r5) ? ae(e7, a5.value, null) : ae(e7, a5.value, r5 - 1)).indexOf("\\n") > -1 && (f6 = o5 ? f6.split("\\n").map(function(e8) {
+    if ((a5 = Object.getOwnPropertyDescriptor(t5, i5) || { value: t5[i5] }).get ? f6 = a5.set ? e7.stylize("[Getter/Setter]", "special") : e7.stylize("[Getter]", "special") : a5.set && (f6 = e7.stylize("[Setter]", "special")), ke(n5, i5) || (u5 = "[" + i5 + "]"), f6 || (e7.seen.indexOf(a5.value) < 0 ? (f6 = le(r5) ? ae(e7, a5.value, null) : ae(e7, a5.value, r5 - 1)).indexOf("\\n") > -1 && (f6 = o5 ? f6.split("\\n").map((function(e8) {
       return "  " + e8;
-    }).join("\\n").substr(2) : "\\n" + f6.split("\\n").map(function(e8) {
+    })).join("\\n").substr(2) : "\\n" + f6.split("\\n").map((function(e8) {
       return "   " + e8;
-    }).join("\\n")) : f6 = e7.stylize("[Circular]", "special")), be(u5)) {
+    })).join("\\n")) : f6 = e7.stylize("[Circular]", "special")), be(u5)) {
       if (o5 && i5.match(/^\\d+$/)) return f6;
       (u5 = JSON.stringify("" + i5)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (u5 = u5.substr(1, u5.length - 2), u5 = e7.stylize(u5, "name")) : (u5 = u5.replace(/'/g, "\\\\'").replace(/\\\\"/g, '"').replace(/(^"|"$)/g, "'"), u5 = e7.stylize(u5, "string"));
     }
@@ -3053,7 +3057,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     for (var r5 = Object.keys(t5), n5 = r5.length; n5--; ) e7[r5[n5]] = t5[r5[n5]];
     return e7;
   };
-  var Ee = "undefined" != typeof Symbol ? Symbol("util.promisify.custom") : void 0;
+  var Ee = "undefined" != typeof Symbol ? /* @__PURE__ */ Symbol("util.promisify.custom") : void 0;
   function De(e7, t5) {
     if (!e7) {
       var r5 = new Error("Promise was rejected with a falsy value");
@@ -3069,12 +3073,12 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return Object.defineProperty(t5, Ee, { value: t5, enumerable: false, writable: false, configurable: true }), t5;
     }
     function t5() {
-      for (var t6, r5, n5 = new Promise(function(e8, n6) {
+      for (var t6, r5, n5 = new Promise((function(e8, n6) {
         t6 = e8, r5 = n6;
-      }), i5 = [], o5 = 0; o5 < arguments.length; o5++) i5.push(arguments[o5]);
-      i5.push(function(e8, n6) {
+      })), i5 = [], o5 = 0; o5 < arguments.length; o5++) i5.push(arguments[o5]);
+      i5.push((function(e8, n6) {
         e8 ? r5(e8) : t6(n6);
-      });
+      }));
       try {
         e7.apply(this || Q, i5);
       } catch (e8) {
@@ -3092,11 +3096,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       var i5 = this || Q, o5 = function() {
         return n5.apply(i5, arguments);
       };
-      e7.apply(this || Q, t6).then(function(e8) {
+      e7.apply(this || Q, t6).then((function(e8) {
         Y.nextTick(o5.bind(null, null, e8));
-      }, function(e8) {
+      }), (function(e8) {
         Y.nextTick(De.bind(null, e8, o5));
-      });
+      }));
     }
     return Object.setPrototypeOf(t5, Object.getPrototypeOf(e7)), Object.defineProperties(t5, ee(e7)), t5;
   };
@@ -3340,9 +3344,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var t5 = u$22(r5), e7 = t5[0], n5 = t5[1];
     return 3 * (e7 + n5) / 4 - n5;
   }, toByteArray: function(r5) {
-    var t5, o5, a5 = u$22(r5), h5 = a5[0], c5 = a5[1], d4 = new n$23(function(r6, t6, e7) {
+    var t5, o5, a5 = u$22(r5), h5 = a5[0], c5 = a5[1], d4 = new n$23((function(r6, t6, e7) {
       return 3 * (t6 + e7) / 4 - e7;
-    }(0, h5, c5)), f6 = 0, A4 = c5 > 0 ? h5 - 4 : h5;
+    })(0, h5, c5)), f6 = 0, A4 = c5 > 0 ? h5 - 4 : h5;
     for (o5 = 0; o5 < A4; o5 += 4) t5 = e$23[r5.charCodeAt(o5)] << 18 | e$23[r5.charCodeAt(o5 + 1)] << 12 | e$23[r5.charCodeAt(o5 + 2)] << 6 | e$23[r5.charCodeAt(o5 + 3)], d4[f6++] = t5 >> 16 & 255, d4[f6++] = t5 >> 8 & 255, d4[f6++] = 255 & t5;
     2 === c5 && (t5 = e$23[r5.charCodeAt(o5)] << 2 | e$23[r5.charCodeAt(o5 + 1)] >> 4, d4[f6++] = 255 & t5);
     1 === c5 && (t5 = e$23[r5.charCodeAt(o5)] << 10 | e$23[r5.charCodeAt(o5 + 1)] << 4 | e$23[r5.charCodeAt(o5 + 2)] >> 2, d4[f6++] = t5 >> 8 & 255, d4[f6++] = 255 & t5);
@@ -3389,7 +3393,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var e$1$1 = {};
   var n$1$1 = r$13;
   var i$12 = a$1$1;
-  var o$1$1 = "function" == typeof Symbol && "function" == typeof Symbol.for ? Symbol.for("nodejs.util.inspect.custom") : null;
+  var o$1$1 = "function" == typeof Symbol && "function" == typeof Symbol.for ? /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom") : null;
   e$1$1.Buffer = u$1$1, e$1$1.SlowBuffer = function(t5) {
     +t5 != t5 && (t5 = 0);
     return u$1$1.alloc(+t5);
@@ -3407,13 +3411,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return s$12(t5, r5, e7);
   }
   function s$12(t5, r5, e7) {
-    if ("string" == typeof t5) return function(t6, r6) {
+    if ("string" == typeof t5) return (function(t6, r6) {
       "string" == typeof r6 && "" !== r6 || (r6 = "utf8");
       if (!u$1$1.isEncoding(r6)) throw new TypeError("Unknown encoding: " + r6);
       var e8 = 0 | y3(t6, r6), n6 = f$2(e8), i6 = n6.write(t6, r6);
       i6 !== e8 && (n6 = n6.slice(0, i6));
       return n6;
-    }(t5, r5);
+    })(t5, r5);
     if (ArrayBuffer.isView(t5)) return p3(t5);
     if (null == t5) throw new TypeError("The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " + typeof t5);
     if (F2(t5, ArrayBuffer) || t5 && F2(t5.buffer, ArrayBuffer)) return c$1$1(t5, r5, e7);
@@ -3421,14 +3425,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if ("number" == typeof t5) throw new TypeError('The "value" argument must not be of type number. Received type number');
     var n5 = t5.valueOf && t5.valueOf();
     if (null != n5 && n5 !== t5) return u$1$1.from(n5, r5, e7);
-    var i5 = function(t6) {
+    var i5 = (function(t6) {
       if (u$1$1.isBuffer(t6)) {
         var r6 = 0 | l$12(t6.length), e8 = f$2(r6);
         return 0 === e8.length || t6.copy(e8, 0, 0, r6), e8;
       }
       if (void 0 !== t6.length) return "number" != typeof t6.length || N2(t6.length) ? f$2(0) : p3(t6);
       if ("Buffer" === t6.type && Array.isArray(t6.data)) return p3(t6.data);
-    }(t5);
+    })(t5);
     if (i5) return i5;
     if ("undefined" != typeof Symbol && null != Symbol.toPrimitive && "function" == typeof t5[Symbol.toPrimitive]) return u$1$1.from(t5[Symbol.toPrimitive]("string"), r5, e7);
     throw new TypeError("The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " + typeof t5);
@@ -3567,10 +3571,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return D2(_2(r5, t5.length - e7), t5, e7, n5);
   }
   function E2(t5, r5, e7, n5) {
-    return D2(function(t6) {
+    return D2((function(t6) {
       for (var r6 = [], e8 = 0; e8 < t6.length; ++e8) r6.push(255 & t6.charCodeAt(e8));
       return r6;
-    }(r5), t5, e7, n5);
+    })(r5), t5, e7, n5);
   }
   function B2(t5, r5, e7, n5) {
     return E2(t5, r5, e7, n5);
@@ -3579,10 +3583,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return D2(z2(r5), t5, e7, n5);
   }
   function U2(t5, r5, e7, n5) {
-    return D2(function(t6, r6) {
+    return D2((function(t6, r6) {
       for (var e8, n6, i5, o5 = [], f6 = 0; f6 < t6.length && !((r6 -= 2) < 0); ++f6) e8 = t6.charCodeAt(f6), n6 = e8 >> 8, i5 = e8 % 256, o5.push(i5), o5.push(n6);
       return o5;
-    }(r5, t5.length - e7), t5, e7, n5);
+    })(r5, t5.length - e7), t5, e7, n5);
   }
   function T2(t5, r5, e7) {
     return 0 === r5 && e7 === t5.length ? n$1$1.fromByteArray(t5) : n$1$1.fromByteArray(t5.slice(r5, e7));
@@ -3606,15 +3610,15 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
       null === a5 ? (a5 = 65533, p5 = 1) : a5 > 65535 && (a5 -= 65536, n5.push(a5 >>> 10 & 1023 | 55296), a5 = 56320 | 1023 & a5), n5.push(a5), i5 += p5;
     }
-    return function(t6) {
+    return (function(t6) {
       var r6 = t6.length;
       if (r6 <= 4096) return String.fromCharCode.apply(String, t6);
       var e8 = "", n6 = 0;
       for (; n6 < r6; ) e8 += String.fromCharCode.apply(String, t6.slice(n6, n6 += 4096));
       return e8;
-    }(n5);
+    })(n5);
   }
-  e$1$1.kMaxLength = 2147483647, u$1$1.TYPED_ARRAY_SUPPORT = function() {
+  e$1$1.kMaxLength = 2147483647, u$1$1.TYPED_ARRAY_SUPPORT = (function() {
     try {
       var t5 = new Uint8Array(1), r5 = { foo: function() {
         return 42;
@@ -3623,16 +3627,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     } catch (t6) {
       return false;
     }
-  }(), u$1$1.TYPED_ARRAY_SUPPORT || "undefined" == typeof console || "function" != typeof console.error || console.error("This browser lacks typed array (Uint8Array) support which is required by \`buffer\` v5.x. Use \`buffer\` v4.x if you require old browser support."), Object.defineProperty(u$1$1.prototype, "parent", { enumerable: true, get: function() {
+  })(), u$1$1.TYPED_ARRAY_SUPPORT || "undefined" == typeof console || "function" != typeof console.error || console.error("This browser lacks typed array (Uint8Array) support which is required by \`buffer\` v5.x. Use \`buffer\` v4.x if you require old browser support."), Object.defineProperty(u$1$1.prototype, "parent", { enumerable: true, get: function() {
     if (u$1$1.isBuffer(this)) return this.buffer;
   } }), Object.defineProperty(u$1$1.prototype, "offset", { enumerable: true, get: function() {
     if (u$1$1.isBuffer(this)) return this.byteOffset;
   } }), u$1$1.poolSize = 8192, u$1$1.from = function(t5, r5, e7) {
     return s$12(t5, r5, e7);
   }, Object.setPrototypeOf(u$1$1.prototype, Uint8Array.prototype), Object.setPrototypeOf(u$1$1, Uint8Array), u$1$1.alloc = function(t5, r5, e7) {
-    return function(t6, r6, e8) {
+    return (function(t6, r6, e8) {
       return h$1$1(t6), t6 <= 0 ? f$2(t6) : void 0 !== r6 ? "string" == typeof e8 ? f$2(t6).fill(r6, e8) : f$2(t6).fill(r6) : f$2(t6);
-    }(t5, r5, e7);
+    })(t5, r5, e7);
   }, u$1$1.allocUnsafe = function(t5) {
     return a$2(t5);
   }, u$1$1.allocUnsafeSlow = function(t5) {
@@ -3976,11 +3980,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return o5;
   }
   function z2(t5) {
-    return n$1$1.toByteArray(function(t6) {
+    return n$1$1.toByteArray((function(t6) {
       if ((t6 = (t6 = t6.split("=")[0]).trim().replace(j2, "")).length < 2) return "";
       for (; t6.length % 4 != 0; ) t6 += "=";
       return t6;
-    }(t5));
+    })(t5));
   }
   function D2(t5, r5, e7, n5) {
     for (var i5 = 0; i5 < n5 && !(i5 + e7 >= r5.length || i5 >= t5.length); ++i5) r5[i5 + e7] = t5[i5];
@@ -3992,10 +3996,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function N2(t5) {
     return t5 != t5;
   }
-  var Y2 = function() {
+  var Y2 = (function() {
     for (var t5 = new Array(256), r5 = 0; r5 < 16; ++r5) for (var e7 = 16 * r5, n5 = 0; n5 < 16; ++n5) t5[e7 + n5] = "0123456789abcdef"[r5] + "0123456789abcdef"[n5];
     return t5;
-  }();
+  })();
   e$1$1.Buffer;
   e$1$1.INSPECT_MAX_BYTES;
   e$1$1.kMaxLength;
@@ -4045,8 +4049,8 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   };
   function a3(t5) {
     var e7;
-    switch (this.encoding = function(t6) {
-      var e8 = function(t7) {
+    switch (this.encoding = (function(t6) {
+      var e8 = (function(t7) {
         if (!t7) return "utf8";
         for (var e9; ; ) switch (t7) {
           case "utf8":
@@ -4068,10 +4072,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             if (e9) return;
             t7 = ("" + t7).toLowerCase(), e9 = true;
         }
-      }(t6);
+      })(t6);
       if ("string" != typeof e8 && (s3.isEncoding === i3 || !i3(t6))) throw new Error("Unknown encoding: " + t6);
       return e8 || t6;
-    }(t5), this.encoding) {
+    })(t5), this.encoding) {
       case "utf16le":
         this.text = h3, this.end = l3, e7 = 4;
         break;
@@ -4090,13 +4094,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t5 <= 127 ? 0 : t5 >> 5 == 6 ? 2 : t5 >> 4 == 14 ? 3 : t5 >> 3 == 30 ? 4 : t5 >> 6 == 2 ? -1 : -2;
   }
   function n$12(t5) {
-    var e7 = this.lastTotal - this.lastNeed, s5 = function(t6, e8, s6) {
+    var e7 = this.lastTotal - this.lastNeed, s5 = (function(t6, e8, s6) {
       if (128 != (192 & e8[0])) return t6.lastNeed = 0, "\\uFFFD";
       if (t6.lastNeed > 1 && e8.length > 1) {
         if (128 != (192 & e8[1])) return t6.lastNeed = 1, "\\uFFFD";
         if (t6.lastNeed > 2 && e8.length > 2 && 128 != (192 & e8[2])) return t6.lastNeed = 2, "\\uFFFD";
       }
-    }(this, t5);
+    })(this, t5);
     return void 0 !== s5 ? s5 : this.lastNeed <= t5.length ? (t5.copy(this.lastChar, e7, 0, this.lastNeed), this.lastChar.toString(this.encoding, 0, this.lastTotal)) : (t5.copy(this.lastChar, e7, 0, t5.length), this.lastNeed -= t5.length, void 0);
   }
   function h3(t5, e7) {
@@ -4144,7 +4148,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var e7 = t5 && t5.length ? this.write(t5) : "";
     return this.lastNeed ? e7 + "\\uFFFD" : e7;
   }, a3.prototype.text = function(t5, e7) {
-    var s5 = function(t6, e8, s6) {
+    var s5 = (function(t6, e8, s6) {
       var i6 = e8.length - 1;
       if (i6 < s6) return 0;
       var a5 = r3(e8[i6]);
@@ -4154,7 +4158,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       if (--i6 < s6 || -2 === a5) return 0;
       if ((a5 = r3(e8[i6])) >= 0) return a5 > 0 && (2 === a5 ? a5 = 0 : t6.lastNeed = a5 - 3), a5;
       return 0;
-    }(this, t5, e7);
+    })(this, t5, e7);
     if (!this.lastNeed) return t5.toString("utf8", e7);
     this.lastTotal = s5;
     var i5 = t5.length - (s5 - this.lastNeed);
@@ -5858,7 +5862,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function numberIsNaN(obj) {
       return obj !== obj;
     }
-    const hexSliceLookupTable = function() {
+    const hexSliceLookupTable = (function() {
       const alphabet = "0123456789abcdef";
       const table = new Array(256);
       for (let i5 = 0; i5 < 16; ++i5) {
@@ -5868,7 +5872,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
       }
       return table;
-    }();
+    })();
     function defineBigIntMethod(fn) {
       return typeof BigInt === "undefined" ? BufferBigIntNotDefined : fn;
     }
@@ -5992,7 +5996,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function copyBuffer(src, target, offset) {
       Buffer.prototype.copy.call(src, target, offset);
     }
-    exports$d = /* @__PURE__ */ function() {
+    exports$d = /* @__PURE__ */ (function() {
       function BufferList() {
         _classCallCheck(this, BufferList);
         this.head = null;
@@ -6156,7 +6160,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
       }]);
       return BufferList;
-    }();
+    })();
     return exports$d;
   }
   var exports$c = {};
@@ -7080,13 +7084,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return obj;
     }
     var finished = dew$6();
-    var kLastResolve = Symbol("lastResolve");
-    var kLastReject = Symbol("lastReject");
-    var kError = Symbol("error");
-    var kEnded = Symbol("ended");
-    var kLastPromise = Symbol("lastPromise");
-    var kHandlePromise = Symbol("handlePromise");
-    var kStream = Symbol("stream");
+    var kLastResolve = /* @__PURE__ */ Symbol("lastResolve");
+    var kLastReject = /* @__PURE__ */ Symbol("lastReject");
+    var kError = /* @__PURE__ */ Symbol("error");
+    var kEnded = /* @__PURE__ */ Symbol("ended");
+    var kLastPromise = /* @__PURE__ */ Symbol("lastPromise");
+    var kHandlePromise = /* @__PURE__ */ Symbol("handlePromise");
+    var kStream = /* @__PURE__ */ Symbol("stream");
     function createIterResult2(value, done) {
       return {
         value,
@@ -7855,11 +7859,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
       for (var i5 in stream2) {
         if (this[i5] === void 0 && typeof stream2[i5] === "function") {
-          this[i5] = /* @__PURE__ */ function methodWrap(method) {
+          this[i5] = /* @__PURE__ */ (function methodWrap(method) {
             return function methodWrapReturnFunction() {
               return stream2[method].apply(stream2, arguments);
             };
-          }(i5);
+          })(i5);
         }
       }
       for (var n5 = 0; n5 < kProxyEvents.length; n5++) {
@@ -8382,7 +8386,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         fn(xs[i5], i5, xs);
       }
     };
-    var defineProp = function() {
+    var defineProp = (function() {
       try {
         Object.defineProperty({}, "_", {});
         return function(obj, name2, value) {
@@ -8398,7 +8402,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           obj[name2] = value;
         };
       }
-    }();
+    })();
     var globals = ["Array", "Boolean", "Date", "Error", "EvalError", "Function", "Infinity", "JSON", "Math", "NaN", "Number", "Object", "RangeError", "ReferenceError", "RegExp", "String", "SyntaxError", "TypeError", "URIError", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "escape", "eval", "isFinite", "isNaN", "parseFloat", "parseInt", "undefined", "unescape"];
     function Context() {
     }
@@ -11226,7 +11230,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return [t0, t1, t22, t32];
     }
     var RCON = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
-    var G3 = function() {
+    var G3 = (function() {
       var d4 = new Array(256);
       for (var j4 = 0; j4 < 256; j4++) {
         if (j4 < 128) {
@@ -11272,7 +11276,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         SUB_MIX,
         INV_SUB_MIX
       };
-    }();
+    })();
     function AES(key) {
       (this || _global$11)._key = asUInt32Array(key);
       this._reset();
@@ -18487,7 +18491,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function copyBuffer(src, target, offset) {
       Buffer.prototype.copy.call(src, target, offset);
     }
-    exports$d$2 = /* @__PURE__ */ function() {
+    exports$d$2 = /* @__PURE__ */ (function() {
       function BufferList() {
         _classCallCheck(this, BufferList);
         this.head = null;
@@ -18651,7 +18655,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         }
       }]);
       return BufferList;
-    }();
+    })();
     return exports$d$2;
   }
   var exports$c$2 = {};
@@ -19575,13 +19579,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return obj;
     }
     var finished = dew$6$2();
-    var kLastResolve = Symbol("lastResolve");
-    var kLastReject = Symbol("lastReject");
-    var kError = Symbol("error");
-    var kEnded = Symbol("ended");
-    var kLastPromise = Symbol("lastPromise");
-    var kHandlePromise = Symbol("handlePromise");
-    var kStream = Symbol("stream");
+    var kLastResolve = /* @__PURE__ */ Symbol("lastResolve");
+    var kLastReject = /* @__PURE__ */ Symbol("lastReject");
+    var kError = /* @__PURE__ */ Symbol("error");
+    var kEnded = /* @__PURE__ */ Symbol("ended");
+    var kLastPromise = /* @__PURE__ */ Symbol("lastPromise");
+    var kHandlePromise = /* @__PURE__ */ Symbol("handlePromise");
+    var kStream = /* @__PURE__ */ Symbol("stream");
     function createIterResult2(value, done) {
       return {
         value,
@@ -20350,11 +20354,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
       for (var i5 in stream2) {
         if (this[i5] === void 0 && typeof stream2[i5] === "function") {
-          this[i5] = /* @__PURE__ */ function methodWrap(method) {
+          this[i5] = /* @__PURE__ */ (function methodWrap(method) {
             return function methodWrapReturnFunction() {
               return stream2[method].apply(stream2, arguments);
             };
-          }(i5);
+          })(i5);
         }
       }
       for (var n5 = 0; n5 < kProxyEvents.length; n5++) {
@@ -22521,7 +22525,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return [t0, t1, t22, t32];
     }
     var RCON = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
-    var G3 = function() {
+    var G3 = (function() {
       var d4 = new Array(256);
       for (var j4 = 0; j4 < 256; j4++) {
         if (j4 < 128) {
@@ -22567,7 +22571,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         SUB_MIX,
         INV_SUB_MIX
       };
-    }();
+    })();
     function AES(key) {
       (this || _global$F)._key = asUInt32Array(key);
       this._reset();
@@ -29636,9 +29640,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     r5 || (r5 = Error);
     class o5 extends r5 {
       constructor(e8, t5, r6) {
-        super(function(e9, t6, r7) {
+        super((function(e9, t6, r7) {
           return "string" == typeof n5 ? n5 : n5(e9, t6, r7);
-        }(e8, t5, r6));
+        })(e8, t5, r6));
       }
     }
     o5.prototype.name = r5.name, o5.prototype.code = e7, t$c[e7] = o5;
@@ -29650,28 +29654,28 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }
     return \`of \${t5} \${String(e7)}\`;
   }
-  n$q("ERR_INVALID_OPT_VALUE", function(e7, t5) {
+  n$q("ERR_INVALID_OPT_VALUE", (function(e7, t5) {
     return 'The value "' + t5 + '" is invalid for option "' + e7 + '"';
-  }, TypeError), n$q("ERR_INVALID_ARG_TYPE", function(e7, t5, n5) {
+  }), TypeError), n$q("ERR_INVALID_ARG_TYPE", (function(e7, t5, n5) {
     let o5;
     var E4;
     let u5;
-    if ("string" == typeof t5 && (E4 = "not ", t5.substr(0, E4.length) === E4) ? (o5 = "must not be", t5 = t5.replace(/^not /, "")) : o5 = "must be", function(e8, t6, n6) {
+    if ("string" == typeof t5 && (E4 = "not ", t5.substr(0, E4.length) === E4) ? (o5 = "must not be", t5 = t5.replace(/^not /, "")) : o5 = "must be", (function(e8, t6, n6) {
       return (void 0 === n6 || n6 > e8.length) && (n6 = e8.length), e8.substring(n6 - t6.length, n6) === t6;
-    }(e7, " argument")) u5 = \`The \${e7} \${o5} \${r$h(t5, "type")}\`;
+    })(e7, " argument")) u5 = \`The \${e7} \${o5} \${r$h(t5, "type")}\`;
     else {
-      u5 = \`The "\${e7}" \${function(e8, t6, n6) {
+      u5 = \`The "\${e7}" \${(function(e8, t6, n6) {
         return "number" != typeof n6 && (n6 = 0), !(n6 + t6.length > e8.length) && -1 !== e8.indexOf(t6, n6);
-      }(e7, ".") ? "property" : "argument"} \${o5} \${r$h(t5, "type")}\`;
+      })(e7, ".") ? "property" : "argument"} \${o5} \${r$h(t5, "type")}\`;
     }
     return u5 += \`. Received type \${typeof n5}\`, u5;
-  }, TypeError), n$q("ERR_STREAM_PUSH_AFTER_EOF", "stream.push() after EOF"), n$q("ERR_METHOD_NOT_IMPLEMENTED", function(e7) {
+  }), TypeError), n$q("ERR_STREAM_PUSH_AFTER_EOF", "stream.push() after EOF"), n$q("ERR_METHOD_NOT_IMPLEMENTED", (function(e7) {
     return "The " + e7 + " method is not implemented";
-  }), n$q("ERR_STREAM_PREMATURE_CLOSE", "Premature close"), n$q("ERR_STREAM_DESTROYED", function(e7) {
+  })), n$q("ERR_STREAM_PREMATURE_CLOSE", "Premature close"), n$q("ERR_STREAM_DESTROYED", (function(e7) {
     return "Cannot call " + e7 + " after a stream was destroyed";
-  }), n$q("ERR_MULTIPLE_CALLBACK", "Callback called multiple times"), n$q("ERR_STREAM_CANNOT_PIPE", "Cannot pipe, not readable"), n$q("ERR_STREAM_WRITE_AFTER_END", "write after end"), n$q("ERR_STREAM_NULL_VALUES", "May not write null values to stream", TypeError), n$q("ERR_UNKNOWN_ENCODING", function(e7) {
+  })), n$q("ERR_MULTIPLE_CALLBACK", "Callback called multiple times"), n$q("ERR_STREAM_CANNOT_PIPE", "Cannot pipe, not readable"), n$q("ERR_STREAM_WRITE_AFTER_END", "write after end"), n$q("ERR_STREAM_NULL_VALUES", "May not write null values to stream", TypeError), n$q("ERR_UNKNOWN_ENCODING", (function(e7) {
     return "Unknown encoding: " + e7;
-  }, TypeError), n$q("ERR_STREAM_UNSHIFT_AFTER_END_EVENT", "stream.unshift() after end event"), e$1$12.codes = t$c;
+  }), TypeError), n$q("ERR_STREAM_UNSHIFT_AFTER_END_EVENT", "stream.unshift() after end event"), e$1$12.codes = t$c;
   var r$1$1 = function() {
     throw new Error("Readable.from is not available in the browser");
   };
@@ -29700,9 +29704,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var n5 = Object.keys(e7);
     if (Object.getOwnPropertySymbols) {
       var r5 = Object.getOwnPropertySymbols(e7);
-      t5 && (r5 = r5.filter(function(t6) {
+      t5 && (r5 = r5.filter((function(t6) {
         return Object.getOwnPropertyDescriptor(e7, t6).enumerable;
-      })), n5.push.apply(n5, r5);
+      }))), n5.push.apply(n5, r5);
     }
     return n5;
   }
@@ -29718,11 +29722,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var c$n = e$1$1.Buffer;
   var b$j = X.inspect;
   var p$s = b$j && b$j.custom || "inspect";
-  var g$h = function() {
+  var g$h = (function() {
     function e7() {
-      !function(e8, t6) {
+      !(function(e8, t6) {
         if (!(e8 instanceof t6)) throw new TypeError("Cannot call a class as a function");
-      }(this, e7), this.head = null, this.tail = null, this.length = 0;
+      })(this, e7), this.head = null, this.tail = null, this.length = 0;
     }
     var t5, n5;
     return t5 = e7, (n5 = [{ key: "push", value: function(e8) {
@@ -29774,19 +29778,19 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
       return this.length -= r5, t6;
     } }, { key: p$s, value: function(e8, t6) {
-      return b$j(this, function(e9) {
+      return b$j(this, (function(e9) {
         for (var t7 = 1; t7 < arguments.length; t7++) {
           var n6 = null != arguments[t7] ? arguments[t7] : {};
-          t7 % 2 ? u$p(Object(n6), true).forEach(function(t8) {
+          t7 % 2 ? u$p(Object(n6), true).forEach((function(t8) {
             f$v(e9, t8, n6[t8]);
-          }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e9, Object.getOwnPropertyDescriptors(n6)) : u$p(Object(n6)).forEach(function(t8) {
+          })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e9, Object.getOwnPropertyDescriptors(n6)) : u$p(Object(n6)).forEach((function(t8) {
             Object.defineProperty(e9, t8, Object.getOwnPropertyDescriptor(n6, t8));
-          });
+          }));
         }
         return e9;
-      }({}, t6, { depth: 0, customInspect: false }));
+      })({}, t6, { depth: 0, customInspect: false }));
     } }]) && h$l(t5.prototype, n5), e7;
-  }();
+  })();
   var y$n = T$1;
   function w$j(e7, t5) {
     _$h(e7, t5), v$k(e7);
@@ -29799,9 +29803,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   }
   var m$m = { destroy: function(e7, t5) {
     var n5 = this, r5 = this._readableState && this._readableState.destroyed, i5 = this._writableState && this._writableState.destroyed;
-    return r5 || i5 ? (t5 ? t5(e7) : e7 && (this._writableState ? this._writableState.errorEmitted || (this._writableState.errorEmitted = true, y$n.nextTick(_$h, this, e7)) : y$n.nextTick(_$h, this, e7)), this) : (this._readableState && (this._readableState.destroyed = true), this._writableState && (this._writableState.destroyed = true), this._destroy(e7 || null, function(e8) {
+    return r5 || i5 ? (t5 ? t5(e7) : e7 && (this._writableState ? this._writableState.errorEmitted || (this._writableState.errorEmitted = true, y$n.nextTick(_$h, this, e7)) : y$n.nextTick(_$h, this, e7)), this) : (this._readableState && (this._readableState.destroyed = true), this._writableState && (this._writableState.destroyed = true), this._destroy(e7 || null, (function(e8) {
       !t5 && e8 ? n5._writableState ? n5._writableState.errorEmitted ? y$n.nextTick(v$k, n5) : (n5._writableState.errorEmitted = true, y$n.nextTick(w$j, n5, e8)) : y$n.nextTick(w$j, n5, e8) : t5 ? (y$n.nextTick(v$k, n5), t5(e8)) : y$n.nextTick(v$k, n5);
-    }), this);
+    })), this);
   }, undestroy: function() {
     this._readableState && (this._readableState.destroyed = false, this._readableState.reading = false, this._readableState.ended = false, this._readableState.endEmitted = false), this._writableState && (this._writableState.destroyed = false, this._writableState.ended = false, this._writableState.ending = false, this._writableState.finalCalled = false, this._writableState.prefinished = false, this._writableState.finished = false, this._writableState.errorEmitted = false);
   }, errorOrDestroy: function(e7, t5) {
@@ -29810,9 +29814,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   } };
   var S$e = e$1$12.codes.ERR_INVALID_OPT_VALUE;
   var R$7 = { getHighWaterMark: function(e7, t5, n5, r5) {
-    var i5 = function(e8, t6, n6) {
+    var i5 = (function(e8, t6, n6) {
       return null != e8.highWaterMark ? e8.highWaterMark : t6 ? e8[n6] : null;
-    }(t5, r5, n5);
+    })(t5, r5, n5);
     if (null != i5) {
       if (!isFinite(i5) || Math.floor(i5) !== i5 || i5 < 0) throw new S$e(r5 ? n5 : "highWaterMark", i5);
       return Math.floor(i5);
@@ -29825,7 +29829,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var M$a;
   var j$a = function e4(t5, n5, r5) {
     if ("function" == typeof n5) return e4(t5, null, n5);
-    n5 || (n5 = {}), r5 = /* @__PURE__ */ function(e7) {
+    n5 || (n5 = {}), r5 = /* @__PURE__ */ (function(e7) {
       var t6 = false;
       return function() {
         if (!t6) {
@@ -29834,7 +29838,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           e7.apply(this, r6);
         }
       };
-    }(r5 || E$e);
+    })(r5 || E$e);
     var i5 = n5.readable || false !== n5.readable && t5.readable, a5 = n5.writable || false !== n5.writable && t5.writable, o5 = function() {
       t5.writable || l5();
     }, s5 = t5._writableState && t5._writableState.finished, l5 = function() {
@@ -29849,9 +29853,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }, c5 = function() {
       t5.req.on("finish", l5);
     };
-    return !function(e7) {
+    return !(function(e7) {
       return e7.setHeader && "function" == typeof e7.abort;
-    }(t5) ? a5 && !t5._writableState && (t5.on("end", o5), t5.on("close", o5)) : (t5.on("complete", l5), t5.on("abort", h5), t5.req ? c5() : t5.on("request", c5)), t5.on("end", u5), t5.on("finish", l5), false !== n5.error && t5.on("error", f6), t5.on("close", h5), function() {
+    })(t5) ? a5 && !t5._writableState && (t5.on("end", o5), t5.on("close", o5)) : (t5.on("complete", l5), t5.on("abort", h5), t5.req ? c5() : t5.on("request", c5)), t5.on("end", u5), t5.on("finish", l5), false !== n5.error && t5.on("error", f6), t5.on("close", h5), function() {
       t5.removeListener("complete", l5), t5.removeListener("abort", h5), t5.removeListener("request", c5), t5.req && t5.req.removeListener("finish", l5), t5.removeListener("end", o5), t5.removeListener("close", o5), t5.removeListener("finish", l5), t5.removeListener("end", u5), t5.removeListener("error", f6), t5.removeListener("close", h5);
     };
   };
@@ -29860,13 +29864,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t5 in e7 ? Object.defineProperty(e7, t5, { value: n5, enumerable: true, configurable: true, writable: true }) : e7[t5] = n5, e7;
   }
   var P$8 = j$a;
-  var x$a = Symbol("lastResolve");
-  var L$8 = Symbol("lastReject");
-  var D$9 = Symbol("error");
-  var C$9 = Symbol("ended");
-  var A$c = Symbol("lastPromise");
-  var q$8 = Symbol("handlePromise");
-  var W$5 = Symbol("stream");
+  var x$a = /* @__PURE__ */ Symbol("lastResolve");
+  var L$8 = /* @__PURE__ */ Symbol("lastReject");
+  var D$9 = /* @__PURE__ */ Symbol("error");
+  var C$9 = /* @__PURE__ */ Symbol("ended");
+  var A$c = /* @__PURE__ */ Symbol("lastPromise");
+  var q$8 = /* @__PURE__ */ Symbol("handlePromise");
+  var W$5 = /* @__PURE__ */ Symbol("stream");
   function B$c(e7, t5) {
     return { value: e7, done: t5 };
   }
@@ -29880,58 +29884,58 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function N$7(e7) {
     O$8.nextTick(I$b, e7);
   }
-  var U$a = Object.getPrototypeOf(function() {
-  });
+  var U$a = Object.getPrototypeOf((function() {
+  }));
   var H$7 = Object.setPrototypeOf((T$8(M$a = { get stream() {
     return this[W$5];
   }, next: function() {
     var e7 = this, t5 = this[D$9];
     if (null !== t5) return Promise.reject(t5);
     if (this[C$9]) return Promise.resolve(B$c(void 0, true));
-    if (this[W$5].destroyed) return new Promise(function(t6, n6) {
-      O$8.nextTick(function() {
+    if (this[W$5].destroyed) return new Promise((function(t6, n6) {
+      O$8.nextTick((function() {
         e7[D$9] ? n6(e7[D$9]) : t6(B$c(void 0, true));
-      });
-    });
+      }));
+    }));
     var n5, r5 = this[A$c];
-    if (r5) n5 = new Promise(/* @__PURE__ */ function(e8, t6) {
+    if (r5) n5 = new Promise(/* @__PURE__ */ (function(e8, t6) {
       return function(n6, r6) {
-        e8.then(function() {
+        e8.then((function() {
           if (t6[C$9]) return n6(B$c(void 0, true)), void 0;
           t6[q$8](n6, r6);
-        }, r6);
+        }), r6);
       };
-    }(r5, this));
+    })(r5, this));
     else {
       var i5 = this[W$5].read();
       if (null !== i5) return Promise.resolve(B$c(i5, false));
       n5 = new Promise(this[q$8]);
     }
     return this[A$c] = n5, n5;
-  } }, Symbol.asyncIterator, function() {
+  } }, Symbol.asyncIterator, (function() {
     return this;
-  }), T$8(M$a, "return", function() {
+  })), T$8(M$a, "return", (function() {
     var e7 = this;
-    return new Promise(function(t5, n5) {
-      e7[W$5].destroy(null, function(e8) {
+    return new Promise((function(t5, n5) {
+      e7[W$5].destroy(null, (function(e8) {
         if (e8) return n5(e8), void 0;
         t5(B$c(void 0, true));
-      });
-    });
-  }), M$a), U$a);
+      }));
+    }));
+  })), M$a), U$a);
   var F$8 = function(e7) {
     var t5, n5 = Object.create(H$7, (T$8(t5 = {}, W$5, { value: e7, writable: true }), T$8(t5, x$a, { value: null, writable: true }), T$8(t5, L$8, { value: null, writable: true }), T$8(t5, D$9, { value: null, writable: true }), T$8(t5, C$9, { value: e7._readableState.endEmitted, writable: true }), T$8(t5, q$8, { value: function(e8, t6) {
       var r5 = n5[W$5].read();
       r5 ? (n5[A$c] = null, n5[x$a] = null, n5[L$8] = null, e8(B$c(r5, false))) : (n5[x$a] = e8, n5[L$8] = t6);
     }, writable: true }), t5));
-    return n5[A$c] = null, P$8(e7, function(e8) {
+    return n5[A$c] = null, P$8(e7, (function(e8) {
       if (e8 && "ERR_STREAM_PREMATURE_CLOSE" !== e8.code) {
         var t6 = n5[L$8];
         return null !== t6 && (n5[A$c] = null, n5[x$a] = null, n5[L$8] = null, t6(e8)), n5[D$9] = e8, void 0;
       }
       var r5 = n5[x$a];
       null !== r5 && (n5[A$c] = null, n5[x$a] = null, n5[L$8] = null, r5(B$c(void 0, true))), n5[C$9] = true;
-    }), e7.on("readable", N$7.bind(null, n5)), n5;
+    })), e7.on("readable", N$7.bind(null, n5)), n5;
   };
   var V$6 = {};
   var G$5 = false;
@@ -29963,23 +29967,23 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function A4(e7, t5, n5, r5, i5) {
       p5("readableAddChunk", t5);
       var a5, o5 = e7._readableState;
-      if (null === t5) o5.reading = false, function(e8, t6) {
+      if (null === t5) o5.reading = false, (function(e8, t6) {
         if (p5("onEofChunk"), t6.ended) return;
         if (t6.decoder) {
           var n6 = t6.decoder.end();
           n6 && n6.length && (t6.buffer.push(n6), t6.length += t6.objectMode ? 1 : n6.length);
         }
         t6.ended = true, t6.sync ? B4(e8) : (t6.needReadable = false, t6.emittedReadable || (t6.emittedReadable = true, I4(e8)));
-      }(e7, o5);
-      else if (i5 || (a5 = function(e8, t6) {
+      })(e7, o5);
+      else if (i5 || (a5 = (function(e8, t6) {
         var n6;
         r6 = t6, c5.isBuffer(r6) || r6 instanceof b4 || "string" == typeof t6 || void 0 === t6 || e8.objectMode || (n6 = new j4("chunk", ["string", "Buffer", "Uint8Array"], t6));
         var r6;
         return n6;
-      }(o5, t5)), a5) x4(e7, a5);
-      else if (o5.objectMode || t5 && t5.length > 0) if ("string" == typeof t5 || o5.objectMode || Object.getPrototypeOf(t5) === c5.prototype || (t5 = function(e8) {
+      })(o5, t5)), a5) x4(e7, a5);
+      else if (o5.objectMode || t5 && t5.length > 0) if ("string" == typeof t5 || o5.objectMode || Object.getPrototypeOf(t5) === c5.prototype || (t5 = (function(e8) {
         return c5.from(e8);
-      }(t5)), r5) o5.endEmitted ? x4(e7, new P4()) : q3(e7, o5, t5, true);
+      })(t5)), r5) o5.endEmitted ? x4(e7, new P4()) : q3(e7, o5, t5, true);
       else if (o5.ended) x4(e7, new O4());
       else {
         if (o5.destroyed) return false;
@@ -30012,9 +30016,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this._readableState.buffer.clear(), "" !== r5 && this._readableState.buffer.push(r5), this._readableState.length = r5.length, this;
     };
     function W3(e7, t5) {
-      return e7 <= 0 || 0 === t5.length && t5.ended ? 0 : t5.objectMode ? 1 : e7 != e7 ? t5.flowing && t5.length ? t5.buffer.head.data.length : t5.length : (e7 > t5.highWaterMark && (t5.highWaterMark = function(e8) {
+      return e7 <= 0 || 0 === t5.length && t5.ended ? 0 : t5.objectMode ? 1 : e7 != e7 ? t5.flowing && t5.length ? t5.buffer.head.data.length : t5.length : (e7 > t5.highWaterMark && (t5.highWaterMark = (function(e8) {
         return e8 >= 1073741824 ? e8 = 1073741824 : (e8--, e8 |= e8 >>> 1, e8 |= e8 >>> 2, e8 |= e8 >>> 4, e8 |= e8 >>> 8, e8 |= e8 >>> 16, e8++), e8;
-      }(e7)), e7 <= t5.length ? e7 : t5.ended ? t5.length : (t5.needReadable = true, 0));
+      })(e7)), e7 <= t5.length ? e7 : t5.ended ? t5.length : (t5.needReadable = true, 0));
     }
     function B4(e7) {
       var t5 = e7._readableState;
@@ -30096,12 +30100,12 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         p5("onend"), e7.end();
       }
       r5.endEmitted ? u5.nextTick(i5) : n5.once("end", i5), e7.on("unpipe", a5);
-      var s5 = /* @__PURE__ */ function(e8) {
+      var s5 = /* @__PURE__ */ (function(e8) {
         return function() {
           var t6 = e8._readableState;
           p5("pipeOnDrain", t6.awaitDrain), t6.awaitDrain && t6.awaitDrain--, 0 === t6.awaitDrain && f6(e8, "data") && (t6.flowing = true, J3(e8));
         };
-      }(n5);
+      })(n5);
       e7.on("drain", s5);
       var l5 = false;
       function d5(t6) {
@@ -30121,10 +30125,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       function g4() {
         p5("unpipe"), n5.unpipe(e7);
       }
-      return n5.on("data", d5), function(e8, t6, n6) {
+      return n5.on("data", d5), (function(e8, t6, n6) {
         if ("function" == typeof e8.prependListener) return e8.prependListener(t6, n6);
         e8._events && e8._events[t6] ? Array.isArray(e8._events[t6]) ? e8._events[t6].unshift(n6) : e8._events[t6] = [n6, e8._events[t6]] : e8.on(t6, n6);
-      }(e7, "error", h6), e7.once("close", c6), e7.once("finish", b5), e7.emit("pipe", n5), r5.flowing || (p5("pipe resume"), n5.resume()), e7;
+      })(e7, "error", h6), e7.once("close", c6), e7.once("finish", b5), e7.emit("pipe", n5), r5.flowing || (p5("pipe resume"), n5.resume()), e7;
     }, C4.prototype.unpipe = function(e7) {
       var t5 = this._readableState, n5 = { hasUnpiped: false };
       if (0 === t5.pipesCount) return this;
@@ -30148,26 +30152,26 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return "readable" !== e7 && void 0 !== e7 || u5.nextTick(H3, this), t5;
     }, C4.prototype.resume = function() {
       var e7 = this._readableState;
-      return e7.flowing || (p5("resume"), e7.flowing = !e7.readableListening, function(e8, t5) {
+      return e7.flowing || (p5("resume"), e7.flowing = !e7.readableListening, (function(e8, t5) {
         t5.resumeScheduled || (t5.resumeScheduled = true, u5.nextTick(z4, e8, t5));
-      }(this, e7)), e7.paused = false, this;
+      })(this, e7)), e7.paused = false, this;
     }, C4.prototype.pause = function() {
       return p5("call pause flowing=%j", this._readableState.flowing), false !== this._readableState.flowing && (p5("pause"), this._readableState.flowing = false, this.emit("pause")), this._readableState.paused = true, this;
     }, C4.prototype.wrap = function(e7) {
       var t5 = this, n5 = this._readableState, r5 = false;
-      for (var i5 in e7.on("end", function() {
+      for (var i5 in e7.on("end", (function() {
         if (p5("wrapped end"), n5.decoder && !n5.ended) {
           var e8 = n5.decoder.end();
           e8 && e8.length && t5.push(e8);
         }
         t5.push(null);
-      }), e7.on("data", function(i6) {
+      })), e7.on("data", (function(i6) {
         (p5("wrapped data"), n5.decoder && (i6 = n5.decoder.write(i6)), n5.objectMode && null == i6) || (n5.objectMode || i6 && i6.length) && (t5.push(i6) || (r5 = true, e7.pause()));
-      }), e7) void 0 === this[i5] && "function" == typeof e7[i5] && (this[i5] = /* @__PURE__ */ function(t6) {
+      })), e7) void 0 === this[i5] && "function" == typeof e7[i5] && (this[i5] = /* @__PURE__ */ (function(t6) {
         return function() {
           return e7[t6].apply(e7, arguments);
         };
-      }(i5));
+      })(i5));
       for (var a5 = 0; a5 < L4.length; a5++) e7.on(L4[a5], this.emit.bind(this, L4[a5]));
       return this._read = function(t6) {
         p5("wrapped _read", t6), r5 && (r5 = false, e7.resume());
@@ -30198,7 +30202,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function s5(e7) {
       var t5 = this;
       this.next = null, this.entry = null, this.finish = function() {
-        !function(e8, t6, n5) {
+        !(function(e8, t6, n5) {
           var r6 = e8.entry;
           e8.entry = null;
           for (; r6; ) {
@@ -30206,7 +30210,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             t6.pendingcb--, i5(n5), r6 = r6.next;
           }
           t6.corkedRequestsFree.next = e8;
-        }(t5, e7);
+        })(t5, e7);
       };
     }
     z$9 = P4, P4.WritableState = T4;
@@ -30219,19 +30223,19 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       e$232 = e$232 || ee$1(), t5 = t5 || {}, "boolean" != typeof i5 && (i5 = n5 instanceof e$232), this.objectMode = !!t5.objectMode, i5 && (this.objectMode = this.objectMode || !!t5.writableObjectMode), this.highWaterMark = p5(this, t5, "writableHighWaterMark", i5), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
       var a5 = false === t5.decodeStrings;
       this.decodeStrings = !a5, this.defaultEncoding = t5.defaultEncoding || "utf8", this.length = 0, this.writing = false, this.corked = 0, this.sync = true, this.bufferProcessing = false, this.onwrite = function(e7) {
-        !function(e8, t6) {
+        !(function(e8, t6) {
           var n6 = e8._writableState, i6 = n6.sync, a6 = n6.writecb;
           if ("function" != typeof a6) throw new v5();
-          if (function(e9) {
+          if ((function(e9) {
             e9.writing = false, e9.writecb = null, e9.length -= e9.writelen, e9.writelen = 0;
-          }(n6), t6) !function(e9, t7, n7, i7, a7) {
+          })(n6), t6) !(function(e9, t7, n7, i7, a7) {
             --t7.pendingcb, n7 ? (r5.nextTick(a7, i7), r5.nextTick(q3, e9, t7), e9._writableState.errorEmitted = true, j4(e9, i7)) : (a7(i7), e9._writableState.errorEmitted = true, j4(e9, i7), q3(e9, t7));
-          }(e8, n6, i6, t6, a6);
+          })(e8, n6, i6, t6, a6);
           else {
             var o5 = C4(n6) || e8.destroyed;
             o5 || n6.corked || n6.bufferProcessing || !n6.bufferedRequest || D4(e8, n6), i6 ? r5.nextTick(L4, e8, n6, o5, a6) : L4(e8, n6, o5, a6);
           }
-        }(n5, e7);
+        })(n5, e7);
       }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = false, this.errorEmitted = false, this.emitClose = false !== t5.emitClose, this.autoDestroy = !!t5.autoDestroy, this.bufferedRequestCount = 0, this.corkedRequestsFree = new s5(this);
     }
     function P4(t5) {
@@ -30243,9 +30247,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       t5.writelen = r6, t5.writecb = o5, t5.writing = true, t5.sync = true, t5.destroyed ? t5.onwrite(new S4("write")) : n5 ? e7._writev(i5, t5.onwrite) : e7._write(i5, a5, t5.onwrite), t5.sync = false;
     }
     function L4(e7, t5, n5, r6) {
-      n5 || !function(e8, t6) {
+      n5 || !(function(e8, t6) {
         0 === t6.length && t6.needDrain && (t6.needDrain = false, e8.emit("drain"));
-      }(e7, t5), t5.pendingcb--, r6(), q3(e7, t5);
+      })(e7, t5), t5.pendingcb--, r6(), q3(e7, t5);
     }
     function D4(e7, t5) {
       t5.bufferProcessing = true;
@@ -30268,15 +30272,15 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return e7.ending && 0 === e7.length && null === e7.bufferedRequest && !e7.finished && !e7.writing;
     }
     function A4(e7, t5) {
-      e7._final(function(n5) {
+      e7._final((function(n5) {
         t5.pendingcb--, n5 && j4(e7, n5), t5.prefinished = true, e7.emit("prefinish"), q3(e7, t5);
-      });
+      }));
     }
     function q3(e7, t5) {
       var n5 = C4(t5);
-      if (n5 && (!function(e8, t6) {
+      if (n5 && (!(function(e8, t6) {
         t6.prefinished || t6.finalCalled || ("function" != typeof e8._final || t6.destroyed ? (t6.prefinished = true, e8.emit("prefinish")) : (t6.pendingcb++, t6.finalCalled = true, r5.nextTick(A4, e8, t6)));
-      }(e7, t5), 0 === t5.pendingcb && (t5.finished = true, e7.emit("finish"), t5.autoDestroy))) {
+      })(e7, t5), 0 === t5.pendingcb && (t5.finished = true, e7.emit("finish"), t5.autoDestroy))) {
         var i5 = e7._readableState;
         (!i5 || i5.autoDestroy && i5.endEmitted) && e7.destroy();
       }
@@ -30285,14 +30289,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t$2(P4, u5), T4.prototype.getBuffer = function() {
       for (var e7 = this.bufferedRequest, t5 = []; e7; ) t5.push(e7), e7 = e7.next;
       return t5;
-    }, function() {
+    }, (function() {
       try {
-        Object.defineProperty(T4.prototype, "buffer", { get: l5.deprecate(function() {
+        Object.defineProperty(T4.prototype, "buffer", { get: l5.deprecate((function() {
           return this.getBuffer();
-        }, "_writableState.buffer is deprecated. Use _writableState.getBuffer instead.", "DEP0003") });
+        }), "_writableState.buffer is deprecated. Use _writableState.getBuffer instead.", "DEP0003") });
       } catch (e7) {
       }
-    }(), "function" == typeof Symbol && Symbol.hasInstance && "function" == typeof Function.prototype[Symbol.hasInstance] ? (c5 = Function.prototype[Symbol.hasInstance], Object.defineProperty(P4, Symbol.hasInstance, { value: function(e7) {
+    })(), "function" == typeof Symbol && Symbol.hasInstance && "function" == typeof Function.prototype[Symbol.hasInstance] ? (c5 = Function.prototype[Symbol.hasInstance], Object.defineProperty(P4, Symbol.hasInstance, { value: function(e7) {
       return !!c5.call(this, e7) || this === P4 && (e7 && e7._writableState instanceof T4);
     } })) : c5 = function(e7) {
       return e7 instanceof this;
@@ -30300,20 +30304,20 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       j4(this, new _4());
     }, P4.prototype.write = function(e7, t5, n5) {
       var i5, a5 = this._writableState, o5 = false, s6 = !a5.objectMode && (i5 = e7, f6.isBuffer(i5) || i5 instanceof h5);
-      return s6 && !f6.isBuffer(e7) && (e7 = function(e8) {
+      return s6 && !f6.isBuffer(e7) && (e7 = (function(e8) {
         return f6.from(e8);
-      }(e7)), "function" == typeof t5 && (n5 = t5, t5 = null), s6 ? t5 = "buffer" : t5 || (t5 = a5.defaultEncoding), "function" != typeof n5 && (n5 = O4), a5.ending ? function(e8, t6) {
+      })(e7)), "function" == typeof t5 && (n5 = t5, t5 = null), s6 ? t5 = "buffer" : t5 || (t5 = a5.defaultEncoding), "function" != typeof n5 && (n5 = O4), a5.ending ? (function(e8, t6) {
         var n6 = new E4();
         j4(e8, n6), r5.nextTick(t6, n6);
-      }(this, n5) : (s6 || function(e8, t6, n6, i6) {
+      })(this, n5) : (s6 || (function(e8, t6, n6, i6) {
         var a6;
         return null === n6 ? a6 = new k4() : "string" == typeof n6 || t6.objectMode || (a6 = new y5("chunk", ["string", "Buffer"], n6)), !a6 || (j4(e8, a6), r5.nextTick(i6, a6), false);
-      }(this, a5, e7, n5)) && (a5.pendingcb++, o5 = function(e8, t6, n6, r6, i6, a6) {
+      })(this, a5, e7, n5)) && (a5.pendingcb++, o5 = (function(e8, t6, n6, r6, i6, a6) {
         if (!n6) {
-          var o6 = function(e9, t7, n7) {
+          var o6 = (function(e9, t7, n7) {
             e9.objectMode || false === e9.decodeStrings || "string" != typeof t7 || (t7 = f6.from(t7, n7));
             return t7;
-          }(t6, r6, i6);
+          })(t6, r6, i6);
           r6 !== o6 && (n6 = true, i6 = "buffer", r6 = o6);
         }
         var s7 = t6.objectMode ? 1 : r6.length;
@@ -30325,7 +30329,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           t6.lastBufferedRequest = { chunk: r6, encoding: i6, isBuf: n6, callback: a6, next: null }, d4 ? d4.next = t6.lastBufferedRequest : t6.bufferedRequest = t6.lastBufferedRequest, t6.bufferedRequestCount += 1;
         } else x4(e8, t6, false, s7, r6, i6, a6);
         return l6;
-      }(this, a5, s6, e7, t5, n5)), o5;
+      })(this, a5, s6, e7, t5, n5)), o5;
     }, P4.prototype.cork = function() {
       this._writableState.corked++;
     }, P4.prototype.uncork = function() {
@@ -30342,10 +30346,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       n5(new w4("_write()"));
     }, P4.prototype._writev = null, P4.prototype.end = function(e7, t5, n5) {
       var i5 = this._writableState;
-      return "function" == typeof e7 ? (n5 = e7, e7 = null, t5 = null) : "function" == typeof t5 && (n5 = t5, t5 = null), null != e7 && this.write(e7, t5), i5.corked && (i5.corked = 1, this.uncork()), i5.ending || function(e8, t6, n6) {
+      return "function" == typeof e7 ? (n5 = e7, e7 = null, t5 = null) : "function" == typeof t5 && (n5 = t5, t5 = null), null != e7 && this.write(e7, t5), i5.corked && (i5.corked = 1, this.uncork()), i5.ending || (function(e8, t6, n6) {
         t6.ending = true, q3(e8, t6), n6 && (t6.finished ? r5.nextTick(n6) : e8.once("finish", n6));
         t6.ended = true, e8.writable = false;
-      }(this, i5, n5), this;
+      })(this, i5, n5), this;
     }, Object.defineProperty(P4.prototype, "writableLength", { enumerable: false, get: function() {
       return this._writableState.length;
     } }), Object.defineProperty(P4.prototype, "destroyed", { enumerable: false, get: function() {
@@ -30401,7 +30405,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   }
   var n$1$12 = function e5(n5, o5, a5) {
     if ("function" == typeof o5) return e5(n5, null, o5);
-    o5 || (o5 = {}), a5 = /* @__PURE__ */ function(e7) {
+    o5 || (o5 = {}), a5 = /* @__PURE__ */ (function(e7) {
       var r5 = false;
       return function() {
         if (!r5) {
@@ -30410,7 +30414,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           e7.apply(this, n6);
         }
       };
-    }(a5 || t$3$1);
+    })(a5 || t$3$1);
     var i5 = o5.readable || false !== o5.readable && n5.readable, l5 = o5.writable || false !== o5.writable && n5.writable, c5 = function() {
       n5.writable || s5();
     }, f6 = n5._writableState && n5._writableState.finished, s5 = function() {
@@ -30425,9 +30429,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }, m4 = function() {
       n5.req.on("finish", s5);
     };
-    return !function(e7) {
+    return !(function(e7) {
       return e7.setHeader && "function" == typeof e7.abort;
-    }(n5) ? l5 && !n5._writableState && (n5.on("end", c5), n5.on("close", c5)) : (n5.on("complete", s5), n5.on("abort", v5), n5.req ? m4() : n5.on("request", m4)), n5.on("end", d4), n5.on("finish", s5), false !== o5.error && n5.on("error", b4), n5.on("close", v5), function() {
+    })(n5) ? l5 && !n5._writableState && (n5.on("end", c5), n5.on("close", c5)) : (n5.on("complete", s5), n5.on("abort", v5), n5.req ? m4() : n5.on("request", m4)), n5.on("end", d4), n5.on("finish", s5), false !== o5.error && n5.on("error", b4), n5.on("close", v5), function() {
       n5.removeListener("complete", s5), n5.removeListener("abort", v5), n5.removeListener("request", m4), n5.req && n5.req.removeListener("finish", s5), n5.removeListener("end", c5), n5.removeListener("close", c5), n5.removeListener("finish", s5), n5.removeListener("end", d4), n5.removeListener("error", b4), n5.removeListener("close", v5);
     };
   };
@@ -30435,9 +30439,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var n5 = Object.keys(e7);
     if (Object.getOwnPropertySymbols) {
       var r5 = Object.getOwnPropertySymbols(e7);
-      t5 && (r5 = r5.filter(function(t6) {
+      t5 && (r5 = r5.filter((function(t6) {
         return Object.getOwnPropertyDescriptor(e7, t6).enumerable;
-      })), n5.push.apply(n5, r5);
+      }))), n5.push.apply(n5, r5);
     }
     return n5;
   }
@@ -30453,11 +30457,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var b$1$1 = e$1$1.Buffer;
   var p$1$1 = X.inspect;
   var g$1$1 = p$1$1 && p$1$1.custom || "inspect";
-  var y$1$1 = function() {
+  var y$1$1 = (function() {
     function e7() {
-      !function(e8, t6) {
+      !(function(e8, t6) {
         if (!(e8 instanceof t6)) throw new TypeError("Cannot call a class as a function");
-      }(this, e7), this.head = null, this.tail = null, this.length = 0;
+      })(this, e7), this.head = null, this.tail = null, this.length = 0;
     }
     var t5, n5;
     return t5 = e7, (n5 = [{ key: "push", value: function(e8) {
@@ -30509,19 +30513,19 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }
       return this.length -= r5, t6;
     } }, { key: g$1$1, value: function(e8, t6) {
-      return p$1$1(this, function(e9) {
+      return p$1$1(this, (function(e9) {
         for (var t7 = 1; t7 < arguments.length; t7++) {
           var n6 = null != arguments[t7] ? arguments[t7] : {};
-          t7 % 2 ? f$1$1(Object(n6), true).forEach(function(t8) {
+          t7 % 2 ? f$1$1(Object(n6), true).forEach((function(t8) {
             h$1$12(e9, t8, n6[t8]);
-          }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e9, Object.getOwnPropertyDescriptors(n6)) : f$1$1(Object(n6)).forEach(function(t8) {
+          })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e9, Object.getOwnPropertyDescriptors(n6)) : f$1$1(Object(n6)).forEach((function(t8) {
             Object.defineProperty(e9, t8, Object.getOwnPropertyDescriptor(n6, t8));
-          });
+          }));
         }
         return e9;
-      }({}, t6, { depth: 0, customInspect: false }));
+      })({}, t6, { depth: 0, customInspect: false }));
     } }]) && c$1$12(t5.prototype, n5), e7;
-  }();
+  })();
   var w$1$1 = T$1;
   function _$1$1(e7, t5) {
     m$1$1(e7, t5), v$1$1(e7);
@@ -30534,9 +30538,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   }
   var S$1$1 = { destroy: function(e7, t5) {
     var n5 = this, r5 = this._readableState && this._readableState.destroyed, i5 = this._writableState && this._writableState.destroyed;
-    return r5 || i5 ? (t5 ? t5(e7) : e7 && (this._writableState ? this._writableState.errorEmitted || (this._writableState.errorEmitted = true, w$1$1.nextTick(m$1$1, this, e7)) : w$1$1.nextTick(m$1$1, this, e7)), this) : (this._readableState && (this._readableState.destroyed = true), this._writableState && (this._writableState.destroyed = true), this._destroy(e7 || null, function(e8) {
+    return r5 || i5 ? (t5 ? t5(e7) : e7 && (this._writableState ? this._writableState.errorEmitted || (this._writableState.errorEmitted = true, w$1$1.nextTick(m$1$1, this, e7)) : w$1$1.nextTick(m$1$1, this, e7)), this) : (this._readableState && (this._readableState.destroyed = true), this._writableState && (this._writableState.destroyed = true), this._destroy(e7 || null, (function(e8) {
       !t5 && e8 ? n5._writableState ? n5._writableState.errorEmitted ? w$1$1.nextTick(v$1$1, n5) : (n5._writableState.errorEmitted = true, w$1$1.nextTick(_$1$1, n5, e8)) : w$1$1.nextTick(_$1$1, n5, e8) : t5 ? (w$1$1.nextTick(v$1$1, n5), t5(e8)) : w$1$1.nextTick(v$1$1, n5);
-    }), this);
+    })), this);
   }, undestroy: function() {
     this._readableState && (this._readableState.destroyed = false, this._readableState.reading = false, this._readableState.ended = false, this._readableState.endEmitted = false), this._writableState && (this._writableState.destroyed = false, this._writableState.ended = false, this._writableState.ending = false, this._writableState.finalCalled = false, this._writableState.prefinished = false, this._writableState.finished = false, this._writableState.errorEmitted = false);
   }, errorOrDestroy: function(e7, t5) {
@@ -30546,9 +30550,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var R$1$1 = e$1$12.codes.ERR_INVALID_OPT_VALUE;
   var k$1$1;
   var E$1$1 = { getHighWaterMark: function(e7, t5, n5, r5) {
-    var i5 = function(e8, t6, n6) {
+    var i5 = (function(e8, t6, n6) {
       return null != e8.highWaterMark ? e8.highWaterMark : t6 ? e8[n6] : null;
-    }(t5, r5, n5);
+    })(t5, r5, n5);
     if (null != i5) {
       if (!isFinite(i5) || Math.floor(i5) !== i5 || i5 < 0) throw new R$1$1(r5 ? n5 : "highWaterMark", i5);
       return Math.floor(i5);
@@ -30560,13 +30564,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t5 in e7 ? Object.defineProperty(e7, t5, { value: n5, enumerable: true, configurable: true, writable: true }) : e7[t5] = n5, e7;
   }
   var O$1$1 = n$1$12;
-  var T$1$1 = Symbol("lastResolve");
-  var x$1$1 = Symbol("lastReject");
-  var P$1$1 = Symbol("error");
-  var D$1$1 = Symbol("ended");
-  var L$1$1 = Symbol("lastPromise");
-  var C$1$1 = Symbol("handlePromise");
-  var A$1$1 = Symbol("stream");
+  var T$1$1 = /* @__PURE__ */ Symbol("lastResolve");
+  var x$1$1 = /* @__PURE__ */ Symbol("lastReject");
+  var P$1$1 = /* @__PURE__ */ Symbol("error");
+  var D$1$1 = /* @__PURE__ */ Symbol("ended");
+  var L$1$1 = /* @__PURE__ */ Symbol("lastPromise");
+  var C$1$1 = /* @__PURE__ */ Symbol("handlePromise");
+  var A$1$1 = /* @__PURE__ */ Symbol("stream");
   function W$1$1(e7, t5) {
     return { value: e7, done: t5 };
   }
@@ -30580,58 +30584,58 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function q$1$1(e7) {
     M$1$1.nextTick(B$1$1, e7);
   }
-  var I$1$1 = Object.getPrototypeOf(function() {
-  });
+  var I$1$1 = Object.getPrototypeOf((function() {
+  }));
   var N$1$1 = Object.setPrototypeOf((j$1$1(k$1$1 = { get stream() {
     return this[A$1$1];
   }, next: function() {
     var e7 = this, t5 = this[P$1$1];
     if (null !== t5) return Promise.reject(t5);
     if (this[D$1$1]) return Promise.resolve(W$1$1(void 0, true));
-    if (this[A$1$1].destroyed) return new Promise(function(t6, n6) {
-      M$1$1.nextTick(function() {
+    if (this[A$1$1].destroyed) return new Promise((function(t6, n6) {
+      M$1$1.nextTick((function() {
         e7[P$1$1] ? n6(e7[P$1$1]) : t6(W$1$1(void 0, true));
-      });
-    });
+      }));
+    }));
     var n5, r5 = this[L$1$1];
-    if (r5) n5 = new Promise(/* @__PURE__ */ function(e8, t6) {
+    if (r5) n5 = new Promise(/* @__PURE__ */ (function(e8, t6) {
       return function(n6, r6) {
-        e8.then(function() {
+        e8.then((function() {
           if (t6[D$1$1]) return n6(W$1$1(void 0, true)), void 0;
           t6[C$1$1](n6, r6);
-        }, r6);
+        }), r6);
       };
-    }(r5, this));
+    })(r5, this));
     else {
       var i5 = this[A$1$1].read();
       if (null !== i5) return Promise.resolve(W$1$1(i5, false));
       n5 = new Promise(this[C$1$1]);
     }
     return this[L$1$1] = n5, n5;
-  } }, Symbol.asyncIterator, function() {
+  } }, Symbol.asyncIterator, (function() {
     return this;
-  }), j$1$1(k$1$1, "return", function() {
+  })), j$1$1(k$1$1, "return", (function() {
     var e7 = this;
-    return new Promise(function(t5, n5) {
-      e7[A$1$1].destroy(null, function(e8) {
+    return new Promise((function(t5, n5) {
+      e7[A$1$1].destroy(null, (function(e8) {
         if (e8) return n5(e8), void 0;
         t5(W$1$1(void 0, true));
-      });
-    });
-  }), k$1$1), I$1$1);
+      }));
+    }));
+  })), k$1$1), I$1$1);
   var U$1$1 = function(e7) {
     var t5, n5 = Object.create(N$1$1, (j$1$1(t5 = {}, A$1$1, { value: e7, writable: true }), j$1$1(t5, T$1$1, { value: null, writable: true }), j$1$1(t5, x$1$1, { value: null, writable: true }), j$1$1(t5, P$1$1, { value: null, writable: true }), j$1$1(t5, D$1$1, { value: e7._readableState.endEmitted, writable: true }), j$1$1(t5, C$1$1, { value: function(e8, t6) {
       var r5 = n5[A$1$1].read();
       r5 ? (n5[L$1$1] = null, n5[T$1$1] = null, n5[x$1$1] = null, e8(W$1$1(r5, false))) : (n5[T$1$1] = e8, n5[x$1$1] = t6);
     }, writable: true }), t5));
-    return n5[L$1$1] = null, O$1$1(e7, function(e8) {
+    return n5[L$1$1] = null, O$1$1(e7, (function(e8) {
       if (e8 && "ERR_STREAM_PREMATURE_CLOSE" !== e8.code) {
         var t6 = n5[x$1$1];
         return null !== t6 && (n5[L$1$1] = null, n5[T$1$1] = null, n5[x$1$1] = null, t6(e8)), n5[P$1$1] = e8, void 0;
       }
       var r5 = n5[T$1$1];
       null !== r5 && (n5[L$1$1] = null, n5[T$1$1] = null, n5[x$1$1] = null, r5(W$1$1(void 0, true))), n5[D$1$1] = true;
-    }), e7.on("readable", q$1$1.bind(null, n5)), n5;
+    })), e7.on("readable", q$1$1.bind(null, n5)), n5;
   };
   var H$1$1 = {};
   var F$1$1 = false;
@@ -30663,23 +30667,23 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function A4(e7, t5, n5, r5, i5) {
       p5("readableAddChunk", t5);
       var a5, o5 = e7._readableState;
-      if (null === t5) o5.reading = false, function(e8, t6) {
+      if (null === t5) o5.reading = false, (function(e8, t6) {
         if (p5("onEofChunk"), t6.ended) return;
         if (t6.decoder) {
           var n6 = t6.decoder.end();
           n6 && n6.length && (t6.buffer.push(n6), t6.length += t6.objectMode ? 1 : n6.length);
         }
         t6.ended = true, t6.sync ? q3(e8) : (t6.needReadable = false, t6.emittedReadable || (t6.emittedReadable = true, I4(e8)));
-      }(e7, o5);
-      else if (i5 || (a5 = function(e8, t6) {
+      })(e7, o5);
+      else if (i5 || (a5 = (function(e8, t6) {
         var n6;
         r6 = t6, c5.isBuffer(r6) || r6 instanceof b4 || "string" == typeof t6 || void 0 === t6 || e8.objectMode || (n6 = new j4("chunk", ["string", "Buffer", "Uint8Array"], t6));
         var r6;
         return n6;
-      }(o5, t5)), a5) P4(e7, a5);
-      else if (o5.objectMode || t5 && t5.length > 0) if ("string" == typeof t5 || o5.objectMode || Object.getPrototypeOf(t5) === c5.prototype || (t5 = function(e8) {
+      })(o5, t5)), a5) P4(e7, a5);
+      else if (o5.objectMode || t5 && t5.length > 0) if ("string" == typeof t5 || o5.objectMode || Object.getPrototypeOf(t5) === c5.prototype || (t5 = (function(e8) {
         return c5.from(e8);
-      }(t5)), r5) o5.endEmitted ? P4(e7, new x4()) : W3(e7, o5, t5, true);
+      })(t5)), r5) o5.endEmitted ? P4(e7, new x4()) : W3(e7, o5, t5, true);
       else if (o5.ended) P4(e7, new O4());
       else {
         if (o5.destroyed) return false;
@@ -30712,9 +30716,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return this._readableState.buffer.clear(), "" !== r5 && this._readableState.buffer.push(r5), this._readableState.length = r5.length, this;
     };
     function B4(e7, t5) {
-      return e7 <= 0 || 0 === t5.length && t5.ended ? 0 : t5.objectMode ? 1 : e7 != e7 ? t5.flowing && t5.length ? t5.buffer.head.data.length : t5.length : (e7 > t5.highWaterMark && (t5.highWaterMark = function(e8) {
+      return e7 <= 0 || 0 === t5.length && t5.ended ? 0 : t5.objectMode ? 1 : e7 != e7 ? t5.flowing && t5.length ? t5.buffer.head.data.length : t5.length : (e7 > t5.highWaterMark && (t5.highWaterMark = (function(e8) {
         return e8 >= 1073741824 ? e8 = 1073741824 : (e8--, e8 |= e8 >>> 1, e8 |= e8 >>> 2, e8 |= e8 >>> 4, e8 |= e8 >>> 8, e8 |= e8 >>> 16, e8++), e8;
-      }(e7)), e7 <= t5.length ? e7 : t5.ended ? t5.length : (t5.needReadable = true, 0));
+      })(e7)), e7 <= t5.length ? e7 : t5.ended ? t5.length : (t5.needReadable = true, 0));
     }
     function q3(e7) {
       var t5 = e7._readableState;
@@ -30796,12 +30800,12 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         p5("onend"), e7.end();
       }
       r5.endEmitted ? u5.nextTick(i5) : n5.once("end", i5), e7.on("unpipe", a5);
-      var s5 = /* @__PURE__ */ function(e8) {
+      var s5 = /* @__PURE__ */ (function(e8) {
         return function() {
           var t6 = e8._readableState;
           p5("pipeOnDrain", t6.awaitDrain), t6.awaitDrain && t6.awaitDrain--, 0 === t6.awaitDrain && f6(e8, "data") && (t6.flowing = true, J3(e8));
         };
-      }(n5);
+      })(n5);
       e7.on("drain", s5);
       var l6 = false;
       function d4(t6) {
@@ -30821,10 +30825,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       function g5() {
         p5("unpipe"), n5.unpipe(e7);
       }
-      return n5.on("data", d4), function(e8, t6, n6) {
+      return n5.on("data", d4), (function(e8, t6, n6) {
         if ("function" == typeof e8.prependListener) return e8.prependListener(t6, n6);
         e8._events && e8._events[t6] ? Array.isArray(e8._events[t6]) ? e8._events[t6].unshift(n6) : e8._events[t6] = [n6, e8._events[t6]] : e8.on(t6, n6);
-      }(e7, "error", h6), e7.once("close", c6), e7.once("finish", b5), e7.emit("pipe", n5), r5.flowing || (p5("pipe resume"), n5.resume()), e7;
+      })(e7, "error", h6), e7.once("close", c6), e7.once("finish", b5), e7.emit("pipe", n5), r5.flowing || (p5("pipe resume"), n5.resume()), e7;
     }, C4.prototype.unpipe = function(e7) {
       var t5 = this._readableState, n5 = { hasUnpiped: false };
       if (0 === t5.pipesCount) return this;
@@ -30848,26 +30852,26 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return "readable" !== e7 && void 0 !== e7 || u5.nextTick(Y4, this), t5;
     }, C4.prototype.resume = function() {
       var e7 = this._readableState;
-      return e7.flowing || (p5("resume"), e7.flowing = !e7.readableListening, function(e8, t5) {
+      return e7.flowing || (p5("resume"), e7.flowing = !e7.readableListening, (function(e8, t5) {
         t5.resumeScheduled || (t5.resumeScheduled = true, u5.nextTick(z4, e8, t5));
-      }(this, e7)), e7.paused = false, this;
+      })(this, e7)), e7.paused = false, this;
     }, C4.prototype.pause = function() {
       return p5("call pause flowing=%j", this._readableState.flowing), false !== this._readableState.flowing && (p5("pause"), this._readableState.flowing = false, this.emit("pause")), this._readableState.paused = true, this;
     }, C4.prototype.wrap = function(e7) {
       var t5 = this, n5 = this._readableState, r5 = false;
-      for (var i5 in e7.on("end", function() {
+      for (var i5 in e7.on("end", (function() {
         if (p5("wrapped end"), n5.decoder && !n5.ended) {
           var e8 = n5.decoder.end();
           e8 && e8.length && t5.push(e8);
         }
         t5.push(null);
-      }), e7.on("data", function(i6) {
+      })), e7.on("data", (function(i6) {
         (p5("wrapped data"), n5.decoder && (i6 = n5.decoder.write(i6)), n5.objectMode && null == i6) || (n5.objectMode || i6 && i6.length) && (t5.push(i6) || (r5 = true, e7.pause()));
-      }), e7) void 0 === this[i5] && "function" == typeof e7[i5] && (this[i5] = /* @__PURE__ */ function(t6) {
+      })), e7) void 0 === this[i5] && "function" == typeof e7[i5] && (this[i5] = /* @__PURE__ */ (function(t6) {
         return function() {
           return e7[t6].apply(e7, arguments);
         };
-      }(i5));
+      })(i5));
       for (var a5 = 0; a5 < D4.length; a5++) e7.on(D4[a5], this.emit.bind(this, D4[a5]));
       return this._read = function(t6) {
         p5("wrapped _read", t6), r5 && (r5 = false, e7.resume());
@@ -30898,7 +30902,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function s5(e7) {
       var t5 = this;
       this.next = null, this.entry = null, this.finish = function() {
-        !function(e8, t6, n5) {
+        !(function(e8, t6, n5) {
           var r6 = e8.entry;
           e8.entry = null;
           for (; r6; ) {
@@ -30906,7 +30910,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             t6.pendingcb--, i5(n5), r6 = r6.next;
           }
           t6.corkedRequestsFree.next = e8;
-        }(t5, e7);
+        })(t5, e7);
       };
     }
     Y$1$1 = x4, x4.WritableState = T4;
@@ -30919,19 +30923,19 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       e$232 = e$232 || Z$1$1(), t5 = t5 || {}, "boolean" != typeof i5 && (i5 = n5 instanceof e$232), this.objectMode = !!t5.objectMode, i5 && (this.objectMode = this.objectMode || !!t5.writableObjectMode), this.highWaterMark = p5(this, t5, "writableHighWaterMark", i5), this.finalCalled = false, this.needDrain = false, this.ending = false, this.ended = false, this.finished = false, this.destroyed = false;
       var a5 = false === t5.decodeStrings;
       this.decodeStrings = !a5, this.defaultEncoding = t5.defaultEncoding || "utf8", this.length = 0, this.writing = false, this.corked = 0, this.sync = true, this.bufferProcessing = false, this.onwrite = function(e7) {
-        !function(e8, t6) {
+        !(function(e8, t6) {
           var n6 = e8._writableState, i6 = n6.sync, a6 = n6.writecb;
           if ("function" != typeof a6) throw new _4();
-          if (function(e9) {
+          if ((function(e9) {
             e9.writing = false, e9.writecb = null, e9.length -= e9.writelen, e9.writelen = 0;
-          }(n6), t6) !function(e9, t7, n7, i7, a7) {
+          })(n6), t6) !(function(e9, t7, n7, i7, a7) {
             --t7.pendingcb, n7 ? (r5.nextTick(a7, i7), r5.nextTick(W3, e9, t7), e9._writableState.errorEmitted = true, j4(e9, i7)) : (a7(i7), e9._writableState.errorEmitted = true, j4(e9, i7), W3(e9, t7));
-          }(e8, n6, i6, t6, a6);
+          })(e8, n6, i6, t6, a6);
           else {
             var o5 = C4(n6) || e8.destroyed;
             o5 || n6.corked || n6.bufferProcessing || !n6.bufferedRequest || L4(e8, n6), i6 ? r5.nextTick(D4, e8, n6, o5, a6) : D4(e8, n6, o5, a6);
           }
-        }(n5, e7);
+        })(n5, e7);
       }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = false, this.errorEmitted = false, this.emitClose = false !== t5.emitClose, this.autoDestroy = !!t5.autoDestroy, this.bufferedRequestCount = 0, this.corkedRequestsFree = new s5(this);
     }
     function x4(t5) {
@@ -30943,9 +30947,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       t5.writelen = r6, t5.writecb = o5, t5.writing = true, t5.sync = true, t5.destroyed ? t5.onwrite(new m4("write")) : n5 ? e7._writev(i5, t5.onwrite) : e7._write(i5, a5, t5.onwrite), t5.sync = false;
     }
     function D4(e7, t5, n5, r6) {
-      n5 || !function(e8, t6) {
+      n5 || !(function(e8, t6) {
         0 === t6.length && t6.needDrain && (t6.needDrain = false, e8.emit("drain"));
-      }(e7, t5), t5.pendingcb--, r6(), W3(e7, t5);
+      })(e7, t5), t5.pendingcb--, r6(), W3(e7, t5);
     }
     function L4(e7, t5) {
       t5.bufferProcessing = true;
@@ -30968,15 +30972,15 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return e7.ending && 0 === e7.length && null === e7.bufferedRequest && !e7.finished && !e7.writing;
     }
     function A4(e7, t5) {
-      e7._final(function(n5) {
+      e7._final((function(n5) {
         t5.pendingcb--, n5 && j4(e7, n5), t5.prefinished = true, e7.emit("prefinish"), W3(e7, t5);
-      });
+      }));
     }
     function W3(e7, t5) {
       var n5 = C4(t5);
-      if (n5 && (!function(e8, t6) {
+      if (n5 && (!(function(e8, t6) {
         t6.prefinished || t6.finalCalled || ("function" != typeof e8._final || t6.destroyed ? (t6.prefinished = true, e8.emit("prefinish")) : (t6.pendingcb++, t6.finalCalled = true, r5.nextTick(A4, e8, t6)));
-      }(e7, t5), 0 === t5.pendingcb && (t5.finished = true, e7.emit("finish"), t5.autoDestroy))) {
+      })(e7, t5), 0 === t5.pendingcb && (t5.finished = true, e7.emit("finish"), t5.autoDestroy))) {
         var i5 = e7._readableState;
         (!i5 || i5.autoDestroy && i5.endEmitted) && e7.destroy();
       }
@@ -30985,14 +30989,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t$2(x4, d4), T4.prototype.getBuffer = function() {
       for (var e7 = this.bufferedRequest, t5 = []; e7; ) t5.push(e7), e7 = e7.next;
       return t5;
-    }, function() {
+    }, (function() {
       try {
-        Object.defineProperty(T4.prototype, "buffer", { get: l5.deprecate(function() {
+        Object.defineProperty(T4.prototype, "buffer", { get: l5.deprecate((function() {
           return this.getBuffer();
-        }, "_writableState.buffer is deprecated. Use _writableState.getBuffer instead.", "DEP0003") });
+        }), "_writableState.buffer is deprecated. Use _writableState.getBuffer instead.", "DEP0003") });
       } catch (e7) {
       }
-    }(), "function" == typeof Symbol && Symbol.hasInstance && "function" == typeof Function.prototype[Symbol.hasInstance] ? (c5 = Function.prototype[Symbol.hasInstance], Object.defineProperty(x4, Symbol.hasInstance, { value: function(e7) {
+    })(), "function" == typeof Symbol && Symbol.hasInstance && "function" == typeof Function.prototype[Symbol.hasInstance] ? (c5 = Function.prototype[Symbol.hasInstance], Object.defineProperty(x4, Symbol.hasInstance, { value: function(e7) {
       return !!c5.call(this, e7) || this === x4 && (e7 && e7._writableState instanceof T4);
     } })) : c5 = function(e7) {
       return e7 instanceof this;
@@ -31000,20 +31004,20 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       j4(this, new v5());
     }, x4.prototype.write = function(e7, t5, n5) {
       var i5, a5 = this._writableState, o5 = false, s6 = !a5.objectMode && (i5 = e7, f6.isBuffer(i5) || i5 instanceof h5);
-      return s6 && !f6.isBuffer(e7) && (e7 = function(e8) {
+      return s6 && !f6.isBuffer(e7) && (e7 = (function(e8) {
         return f6.from(e8);
-      }(e7)), "function" == typeof t5 && (n5 = t5, t5 = null), s6 ? t5 = "buffer" : t5 || (t5 = a5.defaultEncoding), "function" != typeof n5 && (n5 = O4), a5.ending ? function(e8, t6) {
+      })(e7)), "function" == typeof t5 && (n5 = t5, t5 = null), s6 ? t5 = "buffer" : t5 || (t5 = a5.defaultEncoding), "function" != typeof n5 && (n5 = O4), a5.ending ? (function(e8, t6) {
         var n6 = new k4();
         j4(e8, n6), r5.nextTick(t6, n6);
-      }(this, n5) : (s6 || function(e8, t6, n6, i6) {
+      })(this, n5) : (s6 || (function(e8, t6, n6, i6) {
         var a6;
         return null === n6 ? a6 = new R4() : "string" == typeof n6 || t6.objectMode || (a6 = new y5("chunk", ["string", "Buffer"], n6)), !a6 || (j4(e8, a6), r5.nextTick(i6, a6), false);
-      }(this, a5, e7, n5)) && (a5.pendingcb++, o5 = function(e8, t6, n6, r6, i6, a6) {
+      })(this, a5, e7, n5)) && (a5.pendingcb++, o5 = (function(e8, t6, n6, r6, i6, a6) {
         if (!n6) {
-          var o6 = function(e9, t7, n7) {
+          var o6 = (function(e9, t7, n7) {
             e9.objectMode || false === e9.decodeStrings || "string" != typeof t7 || (t7 = f6.from(t7, n7));
             return t7;
-          }(t6, r6, i6);
+          })(t6, r6, i6);
           r6 !== o6 && (n6 = true, i6 = "buffer", r6 = o6);
         }
         var s7 = t6.objectMode ? 1 : r6.length;
@@ -31025,7 +31029,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           t6.lastBufferedRequest = { chunk: r6, encoding: i6, isBuf: n6, callback: a6, next: null }, d5 ? d5.next = t6.lastBufferedRequest : t6.bufferedRequest = t6.lastBufferedRequest, t6.bufferedRequestCount += 1;
         } else P4(e8, t6, false, s7, r6, i6, a6);
         return l6;
-      }(this, a5, s6, e7, t5, n5)), o5;
+      })(this, a5, s6, e7, t5, n5)), o5;
     }, x4.prototype.cork = function() {
       this._writableState.corked++;
     }, x4.prototype.uncork = function() {
@@ -31042,10 +31046,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       n5(new w4("_write()"));
     }, x4.prototype._writev = null, x4.prototype.end = function(e7, t5, n5) {
       var i5 = this._writableState;
-      return "function" == typeof e7 ? (n5 = e7, e7 = null, t5 = null) : "function" == typeof t5 && (n5 = t5, t5 = null), null != e7 && this.write(e7, t5), i5.corked && (i5.corked = 1, this.uncork()), i5.ending || function(e8, t6, n6) {
+      return "function" == typeof e7 ? (n5 = e7, e7 = null, t5 = null) : "function" == typeof t5 && (n5 = t5, t5 = null), null != e7 && this.write(e7, t5), i5.corked && (i5.corked = 1, this.uncork()), i5.ending || (function(e8, t6, n6) {
         t6.ending = true, W3(e8, t6), n6 && (t6.finished ? r5.nextTick(n6) : e8.once("finish", n6));
         t6.ended = true, e8.writable = false;
-      }(this, i5, n5), this;
+      })(this, i5, n5), this;
     }, Object.defineProperty(x4.prototype, "writableLength", { enumerable: false, get: function() {
       return this._writableState.length;
     } }), Object.defineProperty(x4.prototype, "destroyed", { enumerable: false, get: function() {
@@ -31120,9 +31124,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   }
   function m$2$1() {
     var t5 = this;
-    "function" != typeof this._flush || this._readableState.destroyed ? _$2$1(this, null, null) : this._flush(function(r5, e7) {
+    "function" != typeof this._flush || this._readableState.destroyed ? _$2$1(this, null, null) : this._flush((function(r5, e7) {
       _$2$1(t5, r5, e7);
-    });
+    }));
   }
   function _$2$1(t5, r5, e7) {
     if (r5) return t5.emit("error", r5);
@@ -31144,9 +31148,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var r5 = this._transformState;
     null === r5.writechunk || r5.transforming ? r5.needTransform = true : (r5.transforming = true, this._transform(r5.writechunk, r5.writeencoding, r5.afterTransform));
   }, u$1$12.prototype._destroy = function(t5, r5) {
-    h$2$1.prototype._destroy.call(this, t5, function(t6) {
+    h$2$1.prototype._destroy.call(this, t5, (function(t6) {
       r5(t6);
-    });
+    }));
   };
   var p$2$1 = n$2$1;
   var o$1$12;
@@ -31168,24 +31172,24 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (r5) throw r5;
   }
   function u$2$1(r5, o5, e7, i5) {
-    i5 = /* @__PURE__ */ function(r6) {
+    i5 = /* @__PURE__ */ (function(r6) {
       var n5 = false;
       return function() {
         n5 || (n5 = true, r6.apply(void 0, arguments));
       };
-    }(i5);
+    })(i5);
     var u5 = false;
-    r5.on("close", function() {
+    r5.on("close", (function() {
       u5 = true;
-    }), void 0 === t$6$1 && (t$6$1 = n$1$12), t$6$1(r5, { readable: o5, writable: e7 }, function(r6) {
+    })), void 0 === t$6$1 && (t$6$1 = n$1$12), t$6$1(r5, { readable: o5, writable: e7 }, (function(r6) {
       if (r6) return i5(r6);
       u5 = true, i5();
-    });
+    }));
     var a5 = false;
     return function(n5) {
-      if (!u5 && !a5) return a5 = true, function(r6) {
+      if (!u5 && !a5) return a5 = true, (function(r6) {
         return r6.setHeader && "function" == typeof r6.abort;
-      }(r5) ? r5.abort() : "function" == typeof r5.destroy ? r5.destroy() : (i5(n5 || new f$3$1("pipe")), void 0);
+      })(r5) ? r5.abort() : "function" == typeof r5.destroy ? r5.destroy() : (i5(n5 || new f$3$1("pipe")), void 0);
     };
   }
   function a$1$12(r5) {
@@ -31201,12 +31205,12 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     for (var r5 = arguments.length, n5 = new Array(r5), t5 = 0; t5 < r5; t5++) n5[t5] = arguments[t5];
     var o5, f6 = p$3$1(n5);
     if (Array.isArray(n5[0]) && (n5 = n5[0]), n5.length < 2) throw new e$4$1("streams");
-    var i5 = n5.map(function(r6, t6) {
+    var i5 = n5.map((function(r6, t6) {
       var e7 = t6 < n5.length - 1;
-      return u$2$1(r6, e7, t6 > 0, function(r7) {
+      return u$2$1(r6, e7, t6 > 0, (function(r7) {
         o5 || (o5 = r7), r7 && i5.forEach(a$1$12), e7 || (i5.forEach(a$1$12), f6(o5));
-      });
-    });
+      }));
+    }));
     return n5.reduce(c$2$1);
   };
   var l$r;
@@ -33010,7 +33014,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       return [t0, t1, t22, t32];
     }
     var RCON = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
-    var G3 = function() {
+    var G3 = (function() {
       var d4 = new Array(256);
       for (var j4 = 0; j4 < 256; j4++) {
         if (j4 < 128) {
@@ -33056,7 +33060,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         SUB_MIX,
         INV_SUB_MIX
       };
-    }();
+    })();
     function AES(key) {
       (this || _global$j$1)._key = asUInt32Array(key);
       this._reset();
@@ -39094,7 +39098,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (e7.forEach) return e7.forEach(t5);
     for (var n5 = 0; n5 < e7.length; n5++) t5(e7[n5], n5, e7);
   };
-  var defineProp2 = function() {
+  var defineProp2 = (function() {
     try {
       return Object.defineProperty({}, "_", {}), function(e7, t5, n5) {
         Object.defineProperty(e7, t5, { writable: true, enumerable: false, configurable: true, value: n5 });
@@ -39104,7 +39108,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         e8[t5] = n5;
       };
     }
-  }();
+  })();
   var globals2 = ["Array", "Boolean", "Date", "Error", "EvalError", "Function", "Infinity", "JSON", "Math", "NaN", "Number", "Object", "RangeError", "ReferenceError", "RegExp", "String", "SyntaxError", "TypeError", "URIError", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "escape", "eval", "isFinite", "isNaN", "parseFloat", "parseInt", "undefined", "unescape"];
   function Context2() {
   }
@@ -39118,38 +39122,38 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var t5 = document.createElement("iframe");
     t5.style || (t5.style = {}), t5.style.display = "none", document.body.appendChild(t5);
     var n5 = t5.contentWindow, r5 = n5.eval, o5 = n5.execScript;
-    !r5 && o5 && (o5.call(n5, "null"), r5 = n5.eval), forEach2(Object_keys2(e7), function(t6) {
+    !r5 && o5 && (o5.call(n5, "null"), r5 = n5.eval), forEach2(Object_keys2(e7), (function(t6) {
       n5[t6] = e7[t6];
-    }), forEach2(globals2, function(t6) {
+    })), forEach2(globals2, (function(t6) {
       e7[t6] && (n5[t6] = e7[t6]);
-    });
+    }));
     var c5 = Object_keys2(n5), i5 = r5.call(n5, (this || _global$b$1).code);
-    return forEach2(Object_keys2(n5), function(t6) {
+    return forEach2(Object_keys2(n5), (function(t6) {
       (t6 in e7 || -1 === indexOf2(c5, t6)) && (e7[t6] = n5[t6]);
-    }), forEach2(globals2, function(t6) {
+    })), forEach2(globals2, (function(t6) {
       t6 in e7 || defineProp2(e7, t6, n5[t6]);
-    }), document.body.removeChild(t5), i5;
+    })), document.body.removeChild(t5), i5;
   }, Script3.prototype.runInThisContext = function() {
     return (0, eval)((this || _global$b$1).code);
   }, Script3.prototype.runInNewContext = function(e7) {
     var t5 = Script3.createContext(e7), n5 = this.runInContext(t5);
-    return e7 && forEach2(Object_keys2(t5), function(n6) {
+    return e7 && forEach2(Object_keys2(t5), (function(n6) {
       e7[n6] = t5[n6];
-    }), n5;
-  }, forEach2(Object_keys2(Script3.prototype), function(e7) {
+    })), n5;
+  }, forEach2(Object_keys2(Script3.prototype), (function(e7) {
     exports$11$1[e7] = Script3[e7] = function(t5) {
       var n5 = Script3(t5);
       return n5[e7].apply(n5, [].slice.call(arguments, 1));
     };
-  }), exports$11$1.isContext = function(e7) {
+  })), exports$11$1.isContext = function(e7) {
     return e7 instanceof Context2;
   }, exports$11$1.createScript = function(e7) {
     return exports$11$1.Script(e7);
   }, exports$11$1.createContext = Script3.createContext = function(e7) {
     var t5 = new Context2();
-    return "object" == typeof e7 && forEach2(Object_keys2(e7), function(n5) {
+    return "object" == typeof e7 && forEach2(Object_keys2(e7), (function(n5) {
       t5[n5] = e7[n5];
-    }), t5;
+    })), t5;
   };
   exports$11$1.Script;
   exports$11$1.createContext;
@@ -39167,9 +39171,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var o5 = t4.allocUnsafe(e7);
     if (e7 > 0) if (e7 > 65536) for (var a5 = 0; a5 < e7; a5 += 65536) f4.getRandomValues(o5.slice(a5, a5 + 65536));
     else f4.getRandomValues(o5);
-    if ("function" == typeof r5) return n4.nextTick(function() {
+    if ("function" == typeof r5) return n4.nextTick((function() {
       r5(null, o5);
-    });
+    }));
     return o5;
   } : function() {
     throw new Error("Secure random number generation is not supported by this browser.\\nUse Chrome, Firefox or Internet Explorer 11");
@@ -39196,9 +39200,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }
     t5(i5);
   }, s4.prototype.update = function(t5, i5) {
-    if (!function(t6, i6) {
+    if (!(function(t6, i6) {
       if (!e6.isBuffer(t6) && "string" != typeof t6) throw new TypeError(i6 + " must be a string or a buffer");
-    }(t5, "Data"), this._finalized) throw new Error("Digest already called");
+    })(t5, "Data"), this._finalized) throw new Error("Digest already called");
     e6.isBuffer(t5) || (t5 = e6.from(t5, i5));
     for (var r5 = this._block, o5 = 0; this._blockOffset + t5.length - o5 >= this._blockSize; ) {
       for (var s5 = this._blockOffset; s5 < this._blockSize; ) r5[s5++] = t5[o5++];
@@ -39659,14 +39663,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var g$2 = w$4.alloc(128);
   var B$1 = { md5: 16, sha1: 20, sha224: 28, sha256: 32, sha384: 48, sha512: 64, rmd160: 20, ripemd160: 20 };
   function T$12(r5, e7, t5) {
-    var n5 = /* @__PURE__ */ function(r6) {
+    var n5 = /* @__PURE__ */ (function(r6) {
       function e8(e9) {
         return y$2(r6).update(e9).digest();
       }
       return "rmd160" === r6 || "ripemd160" === r6 ? function(r7) {
         return new m$3().update(r7).digest();
       } : "md5" === r6 ? d$4 : e8;
-    }(r5), o5 = "sha512" === r5 || "sha384" === r5 ? 128 : 64;
+    })(r5), o5 = "sha512" === r5 || "sha384" === r5 ? 128 : 64;
     e7.length > o5 ? e7 = n5(e7) : e7.length < o5 && (e7 = w$4.concat([e7, g$2], o5));
     for (var i5 = w$4.allocUnsafe(o5 + B$1[r5]), f6 = w$4.allocUnsafe(o5 + B$1[r5]), a5 = 0; a5 < o5; a5++) i5[a5] = 54 ^ e7[a5], f6[a5] = 92 ^ e7[a5];
     var s5 = w$4.allocUnsafe(o5 + t5 + 4);
@@ -39700,16 +39704,16 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var z$1 = { sha: "SHA-1", "sha-1": "SHA-1", sha1: "SHA-1", sha256: "SHA-256", "sha-256": "SHA-256", sha384: "SHA-384", "sha-384": "SHA-384", "sha-512": "SHA-512", sha512: "SHA-512" };
   var I$2 = [];
   function D$1(r5, e7, t5, n5, o5) {
-    return x$1.importKey("raw", r5, { name: "PBKDF2" }, false, ["deriveBits"]).then(function(r6) {
+    return x$1.importKey("raw", r5, { name: "PBKDF2" }, false, ["deriveBits"]).then((function(r6) {
       return x$1.deriveBits({ name: "PBKDF2", salt: e7, iterations: t5, hash: { name: o5 } }, r6, n5 << 3);
-    }).then(function(r6) {
+    })).then((function(r6) {
       return K$1.from(r6);
-    });
+    }));
   }
   var F$1 = function(r5, e7, t5, n5, o5, i5) {
     "function" == typeof o5 && (i5 = o5, o5 = void 0);
     var f6 = z$1[(o5 = o5 || "sha1").toLowerCase()];
-    if (!f6 || "function" != typeof A$1.Promise) return H$1.nextTick(function() {
+    if (!f6 || "function" != typeof A$1.Promise) return H$1.nextTick((function() {
       var f7;
       try {
         f7 = U$1(r5, e7, t5, n5, o5);
@@ -39717,31 +39721,31 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         return i5(r6);
       }
       i5(null, f7);
-    });
+    }));
     if (E$2(r5, e7, t5, n5), "function" != typeof i5) throw new Error("No callback provided to pbkdf2");
-    K$1.isBuffer(r5) || (r5 = K$1.from(r5, P$1)), K$1.isBuffer(e7) || (e7 = K$1.from(e7, P$1)), function(r6, e8) {
-      r6.then(function(r7) {
-        H$1.nextTick(function() {
+    K$1.isBuffer(r5) || (r5 = K$1.from(r5, P$1)), K$1.isBuffer(e7) || (e7 = K$1.from(e7, P$1)), (function(r6, e8) {
+      r6.then((function(r7) {
+        H$1.nextTick((function() {
           e8(null, r7);
-        });
-      }, function(r7) {
-        H$1.nextTick(function() {
+        }));
+      }), (function(r7) {
+        H$1.nextTick((function() {
           e8(r7);
-        });
-      });
-    }(function(r6) {
+        }));
+      }));
+    })((function(r6) {
       if (A$1.process && !A$1.process.browser) return Promise.resolve(false);
       if (!x$1 || !x$1.importKey || !x$1.deriveBits) return Promise.resolve(false);
       if (void 0 !== I$2[r6]) return I$2[r6];
-      var e8 = D$1(k$3 = k$3 || K$1.alloc(8), k$3, 10, 128, r6).then(function() {
+      var e8 = D$1(k$3 = k$3 || K$1.alloc(8), k$3, 10, 128, r6).then((function() {
         return true;
-      }).catch(function() {
+      })).catch((function() {
         return false;
-      });
+      }));
       return I$2[r6] = e8, e8;
-    }(f6).then(function(i6) {
+    })(f6).then((function(i6) {
       return i6 ? D$1(r5, e7, t5, n5, f6) : U$1(r5, e7, t5, n5, o5);
-    }), i5);
+    })), i5);
   };
   var M$1 = {};
   M$1.pbkdf2 = F$1, M$1.pbkdf2Sync = S$1;
@@ -40112,7 +40116,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return a5 = (r5[p5 >>> 24] << 24 | r5[_4 >>> 16 & 255] << 16 | r5[d4 >>> 8 & 255] << 8 | r5[255 & y5]) ^ e7[B4++], h5 = (r5[_4 >>> 24] << 24 | r5[d4 >>> 16 & 255] << 16 | r5[y5 >>> 8 & 255] << 8 | r5[255 & p5]) ^ e7[B4++], o5 = (r5[d4 >>> 24] << 24 | r5[y5 >>> 16 & 255] << 16 | r5[p5 >>> 8 & 255] << 8 | r5[255 & _4]) ^ e7[B4++], s5 = (r5[y5 >>> 24] << 24 | r5[p5 >>> 16 & 255] << 16 | r5[_4 >>> 8 & 255] << 8 | r5[255 & d4]) ^ e7[B4++], [a5 >>>= 0, h5 >>>= 0, o5 >>>= 0, s5 >>>= 0];
   }
   var f$d = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
-  var u$8 = function() {
+  var u$8 = (function() {
     for (var t5 = new Array(256), e7 = 0; e7 < 256; e7++) t5[e7] = e7 < 128 ? e7 << 1 : e7 << 1 ^ 283;
     for (var i5 = [], r5 = [], n5 = [[], [], [], []], a5 = [[], [], [], []], h5 = 0, o5 = 0, s5 = 0; s5 < 256; ++s5) {
       var c5 = o5 ^ o5 << 1 ^ o5 << 2 ^ o5 << 3 ^ o5 << 4;
@@ -40121,7 +40125,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       n5[0][h5] = p5 << 24 | p5 >>> 8, n5[1][h5] = p5 << 16 | p5 >>> 16, n5[2][h5] = p5 << 8 | p5 >>> 24, n5[3][h5] = p5, p5 = 16843009 * u5 ^ 65537 * f6 ^ 257 * l5 ^ 16843008 * h5, a5[0][c5] = p5 << 24 | p5 >>> 8, a5[1][c5] = p5 << 16 | p5 >>> 16, a5[2][c5] = p5 << 8 | p5 >>> 24, a5[3][c5] = p5, 0 === h5 ? h5 = o5 = 1 : (h5 = l5 ^ t5[t5[t5[u5 ^ l5]]], o5 ^= t5[t5[o5]]);
     }
     return { SBOX: i5, INV_SBOX: r5, SUB_MIX: n5, INV_SUB_MIX: a5 };
-  }();
+  })();
   function p$9(t5) {
     (this || a$b)._key = s$8(t5), this._reset();
   }
@@ -40187,7 +40191,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var n5 = U$4.alloc(4, 0);
     (this || v$5)._cipher = new I$5.AES(e7);
     var a5 = (this || v$5)._cipher.encryptBlock(n5);
-    (this || v$5)._ghash = new m$6(a5), i5 = function(t6, e8, i6) {
+    (this || v$5)._ghash = new m$6(a5), i5 = (function(t6, e8, i6) {
       if (12 === e8.length) return t6._finID = U$4.concat([e8, U$4.from([0, 0, 0, 1])]), U$4.concat([e8, U$4.from([0, 0, 0, 2])]);
       var r6 = new m$6(i6), n6 = e8.length, a6 = n6 % 16;
       r6.update(e8), a6 && (a6 = 16 - a6, r6.update(U$4.alloc(a6, 0))), r6.update(U$4.alloc(8, 0));
@@ -40195,7 +40199,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       o5.writeUIntBE(h5, 0, 8), r6.update(o5), t6._finID = r6.state;
       var s5 = U$4.from(t6._finID);
       return b$6(s5), s5;
-    }(this || v$5, i5, a5), (this || v$5)._prev = U$4.from(i5), (this || v$5)._cache = U$4.allocUnsafe(0), (this || v$5)._secCache = U$4.allocUnsafe(0), (this || v$5)._decrypt = r5, (this || v$5)._alen = 0, (this || v$5)._len = 0, (this || v$5)._mode = t5, (this || v$5)._authTag = null, (this || v$5)._called = false;
+    })(this || v$5, i5, a5), (this || v$5)._prev = U$4.from(i5), (this || v$5)._cache = U$4.allocUnsafe(0), (this || v$5)._secCache = U$4.allocUnsafe(0), (this || v$5)._decrypt = r5, (this || v$5)._alen = 0, (this || v$5)._len = 0, (this || v$5)._mode = t5, (this || v$5)._authTag = null, (this || v$5)._called = false;
   }
   t$2(X$1, w$7), X$1.prototype._update = function(t5) {
     if (!(this || v$5)._called && (this || v$5)._alen) {
@@ -40208,12 +40212,12 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   }, X$1.prototype._final = function() {
     if ((this || v$5)._decrypt && !(this || v$5)._authTag) throw new Error("Unsupported state or unable to authenticate data");
     var t5 = E$5((this || v$5)._ghash.final(8 * (this || v$5)._alen, 8 * (this || v$5)._len), (this || v$5)._cipher.encryptBlock((this || v$5)._finID));
-    if ((this || v$5)._decrypt && function(t6, e7) {
+    if ((this || v$5)._decrypt && (function(t6, e7) {
       var i5 = 0;
       t6.length !== e7.length && i5++;
       for (var r5 = Math.min(t6.length, e7.length), n5 = 0; n5 < r5; ++n5) i5 += t6[n5] ^ e7[n5];
       return i5;
-    }(t5, (this || v$5)._authTag)) throw new Error("Unsupported state or unable to authenticate data");
+    })(t5, (this || v$5)._authTag)) throw new Error("Unsupported state or unable to authenticate data");
     (this || v$5)._authTag = t5, (this || v$5)._cipher.scrub();
   }, X$1.prototype.getAuthTag = function() {
     if ((this || v$5)._decrypt || !U$4.isBuffer((this || v$5)._authTag)) throw new Error("Attempting to get auth tag in unsupported state");
@@ -40287,14 +40291,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return p$a.concat(i5);
   }, g$6.prototype._final = function() {
     var t5 = (this || c$9)._cache.flush();
-    if ((this || c$9)._autopadding) return function(t6) {
+    if ((this || c$9)._autopadding) return (function(t6) {
       var e7 = t6[15];
       if (e7 < 1 || e7 > 16) throw new Error("unable to decrypt data");
       var r5 = -1;
       for (; ++r5 < e7; ) if (t6[r5 + (16 - e7)] !== e7) throw new Error("unable to decrypt data");
       if (16 === e7) return;
       return t6.slice(0, 16 - e7);
-    }((this || c$9)._mode.decrypt(this || c$9, t5));
+    })((this || c$9)._mode.decrypt(this || c$9, t5));
     if (t5) throw new Error("data not multiple of block length");
   }, g$6.prototype.setAutoPadding = function(t5) {
     return (this || c$9)._autopadding = !!t5, this || c$9;
@@ -40416,7 +40420,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var i$3 = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : globalThis;
   var r$7 = {};
   var h$a = { exports: r$7 };
-  !function(r5, h5) {
+  !(function(r5, h5) {
     function n5(t5, i5) {
       if (!t5) throw new Error(i5 || "Assertion failed");
     }
@@ -40722,7 +40726,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }
     Math.imul || (p5 = d4), o5.prototype.mulTo = function(t5, r6) {
       var h6 = (this || i$3).length + t5.length;
-      return 10 === (this || i$3).length && 10 === t5.length ? p5(this || i$3, t5, r6) : h6 < 63 ? d4(this || i$3, t5, r6) : h6 < 1024 ? function(t6, i5, r7) {
+      return 10 === (this || i$3).length && 10 === t5.length ? p5(this || i$3, t5, r6) : h6 < 63 ? d4(this || i$3, t5, r6) : h6 < 1024 ? (function(t6, i5, r7) {
         r7.negative = i5.negative ^ t6.negative, r7.length = t6.length + i5.length;
         for (var h7 = 0, n6 = 0, e8 = 0; e8 < r7.length - 1; e8++) {
           var o6 = n6;
@@ -40734,7 +40738,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           r7.words[e8] = s6, h7 = o6, o6 = n6;
         }
         return 0 !== h7 ? r7.words[e8] = h7 : r7.length--, r7.strip();
-      }(this || i$3, t5, r6) : M4(this || i$3, t5, r6);
+      })(this || i$3, t5, r6) : M4(this || i$3, t5, r6);
     }, v5.prototype.makeRBT = function(t5) {
       for (var i5 = new Array(t5), r6 = o5.prototype._countBits(t5) - 1, h6 = 0; h6 < t5; h6++) i5[h6] = this.revBin(h6, r6, t5);
       return i5;
@@ -40802,13 +40806,13 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }, o5.prototype.isqr = function() {
       return this.imul(this.clone());
     }, o5.prototype.pow = function(t5) {
-      var r6 = function(t6) {
+      var r6 = (function(t6) {
         for (var i5 = new Array(t6.bitLength()), r7 = 0; r7 < i5.length; r7++) {
           var h7 = r7 / 26 | 0, n7 = r7 % 26;
           i5[r7] = (t6.words[h7] & 1 << n7) >>> n7;
         }
         return i5;
-      }(t5);
+      })(t5);
       if (0 === r6.length) return new o5(1);
       for (var h6 = this || i$3, n6 = 0; n6 < r6.length && 0 === r6[n6]; n6++, h6 = h6.sqr()) ;
       if (++n6 < r6.length) for (var e8 = h6.sqr(); n6 < r6.length; n6++, e8 = e8.sqr()) 0 !== r6[n6] && (h6 = h6.mul(e8));
@@ -41261,7 +41265,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }, A4.prototype.invm = function(t5) {
       return this.imod(t5._invmp((this || i$3).m).mul((this || i$3).r2))._forceRed(this || i$3);
     };
-  }(h$a, r$7);
+  })(h$a, r$7);
   var n$c = h$a.exports;
   var t$5;
   var e$a;
@@ -41423,7 +41427,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return e7 ? c5.toString(e7) : c5;
   }
   Object.defineProperty(k$7.prototype, "verifyError", { enumerable: true, get: function() {
-    return "number" != typeof (this || B$5)._primeCode && ((this || B$5)._primeCode = function(f6, e7) {
+    return "number" != typeof (this || B$5)._primeCode && ((this || B$5)._primeCode = (function(f6, e7) {
       var c5 = e7.toString("hex"), a5 = [c5, f6.toString(16)].join("_");
       if (a5 in M$4) return M$4[a5];
       var b4, d4 = 0;
@@ -41439,7 +41443,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           d4 += 4;
       }
       return M$4[a5] = d4, d4;
-    }((this || B$5).__prime, (this || B$5).__gen)), (this || B$5)._primeCode;
+    })((this || B$5).__prime, (this || B$5).__gen)), (this || B$5)._primeCode;
   } }), k$7.prototype.generateKeys = function() {
     return (this || B$5)._priv || ((this || B$5)._priv = new R$1(j$1((this || B$5)._primeLen))), (this || B$5)._pub = (this || B$5)._gen.toRed((this || B$5)._prime).redPow((this || B$5)._priv).fromRed(), this.getPublicKey();
   }, k$7.prototype.computeSecret = function(f6) {
@@ -41478,10 +41482,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   var n$g = n$c;
   var d$d = a4;
   function t$8(e7, o5) {
-    var r5 = function(e8) {
+    var r5 = (function(e8) {
       var o6 = i$6(e8);
       return { blinder: o6.toRed(n$g.mont(e8.modulus)).redPow(new n$g(e8.publicExponent)).fromRed(), unblinder: o6.invm(e8.modulus) };
-    }(o5), m4 = o5.modulus.byteLength(), d4 = (n$g.mont(o5.modulus), new n$g(e7).mul(r5.blinder).umod(o5.modulus)), t5 = d4.toRed(n$g.mont(o5.prime1)), l5 = d4.toRed(n$g.mont(o5.prime2)), f6 = o5.coefficient, p5 = o5.prime1, b4 = o5.prime2, s5 = t5.redPow(o5.exponent1), a5 = l5.redPow(o5.exponent2);
+    })(o5), m4 = o5.modulus.byteLength(), d4 = (n$g.mont(o5.modulus), new n$g(e7).mul(r5.blinder).umod(o5.modulus)), t5 = d4.toRed(n$g.mont(o5.prime1)), l5 = d4.toRed(n$g.mont(o5.prime2)), f6 = o5.coefficient, p5 = o5.prime1, b4 = o5.prime2, s5 = t5.redPow(o5.exponent1), a5 = l5.redPow(o5.exponent2);
     s5 = s5.fromRed(), a5 = a5.fromRed();
     var w4 = s5.isub(a5).imul(f6).umod(p5);
     return w4.imul(b4), a5.iadd(w4), new u$c(a5.imul(r5.unblinder).umod(o5.modulus).toArray(false, m4));
@@ -42146,9 +42150,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         var t5 = this._getEndoRoots(this.n);
         0 === this.g.mul(t5[0]).x.cmp(this.g.x.redMul(f6)) ? d4 = t5[0] : (d4 = t5[1], g$d(0 === this.g.mul(d4).x.cmp(this.g.x.redMul(f6))));
       }
-      return { beta: f6, lambda: d4, basis: e7.basis ? e7.basis.map(function(e8) {
+      return { beta: f6, lambda: d4, basis: e7.basis ? e7.basis.map((function(e8) {
         return { a: new y$e(e8.a, 16), b: new y$e(e8.b, 16) };
-      }) : this._getEndoBasis(d4) };
+      })) : this._getEndoBasis(d4) };
     }
   }, A$8.prototype._getEndoRoots = function(e7) {
     var f6 = e7 === this.p ? this.red : y$e.mont(e7), d4 = new y$e(2).toRed(f6).redInvm(), c5 = d4.redNeg(), t5 = new y$e(3).toRed(f6).redNeg().redSqrt().redMul(d4);
@@ -42672,20 +42676,20 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return f6 instanceof ye2 ? f6 : new ye2(e7, { secret: f6 });
   }, ye2.prototype.secret = function() {
     return this._secret;
-  }, ve2(ye2, "pubBytes", function() {
+  }, ve2(ye2, "pubBytes", (function() {
     return this.eddsa.encodePoint(this.pub());
-  }), ve2(ye2, "pub", function() {
+  })), ve2(ye2, "pub", (function() {
     return this._pubBytes ? this.eddsa.decodePoint(this._pubBytes) : this.eddsa.g.mul(this.priv());
-  }), ve2(ye2, "privBytes", function() {
+  })), ve2(ye2, "privBytes", (function() {
     var e7 = this.eddsa, f6 = this.hash(), d4 = e7.encodingLength - 1, c5 = f6.slice(0, e7.encodingLength);
     return c5[0] &= 248, c5[d4] &= 127, c5[d4] |= 64, c5;
-  }), ve2(ye2, "priv", function() {
+  })), ve2(ye2, "priv", (function() {
     return this.eddsa.decodeInt(this.privBytes());
-  }), ve2(ye2, "hash", function() {
+  })), ve2(ye2, "hash", (function() {
     return this.eddsa.hash().update(this.secret()).digest();
-  }), ve2(ye2, "messagePrefix", function() {
+  })), ve2(ye2, "messagePrefix", (function() {
     return this.hash().slice(this.eddsa.encodingLength);
-  }), ye2.prototype.sign = function(e7) {
+  })), ye2.prototype.sign = function(e7) {
     return pe2(this._secret, "KeyPair can only verify"), this.eddsa.sign(e7, this);
   }, ye2.prototype.verify = function(e7, f6) {
     return this.eddsa.verify(e7, f6, this);
@@ -42703,15 +42707,15 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function Me(e7, f6) {
     this.eddsa = e7, "object" != typeof f6 && (f6 = we2(f6)), Array.isArray(f6) && (f6 = { R: f6.slice(0, e7.encodingLength), S: f6.slice(e7.encodingLength) }), Ae2(f6.R && f6.S, "Signature without R or S"), e7.isPoint(f6.R) && (this._R = f6.R), f6.S instanceof Se2 && (this._S = f6.S), this._Rencoded = Array.isArray(f6.R) ? f6.R : f6.Rencoded, this._Sencoded = Array.isArray(f6.S) ? f6.S : f6.Sencoded;
   }
-  Ie(Me, "S", function() {
+  Ie(Me, "S", (function() {
     return this.eddsa.decodeInt(this.Sencoded());
-  }), Ie(Me, "R", function() {
+  })), Ie(Me, "R", (function() {
     return this.eddsa.decodePoint(this.Rencoded());
-  }), Ie(Me, "Rencoded", function() {
+  })), Ie(Me, "Rencoded", (function() {
     return this.eddsa.encodePoint(this.R());
-  }), Ie(Me, "Sencoded", function() {
+  })), Ie(Me, "Sencoded", (function() {
     return this.eddsa.encodeInt(this.S());
-  }), Me.prototype.toBytes = function() {
+  })), Me.prototype.toBytes = function() {
     return this.Rencoded().concat(this.Sencoded());
   }, Me.prototype.toHex = function() {
     return ge2.encode(this.toBytes(), "hex").toUpperCase();
@@ -42802,9 +42806,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return t5.obj = e7, r5;
   }, l$k.prototype.error = function(e7) {
     var t5, r5 = (this || u$j)._reporterState, n5 = e7 instanceof h$g;
-    if (t5 = n5 ? e7 : new h$g(r5.path.map(function(e8) {
+    if (t5 = n5 ? e7 : new h$g(r5.path.map((function(e8) {
       return "[" + JSON.stringify(e8) + "]";
-    }).join(""), e7.message || e7, e7.stack), !r5.options.partial) throw t5;
+    })).join(""), e7.message || e7, e7.stack), !r5.options.partial) throw t5;
     return n5 || r5.errors.push(t5), t5;
   }, l$k.prototype.wrapResult = function(e7) {
     var t5 = (this || u$j)._reporterState;
@@ -42829,9 +42833,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       (this || g$e).base = e8, (this || g$e).offset = 0, (this || g$e).length = e8.length;
     }
     function s5(e8, t5) {
-      if (Array.isArray(e8)) (this || g$e).length = 0, (this || g$e).value = e8.map(function(e9) {
+      if (Array.isArray(e8)) (this || g$e).length = 0, (this || g$e).value = e8.map((function(e9) {
         return e9 instanceof s5 || (e9 = new s5(e9, t5)), (this || g$e).length += e9.length, e9;
-      }, this || g$e);
+      }), this || g$e);
       else if ("number" == typeof e8) {
         if (!(0 <= e8 && e8 <= 255)) return t5.error("non-byte EncoderBuffer value");
         (this || g$e).value = e8, (this || g$e).length = 1;
@@ -42857,9 +42861,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     }, o5.prototype.raw = function(e8) {
       return (this || g$e).base.slice(e8 ? e8.offset : (this || g$e).offset, (this || g$e).length);
     }, p$k.EncoderBuffer = s5, s5.prototype.join = function(e8, t5) {
-      return e8 || (e8 = new i5((this || g$e).length)), t5 || (t5 = 0), 0 === (this || g$e).length || (Array.isArray((this || g$e).value) ? (this || g$e).value.forEach(function(r6) {
+      return e8 || (e8 = new i5((this || g$e).length)), t5 || (t5 = 0), 0 === (this || g$e).length || (Array.isArray((this || g$e).value) ? (this || g$e).value.forEach((function(r6) {
         r6.join(e8, t5), t5 += r6.length;
-      }) : ("number" == typeof (this || g$e).value ? e8[t5] = (this || g$e).value : "string" == typeof (this || g$e).value ? e8.write((this || g$e).value, t5) : i5.isBuffer((this || g$e).value) && (this || g$e).value.copy(e8, t5), t5 += (this || g$e).length)), e8;
+      })) : ("number" == typeof (this || g$e).value ? e8[t5] = (this || g$e).value : "string" == typeof (this || g$e).value ? e8.write((this || g$e).value, t5) : i5.isBuffer((this || g$e).value) && (this || g$e).value.copy(e8, t5), t5 += (this || g$e).length)), e8;
     }, p$k;
   }
   var _$e = {};
@@ -42871,7 +42875,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (S$a) return m$g;
     S$a = true;
     var e7 = m$g;
-    return e7.Reporter = c$i.Reporter, e7.DecoderBuffer = y$f().DecoderBuffer, e7.EncoderBuffer = y$f().EncoderBuffer, e7.Node = function() {
+    return e7.Reporter = c$i.Reporter, e7.DecoderBuffer = y$f().DecoderBuffer, e7.EncoderBuffer = y$f().EncoderBuffer, e7.Node = (function() {
       if (v$f) return _$e;
       v$f = true;
       var e8 = E$9().Reporter, t5 = E$9().EncoderBuffer, r5 = E$9().DecoderBuffer, n5 = o$7, o5 = ["seq", "seqof", "set", "setof", "objid", "bool", "gentime", "utctime", "null_", "enum", "int", "objDesc", "bitstr", "bmpstr", "charstr", "genstr", "graphstr", "ia5str", "iso646str", "numstr", "octstr", "printstr", "t61str", "unistr", "utf8str", "videostr"], s5 = ["key", "obj", "use", "optional", "explicit", "implicit", "def", "choice", "any", "contains"].concat(o5);
@@ -42883,52 +42887,52 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       var u5 = ["enc", "parent", "children", "tag", "args", "reverseArgs", "choice", "optional", "any", "obj", "use", "alteredUse", "key", "default", "explicit", "implicit", "contains"];
       return a5.prototype.clone = function() {
         var e9 = (this || b$c)._baseState, t6 = {};
-        u5.forEach(function(r7) {
+        u5.forEach((function(r7) {
           t6[r7] = e9[r7];
-        });
+        }));
         var r6 = new (this || b$c).constructor(t6.parent);
         return r6._baseState = t6, r6;
       }, a5.prototype._wrap = function() {
         var e9 = (this || b$c)._baseState;
-        s5.forEach(function(t6) {
+        s5.forEach((function(t6) {
           (this || b$c)[t6] = function() {
             var r6 = new (this || b$c).constructor(this || b$c);
             return e9.children.push(r6), r6[t6].apply(r6, arguments);
           };
-        }, this || b$c);
+        }), this || b$c);
       }, a5.prototype._init = function(e9) {
         var t6 = (this || b$c)._baseState;
-        n5(null === t6.parent), e9.call(this || b$c), t6.children = t6.children.filter(function(e10) {
+        n5(null === t6.parent), e9.call(this || b$c), t6.children = t6.children.filter((function(e10) {
           return e10._baseState.parent === (this || b$c);
-        }, this || b$c), n5.equal(t6.children.length, 1, "Root node can have only one child");
+        }), this || b$c), n5.equal(t6.children.length, 1, "Root node can have only one child");
       }, a5.prototype._useArgs = function(e9) {
-        var t6 = (this || b$c)._baseState, r6 = e9.filter(function(e10) {
+        var t6 = (this || b$c)._baseState, r6 = e9.filter((function(e10) {
           return e10 instanceof (this || b$c).constructor;
-        }, this || b$c);
-        e9 = e9.filter(function(e10) {
+        }), this || b$c);
+        e9 = e9.filter((function(e10) {
           return !(e10 instanceof (this || b$c).constructor);
-        }, this || b$c), 0 !== r6.length && (n5(null === t6.children), t6.children = r6, r6.forEach(function(e10) {
+        }), this || b$c), 0 !== r6.length && (n5(null === t6.children), t6.children = r6, r6.forEach((function(e10) {
           e10._baseState.parent = this || b$c;
-        }, this || b$c)), 0 !== e9.length && (n5(null === t6.args), t6.args = e9, t6.reverseArgs = e9.map(function(e10) {
+        }), this || b$c)), 0 !== e9.length && (n5(null === t6.args), t6.args = e9, t6.reverseArgs = e9.map((function(e10) {
           if ("object" != typeof e10 || e10.constructor !== Object) return e10;
           var t7 = {};
-          return Object.keys(e10).forEach(function(r7) {
+          return Object.keys(e10).forEach((function(r7) {
             r7 == (0 | r7) && (r7 |= 0);
             var n6 = e10[r7];
             t7[n6] = r7;
-          }), t7;
-        }));
-      }, ["_peekTag", "_decodeTag", "_use", "_decodeStr", "_decodeObjid", "_decodeTime", "_decodeNull", "_decodeInt", "_decodeBool", "_decodeList", "_encodeComposite", "_encodeStr", "_encodeObjid", "_encodeTime", "_encodeNull", "_encodeInt", "_encodeBool"].forEach(function(e9) {
+          })), t7;
+        })));
+      }, ["_peekTag", "_decodeTag", "_use", "_decodeStr", "_decodeObjid", "_decodeTime", "_decodeNull", "_decodeInt", "_decodeBool", "_decodeList", "_encodeComposite", "_encodeStr", "_encodeObjid", "_encodeTime", "_encodeNull", "_encodeInt", "_encodeBool"].forEach((function(e9) {
         a5.prototype[e9] = function() {
           var t6 = (this || b$c)._baseState;
           throw new Error(e9 + " not implemented for encoding: " + t6.enc);
         };
-      }), o5.forEach(function(e9) {
+      })), o5.forEach((function(e9) {
         a5.prototype[e9] = function() {
           var t6 = (this || b$c)._baseState, r6 = Array.prototype.slice.call(arguments);
           return n5(null === t6.tag), t6.tag = e9, this._useArgs(r6), this || b$c;
         };
-      }), a5.prototype.use = function(e9) {
+      })), a5.prototype.use = function(e9) {
         n5(e9);
         var t6 = (this || b$c)._baseState;
         return n5(null === t6.use), t6.use = e9, this || b$c;
@@ -42953,9 +42957,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         return (this || b$c)._baseState.any = true, this || b$c;
       }, a5.prototype.choice = function(e9) {
         var t6 = (this || b$c)._baseState;
-        return n5(null === t6.choice), t6.choice = e9, this._useArgs(Object.keys(e9).map(function(t7) {
+        return n5(null === t6.choice), t6.choice = e9, this._useArgs(Object.keys(e9).map((function(t7) {
           return e9[t7];
-        })), this || b$c;
+        }))), this || b$c;
       }, a5.prototype.contains = function(e9) {
         var t6 = (this || b$c)._baseState;
         return n5(null === t6.use), t6.contains = e9, this || b$c;
@@ -42991,9 +42995,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             n6.any ? o6 = e9.raw(c5) : e9 = h5;
           }
           if (t6 && t6.track && null !== n6.tag && t6.track(e9.path(), l5, e9.length, "tagged"), t6 && t6.track && null !== n6.tag && t6.track(e9.path(), e9.offset, e9.length, "content"), o6 = n6.any ? o6 : null === n6.choice ? this._decodeGeneric(n6.tag, e9, t6) : this._decodeChoice(e9, t6), e9.isError(o6)) return o6;
-          if (n6.any || null !== n6.choice || null === n6.children || n6.children.forEach(function(r6) {
+          if (n6.any || null !== n6.choice || null === n6.children || n6.children.forEach((function(r6) {
             r6._decode(e9, t6);
-          }), n6.contains && ("octstr" === n6.tag || "bitstr" === n6.tag)) {
+          })), n6.contains && ("octstr" === n6.tag || "bitstr" === n6.tag)) {
             var p5 = new r5(o6);
             o6 = this._getUse(n6.contains, e9._reporterState.obj)._decode(p5, t6);
           }
@@ -43007,7 +43011,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         return r6.useDecoder = this._use(e9, t6), n5(null === r6.useDecoder._baseState.parent), r6.useDecoder = r6.useDecoder._baseState.children[0], r6.implicit !== r6.useDecoder._baseState.implicit && (r6.useDecoder = r6.useDecoder.clone(), r6.useDecoder._baseState.implicit = r6.implicit), r6.useDecoder;
       }, a5.prototype._decodeChoice = function(e9, t6) {
         var r6 = (this || b$c)._baseState, n6 = null, i5 = false;
-        return Object.keys(r6.choice).some(function(o6) {
+        return Object.keys(r6.choice).some((function(o6) {
           var s6 = e9.save(), a6 = r6.choice[o6];
           try {
             var u6 = a6._decode(e9, t6);
@@ -43017,7 +43021,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             return e9.restore(s6), false;
           }
           return true;
-        }, this || b$c), i5 ? n6 : e9.error("Choice not matched");
+        }), this || b$c), i5 ? n6 : e9.error("Choice not matched");
       }, a5.prototype._createEncoderBuffer = function(e9) {
         return new t5(e9, (this || b$c).reporter);
       }, a5.prototype._encode = function(e9, t6, r6) {
@@ -43038,24 +43042,24 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         if (i5.any) o6 = this._createEncoderBuffer(t6);
         else if (i5.choice) o6 = this._encodeChoice(t6, r6);
         else if (i5.contains) s6 = this._getUse(i5.contains, n6)._encode(t6, r6), a6 = true;
-        else if (i5.children) s6 = i5.children.map(function(e9) {
+        else if (i5.children) s6 = i5.children.map((function(e9) {
           if ("null_" === e9._baseState.tag) return e9._encode(null, r6, t6);
           if (null === e9._baseState.key) return r6.error("Child should have a key");
           var n7 = r6.enterKey(e9._baseState.key);
           if ("object" != typeof t6) return r6.error("Child expected, but input is not object");
           var i6 = e9._encode(t6[e9._baseState.key], r6, t6);
           return r6.leaveKey(n7), i6;
-        }, this || b$c).filter(function(e9) {
+        }), this || b$c).filter((function(e9) {
           return e9;
-        }), s6 = this._createEncoderBuffer(s6);
+        })), s6 = this._createEncoderBuffer(s6);
         else if ("seqof" === i5.tag || "setof" === i5.tag) {
           if (!i5.args || 1 !== i5.args.length) return r6.error("Too many args for : " + i5.tag);
           if (!Array.isArray(t6)) return r6.error("seqof/setof, but data is not Array");
           var u6 = this.clone();
-          u6._baseState.implicit = null, s6 = this._createEncoderBuffer(t6.map(function(e9) {
+          u6._baseState.implicit = null, s6 = this._createEncoderBuffer(t6.map((function(e9) {
             var n7 = (this || b$c)._baseState;
             return this._getUse(n7.args[0], t6)._encode(e9, r6);
-          }, u6));
+          }), u6));
         } else null !== i5.use ? o6 = this._getUse(i5.use, n6)._encode(t6, r6) : (s6 = this._encodePrimitive(i5.tag, t6), a6 = true);
         if (!i5.any && null === i5.choice) {
           var c5 = null !== i5.implicit ? i5.implicit : i5.tag, f6 = null === i5.implicit ? "universal" : "context";
@@ -43081,7 +43085,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }, a5.prototype._isPrintstr = function(e9) {
         return /^[A-Za-z0-9 '\\(\\)\\+,\\-\\.\\/:=\\?]*$/.test(e9);
       }, _$e;
-    }(), m$g;
+    })(), m$g;
   }
   var j$6 = {};
   var w$f = false;
@@ -43093,17 +43097,17 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var e7 = B$9;
     return e7._reverse = function(e8) {
       var t5 = {};
-      return Object.keys(e8).forEach(function(r5) {
+      return Object.keys(e8).forEach((function(r5) {
         (0 | r5) == r5 && (r5 |= 0);
         var n5 = e8[r5];
         t5[n5] = r5;
-      }), t5;
-    }, e7.der = function() {
+      })), t5;
+    }, e7.der = (function() {
       if (w$f) return j$6;
       w$f = true;
       var e8 = T$6();
       return j$6.tagClass = { 0: "universal", 1: "application", 2: "context", 3: "private" }, j$6.tagClassByName = e8._reverse(j$6.tagClass), j$6.tag = { 0: "end", 1: "bool", 2: "int", 3: "bitstr", 4: "octstr", 5: "null_", 6: "objid", 7: "objDesc", 8: "external", 9: "real", 10: "enum", 11: "embed", 12: "utf8str", 13: "relativeOid", 16: "seq", 17: "set", 18: "numstr", 19: "printstr", 20: "t61str", 21: "videostr", 22: "ia5str", 23: "utctime", 24: "gentime", 25: "graphstr", 26: "iso646str", 27: "genstr", 28: "unistr", 29: "charstr", 30: "bmpstr" }, j$6.tagByName = e8._reverse(j$6.tag), j$6;
-    }(), B$9;
+    })(), B$9;
   }
   var D$5 = {};
   var U$7 = false;
@@ -43244,7 +43248,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (q$5) return I$9;
     q$5 = true;
     var e7 = I$9;
-    return e7.der = C$6(), e7.pem = function() {
+    return e7.der = C$6(), e7.pem = (function() {
       if (A$9) return O$6;
       A$9 = true;
       var e8 = t$2, r5 = e$1$1.Buffer, i5 = C$6();
@@ -43270,7 +43274,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         var h5 = new r5(l5, "base64");
         return i5.prototype.decode.call(this || x$7, h5, t5);
       }, O$6;
-    }(), I$9;
+    })(), I$9;
   }
   var F$6 = {};
   var K$5 = false;
@@ -43291,7 +43295,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     return F$6 = a5, a5.prototype.encode = function(e8, t5) {
       return (this || R$4).tree._encode(e8, t5).join();
     }, e7(u5, o5.Node), u5.prototype._encodeComposite = function(e8, t5, n5, i6) {
-      var o6, a6 = function(e9, t6, r6, n6) {
+      var o6, a6 = (function(e9, t6, r6, n6) {
         var i7;
         "seqof" === e9 ? e9 = "seq" : "setof" === e9 && (e9 = "set");
         if (s5.tagByName.hasOwnProperty(e9)) i7 = s5.tagByName[e9];
@@ -43302,7 +43306,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         if (i7 >= 31) return n6.error("Multi-octet tag encoding unsupported");
         t6 || (i7 |= 32);
         return i7 |= s5.tagClassByName[r6 || "universal"] << 6;
-      }(e8, t5, n5, (this || R$4).reporter);
+      })(e8, t5, n5, (this || R$4).reporter);
       if (i6.length < 128) return (o6 = new r5(2))[0] = a6, o6[1] = i6.length, this._createEncoderBuffer([o6, i6]);
       for (var u6 = 1, c6 = i6.length; c6 >= 256; c6 >>= 8) u6++;
       (o6 = new r5(2 + u6))[0] = a6, o6[1] = 128 | u6;
@@ -43391,7 +43395,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (V$4) return J$4;
     V$4 = true;
     var e7 = J$4;
-    return e7.der = $$2(), e7.pem = function() {
+    return e7.der = $$2(), e7.pem = (function() {
       if (L$5) return G$4;
       L$5 = true;
       var e8 = t$2, r5 = $$2();
@@ -43402,7 +43406,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         for (var n6 = r5.prototype.encode.call(this || M$7, e9).toString("base64"), i5 = ["-----BEGIN " + t5.label + "-----"], o5 = 0; o5 < n6.length; o5 += 64) i5.push(n6.slice(o5, o5 + 64));
         return i5.push("-----END " + t5.label + "-----"), i5.join("\\n");
       }, G$4;
-    }(), J$4;
+    })(), J$4;
   }
   var z$7 = {};
   var H$6 = false;
@@ -43410,7 +43414,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (H$6) return z$7;
     H$6 = true;
     var n5 = z$7;
-    return n5.bignum = n$c, n5.define = function() {
+    return n5.bignum = n$c, n5.define = (function() {
       if (s$j) return o$n;
       s$j = true;
       var e7 = Y$3(), n6 = t$2;
@@ -43440,85 +43444,85 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       }, i5.prototype.encode = function(e8, t5, r5) {
         return this._getEncoder(t5).encode(e8, r5);
       }, o$n;
-    }().define, n5.base = E$9(), n5.constants = T$6(), n5.decoders = P$5(), n5.encoders = Z$2(), z$7;
+    })().define, n5.base = E$9(), n5.constants = T$6(), n5.decoders = P$5(), n5.encoders = Z$2(), z$7;
   }
   var Q$3 = Y$3();
   var e$f = Q$3;
-  var t$a = e$f.define("Time", function() {
+  var t$a = e$f.define("Time", (function() {
     this.choice({ utcTime: this.utctime(), generalTime: this.gentime() });
-  });
-  var s$k = e$f.define("AttributeTypeValue", function() {
+  }));
+  var s$k = e$f.define("AttributeTypeValue", (function() {
     this.seq().obj(this.key("type").objid(), this.key("value").any());
-  });
-  var n$n = e$f.define("AlgorithmIdentifier", function() {
+  }));
+  var n$n = e$f.define("AlgorithmIdentifier", (function() {
     this.seq().obj(this.key("algorithm").objid(), this.key("parameters").optional(), this.key("curve").objid().optional());
-  });
-  var o$o = e$f.define("SubjectPublicKeyInfo", function() {
+  }));
+  var o$o = e$f.define("SubjectPublicKeyInfo", (function() {
     this.seq().obj(this.key("algorithm").use(n$n), this.key("subjectPublicKey").bitstr());
-  });
-  var h$h = e$f.define("RelativeDistinguishedName", function() {
+  }));
+  var h$h = e$f.define("RelativeDistinguishedName", (function() {
     this.setof(s$k);
-  });
-  var y$g = e$f.define("RDNSequence", function() {
+  }));
+  var y$g = e$f.define("RDNSequence", (function() {
     this.seqof(h$h);
-  });
-  var r$g = e$f.define("Name", function() {
+  }));
+  var r$g = e$f.define("Name", (function() {
     this.choice({ rdnSequence: this.use(y$g) });
-  });
-  var u$k = e$f.define("Validity", function() {
+  }));
+  var u$k = e$f.define("Validity", (function() {
     this.seq().obj(this.key("notBefore").use(t$a), this.key("notAfter").use(t$a));
-  });
-  var a$n = e$f.define("Extension", function() {
+  }));
+  var a$n = e$f.define("Extension", (function() {
     this.seq().obj(this.key("extnID").objid(), this.key("critical").bool().def(false), this.key("extnValue").octstr());
-  });
-  var c$j = e$f.define("TBSCertificate", function() {
+  }));
+  var c$j = e$f.define("TBSCertificate", (function() {
     this.seq().obj(this.key("version").explicit(0).int().optional(), this.key("serialNumber").int(), this.key("signature").use(n$n), this.key("issuer").use(r$g), this.key("validity").use(u$k), this.key("subject").use(r$g), this.key("subjectPublicKeyInfo").use(o$o), this.key("issuerUniqueID").implicit(1).bitstr().optional(), this.key("subjectUniqueID").implicit(2).bitstr().optional(), this.key("extensions").explicit(3).seqof(a$n).optional());
-  });
-  var k$d = e$f.define("X509Certificate", function() {
+  }));
+  var k$d = e$f.define("X509Certificate", (function() {
     this.seq().obj(this.key("tbsCertificate").use(c$j), this.key("signatureAlgorithm").use(n$n), this.key("signatureValue").bitstr());
-  });
+  }));
   var f$o = {};
   var b$d = Q$3;
   f$o.certificate = k$d;
-  var l$l = b$d.define("RSAPrivateKey", function() {
+  var l$l = b$d.define("RSAPrivateKey", (function() {
     this.seq().obj(this.key("version").int(), this.key("modulus").int(), this.key("publicExponent").int(), this.key("privateExponent").int(), this.key("prime1").int(), this.key("prime2").int(), this.key("exponent1").int(), this.key("exponent2").int(), this.key("coefficient").int());
-  });
+  }));
   f$o.RSAPrivateKey = l$l;
-  var d$j = b$d.define("RSAPublicKey", function() {
+  var d$j = b$d.define("RSAPublicKey", (function() {
     this.seq().obj(this.key("modulus").int(), this.key("publicExponent").int());
-  });
+  }));
   f$o.RSAPublicKey = d$j;
-  var p$l = b$d.define("SubjectPublicKeyInfo", function() {
+  var p$l = b$d.define("SubjectPublicKeyInfo", (function() {
     this.seq().obj(this.key("algorithm").use(j$7), this.key("subjectPublicKey").bitstr());
-  });
+  }));
   f$o.PublicKey = p$l;
-  var j$7 = b$d.define("AlgorithmIdentifier", function() {
+  var j$7 = b$d.define("AlgorithmIdentifier", (function() {
     this.seq().obj(this.key("algorithm").objid(), this.key("none").null_().optional(), this.key("curve").objid().optional(), this.key("params").seq().obj(this.key("p").int(), this.key("q").int(), this.key("g").int()).optional());
-  });
-  var v$g = b$d.define("PrivateKeyInfo", function() {
+  }));
+  var v$g = b$d.define("PrivateKeyInfo", (function() {
     this.seq().obj(this.key("version").int(), this.key("algorithm").use(j$7), this.key("subjectPrivateKey").octstr());
-  });
+  }));
   f$o.PrivateKey = v$g;
-  var m$h = b$d.define("EncryptedPrivateKeyInfo", function() {
+  var m$h = b$d.define("EncryptedPrivateKeyInfo", (function() {
     this.seq().obj(this.key("algorithm").seq().obj(this.key("id").objid(), this.key("decrypt").seq().obj(this.key("kde").seq().obj(this.key("id").objid(), this.key("kdeparams").seq().obj(this.key("salt").octstr(), this.key("iters").int())), this.key("cipher").seq().obj(this.key("algo").objid(), this.key("iv").octstr()))), this.key("subjectPrivateKey").octstr());
-  });
+  }));
   f$o.EncryptedPrivateKey = m$h;
-  var q$6 = b$d.define("DSAPrivateKey", function() {
+  var q$6 = b$d.define("DSAPrivateKey", (function() {
     this.seq().obj(this.key("version").int(), this.key("p").int(), this.key("q").int(), this.key("g").int(), this.key("pub_key").int(), this.key("priv_key").int());
-  });
-  f$o.DSAPrivateKey = q$6, f$o.DSAparam = b$d.define("DSAparam", function() {
+  }));
+  f$o.DSAPrivateKey = q$6, f$o.DSAparam = b$d.define("DSAparam", (function() {
     this.int();
-  });
-  var K$6 = b$d.define("ECPrivateKey", function() {
+  }));
+  var K$6 = b$d.define("ECPrivateKey", (function() {
     this.seq().obj(this.key("version").int(), this.key("privateKey").octstr(), this.key("parameters").optional().explicit(0).use(P$6), this.key("publicKey").optional().explicit(1).bitstr());
-  });
+  }));
   f$o.ECPrivateKey = K$6;
-  var P$6 = b$d.define("ECParameters", function() {
+  var P$6 = b$d.define("ECParameters", (function() {
     this.choice({ namedCurve: this.objid() });
-  });
-  f$o.signature = b$d.define("signature", function() {
+  }));
+  f$o.signature = b$d.define("signature", (function() {
     this.seq().obj(this.key("r").int(), this.key("s").int());
-  });
+  }));
   var s$l;
   var i$a = /Proc-Type: 4,ENCRYPTED[\\n\\r]+DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)[\\n\\r]+([0-9A-z\\n\\r\\+\\/\\=]+)[\\n\\r]+/m;
   var o$p = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m;
@@ -43561,10 +43565,10 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
             throw new Error("unknown key id " + a5);
         }
       case "ENCRYPTED PRIVATE KEY":
-        i5 = function(e8, r6) {
+        i5 = (function(e8, r6) {
           var a6 = e8.algorithm.decrypt.kde.kdeparams.salt, t6 = parseInt(e8.algorithm.decrypt.kde.kdeparams.iters.toString(), 10), c6 = m$i[e8.algorithm.decrypt.cipher.algo.join(".")], s6 = e8.algorithm.decrypt.cipher.iv, i6 = e8.subjectPrivateKey, o5 = parseInt(c6.split("-")[1], 10) / 8, d4 = E$a.pbkdf2Sync(r6, a6, t6, o5, "sha1"), n5 = b$e.createDecipheriv(c6, d4, s6), p5 = [];
           return p5.push(n5.update(i6)), p5.push(n5.final()), h$i.concat(p5);
-        }(i5 = y$h.EncryptedPrivateKey.decode(i5, "der"), r5);
+        })(i5 = y$h.EncryptedPrivateKey.decode(i5, "der"), r5);
       case "PRIVATE KEY":
         switch (a5 = (t5 = y$h.PrivateKey.decode(i5, "der")).algorithm.algorithm.join(".")) {
           case "1.2.840.113549.1.1.1":
@@ -43604,7 +43608,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       var a5 = new f$q(t5.byteLength() - e7.length);
       a5.fill(0), e7 = f$q.concat([a5, e7]);
     }
-    var o5 = r5.length, i5 = function(e8, t6) {
+    var o5 = r5.length, i5 = (function(e8, t6) {
       e8 = (e8 = b$f(e8, t6)).mod(t6);
       var r6 = new f$q(e8.toArray());
       if (r6.length < t6.byteLength()) {
@@ -43612,7 +43616,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         n6.fill(0), r6 = f$q.concat([n6, r6]);
       }
       return r6;
-    }(r5, t5), s5 = new f$q(o5);
+    })(r5, t5), s5 = new f$q(o5);
     s5.fill(1);
     var h5 = new f$q(o5);
     return h5.fill(0), h5 = c$k(n5, h5).update(s5).update(new f$q([0])).update(e7).update(i5).digest(), s5 = c$k(n5, h5).update(s5).digest(), { k: h5 = c$k(n5, h5).update(s5).update(new f$q([1])).update(e7).update(i5).digest(), v: s5 = c$k(n5, h5).update(s5).digest() };
@@ -43636,25 +43640,25 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var o5 = m$j(t5);
     if (o5.curve) {
       if ("ecdsa" !== n5 && "ecdsa/rsa" !== n5) throw new Error("wrong private key type");
-      return function(e8, t6) {
+      return (function(e8, t6) {
         var r6 = v$i[t6.curve.join(".")];
         if (!r6) throw new Error("unknown curve " + t6.curve.join("."));
         var n6 = new w$g(r6).keyFromPrivate(t6.privateKey).sign(e8);
         return new f$q(n6.toDER());
-      }(e7, o5);
+      })(e7, o5);
     }
     if ("dsa" === o5.type) {
       if ("dsa" !== n5) throw new Error("wrong private key type");
-      return function(e8, t6, r6) {
+      return (function(e8, t6, r6) {
         var n6, a6 = t6.params.priv_key, o6 = t6.params.p, i6 = t6.params.q, s6 = t6.params.g, h6 = new l$n(0), u5 = b$f(e8, i6).mod(i6), p5 = false, d4 = y$i(a6, i6, e8, r6);
         for (; false === p5; ) n6 = _$f(i6, d4, r6), h6 = k$e(s6, n6, o6, i6), 0 === (p5 = n6.invm(i6).imul(u5.add(a6.mul(h6))).mod(i6)).cmpn(0) && (p5 = false, h6 = new l$n(0));
-        return function(e9, t7) {
+        return (function(e9, t7) {
           e9 = e9.toArray(), t7 = t7.toArray(), 128 & e9[0] && (e9 = [0].concat(e9));
           128 & t7[0] && (t7 = [0].concat(t7));
           var r7 = [48, e9.length + t7.length + 4, 2, e9.length];
           return r7 = r7.concat(e9, [2, t7.length], t7), new f$q(r7);
-        }(h6, p5);
-      }(e7, o5, r5);
+        })(h6, p5);
+      })(e7, o5, r5);
     }
     if ("rsa" !== n5 && "ecdsa/rsa" !== n5) throw new Error("wrong private key type");
     e7 = f$q.concat([a5, e7]);
@@ -43677,21 +43681,21 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var o5 = T$7(r5);
     if ("ec" === o5.type) {
       if ("ecdsa" !== n5 && "ecdsa/rsa" !== n5) throw new Error("wrong public key type");
-      return function(e8, t6, r6) {
+      return (function(e8, t6, r6) {
         var n6 = P$7[r6.data.algorithm.curve.join(".")];
         if (!n6) throw new Error("unknown curve " + r6.data.algorithm.curve.join("."));
         var a6 = new j$8(n6), o6 = r6.data.subjectPrivateKey.data;
         return a6.verify(t6, e8, o6);
-      }(e7, t5, o5);
+      })(e7, t5, o5);
     }
     if ("dsa" === o5.type) {
       if ("dsa" !== n5) throw new Error("wrong public key type");
-      return function(e8, t6, r6) {
+      return (function(e8, t6, r6) {
         var n6 = r6.data.p, a6 = r6.data.q, o6 = r6.data.g, i6 = r6.data.pub_key, s6 = T$7.signature.decode(e8, "der"), h6 = s6.s, u6 = s6.r;
         A$a(h6, a6), A$a(u6, a6);
         var p6 = R$5.mont(n6), d5 = h6.invm(a6);
         return 0 === o6.toRed(p6).redPow(new R$5(t6).mul(d5).mod(a6)).fromRed().mul(i6.toRed(p6).redPow(u6.mul(d5).mod(a6)).fromRed()).mod(n6).mod(a6).cmp(u6);
-      }(e7, t5, o5);
+      })(e7, t5, o5);
     }
     if ("rsa" !== n5 && "ecdsa/rsa" !== n5) throw new Error("wrong public key type");
     t5 = L$6.concat([a5, t5]);
@@ -43731,9 +43735,9 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function O$7(e7) {
     return new F$7(e7);
   }
-  Object.keys(C$7).forEach(function(e7) {
+  Object.keys(C$7).forEach((function(e7) {
     C$7[e7].id = new x$8(C$7[e7].id, "hex"), C$7[e7.toLowerCase()] = C$7[e7];
-  }), q$7(D$6, S$b.Writable), D$6.prototype._write = function(e7, t5, r5) {
+  })), q$7(D$6, S$b.Writable), D$6.prototype._write = function(e7, t5, r5) {
     (this || W$4)._hash.update(e7), r5();
   }, D$6.prototype.update = function(e7, t5) {
     return "string" == typeof e7 && (e7 = new x$8(e7, t5)), (this || W$4)._hash.update(e7), this || W$4;
@@ -43821,22 +43825,22 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     var t5;
     t5 = r5.padding ? r5.padding : e7 ? 1 : 4;
     var o5, a5 = s$n(r5);
-    if (4 === t5) o5 = function(r6, n6) {
+    if (4 === t5) o5 = (function(r6, n6) {
       var e8 = r6.modulus.byteLength(), t6 = n6.length, o6 = m$k("sha1").update(B$b.alloc(0)).digest(), a6 = o6.length, i5 = 2 * a6;
       if (t6 > e8 - i5 - 2) throw new Error("message too long");
       var l5 = B$b.alloc(e8 - t6 - i5 - 2), f6 = e8 - a6 - 1, u5 = g$g(a6), c5 = v$j(B$b.concat([o6, l5, B$b.alloc(1, 1), n6], f6), w$h(u5, f6)), p5 = v$j(u5, w$h(c5, a6));
       return new y$k(B$b.concat([B$b.alloc(1), p5, c5], e8));
-    }(a5, n5);
-    else if (1 === t5) o5 = function(r6, n6, e8) {
+    })(a5, n5);
+    else if (1 === t5) o5 = (function(r6, n6, e8) {
       var t6, o6 = n6.length, a6 = r6.modulus.byteLength();
       if (o6 > a6 - 11) throw new Error("message too long");
-      t6 = e8 ? B$b.alloc(a6 - o6 - 3, 255) : function(r7) {
+      t6 = e8 ? B$b.alloc(a6 - o6 - 3, 255) : (function(r7) {
         var n7, e9 = B$b.allocUnsafe(r7), t7 = 0, o7 = g$g(2 * r7), a7 = 0;
         for (; t7 < r7; ) a7 === o7.length && (o7 = g$g(2 * r7), a7 = 0), (n7 = o7[a7++]) && (e9[t7++] = n7);
         return e9;
-      }(a6 - o6 - 3);
+      })(a6 - o6 - 3);
       return new y$k(B$b.concat([B$b.from([0, e8 ? 1 : 2]), t6, B$b.alloc(1), n6], a6));
-    }(a5, n5, e7);
+    })(a5, n5, e7);
     else {
       if (3 !== t5) throw new Error("unknown padding");
       if ((o5 = new y$k(n5)).cmp(a5.modulus) >= 0) throw new Error("data too long for modulus");
@@ -43858,24 +43862,24 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     if (n5.length > i5 || new U$9(n5).cmp(a5.modulus) >= 0) throw new Error("decryption error");
     o5 = e7 ? j$9(new U$9(n5), a5) : R$6(n5, a5);
     var l5 = A$b.alloc(i5 - o5.length);
-    if (o5 = A$b.concat([l5, o5], i5), 4 === t5) return function(r6, n6) {
+    if (o5 = A$b.concat([l5, o5], i5), 4 === t5) return (function(r6, n6) {
       var e8 = r6.modulus.byteLength(), t6 = S$c("sha1").update(A$b.alloc(0)).digest(), o6 = t6.length;
       if (0 !== n6[0]) throw new Error("decryption error");
       var a6 = n6.slice(1, o6 + 1), i6 = n6.slice(o6 + 1), l6 = D$7(a6, k$f(i6, o6)), f6 = D$7(i6, k$f(l6, e8 - o6 - 1));
-      if (function(r7, n7) {
+      if ((function(r7, n7) {
         r7 = A$b.from(r7), n7 = A$b.from(n7);
         var e9 = 0, t7 = r7.length;
         r7.length !== n7.length && (e9++, t7 = Math.min(r7.length, n7.length));
         var o7 = -1;
         for (; ++o7 < t7; ) e9 += r7[o7] ^ n7[o7];
         return e9;
-      }(t6, f6.slice(0, o6))) throw new Error("decryption error");
+      })(t6, f6.slice(0, o6))) throw new Error("decryption error");
       var u5 = o6;
       for (; 0 === f6[u5]; ) u5++;
       if (1 !== f6[u5++]) throw new Error("decryption error");
       return f6.slice(u5);
-    }(a5, o5);
-    if (1 === t5) return function(r6, n6, e8) {
+    })(a5, o5);
+    if (1 === t5) return (function(r6, n6, e8) {
       var t6 = n6.slice(0, 2), o6 = 2, a6 = 0;
       for (; 0 !== n6[o6++]; ) if (o6 >= n6.length) {
         a6++;
@@ -43886,7 +43890,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       i6.length < 8 && a6++;
       if (a6) throw new Error("decryption error");
       return n6.slice(o6);
-    }(0, o5, e7);
+    })(0, o5, e7);
     if (3 === t5) return o5;
     throw new Error("unknown padding");
   };
@@ -43921,14 +43925,14 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
   function w$i(r5, e7, n5, o5) {
     if (f$t.browser) {
       var t5 = r5.buffer, i5 = new Uint8Array(t5, e7, n5);
-      return m$l.getRandomValues(i5), o5 ? (f$t.nextTick(function() {
+      return m$l.getRandomValues(i5), o5 ? (f$t.nextTick((function() {
         o5(null, r5);
-      }), void 0) : r5;
+      })), void 0) : r5;
     }
-    return o5 ? (a$o(n5, function(n6, t6) {
+    return o5 ? (a$o(n5, (function(n6, t6) {
       if (n6) return o5(n6);
       t6.copy(r5, e7), o5(null, r5);
-    }), void 0) : (a$o(n5).copy(r5, e7), r5);
+    })), void 0) : (a$o(n5).copy(r5, e7), r5);
   }
   m$l && m$l.getRandomValues || !f$t.browser ? (t$b.randomFill = function(r5, e7, n5, t5) {
     if (!(s$o.isBuffer(r5) || r5 instanceof o$r.Uint8Array)) throw new TypeError('"buf" argument must be a Buffer or Uint8Array');
@@ -44723,7 +44727,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       };
       if (typeof Symbol !== "undefined" && typeof Symbol.for === "function") {
         try {
-          BN.prototype[Symbol.for("nodejs.util.inspect.custom")] = inspect;
+          BN.prototype[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = inspect;
         } catch (e7) {
           BN.prototype.inspect = inspect;
         }
@@ -63969,7 +63973,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       };
       if (typeof Symbol !== "undefined" && typeof Symbol.for === "function") {
         try {
-          BN.prototype[Symbol.for("nodejs.util.inspect.custom")] = inspect;
+          BN.prototype[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = inspect;
         } catch (e7) {
           BN.prototype.inspect = inspect;
         }
@@ -83069,7 +83073,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
     function copyBuffer(src, target, offset) {
       src.copy(target, offset);
     }
-    exports$19 = function() {
+    exports$19 = (function() {
       function BufferList() {
         _classCallCheck(this, BufferList);
         this.head = null;
@@ -83129,7 +83133,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         return ret;
       };
       return BufferList;
-    }();
+    })();
     if (util && util.inspect && util.inspect.custom) {
       exports$19.prototype[util.inspect.custom] = function() {
         var obj = util.inspect({
@@ -84285,11 +84289,11 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       });
       for (var i5 in stream2) {
         if (this[i5] === void 0 && typeof stream2[i5] === "function") {
-          this[i5] = /* @__PURE__ */ function(method) {
+          this[i5] = /* @__PURE__ */ (function(method) {
             return function() {
               return stream2[method].apply(stream2, arguments);
             };
-          }(i5);
+          })(i5);
         }
       }
       for (var n5 = 0; n5 < kProxyEvents.length; n5++) {
@@ -84857,7 +84861,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
       };
       if (typeof Symbol !== "undefined" && typeof Symbol.for === "function") {
         try {
-          BN.prototype[Symbol.for("nodejs.util.inspect.custom")] = inspect;
+          BN.prototype[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = inspect;
         } catch (e7) {
           BN.prototype.inspect = inspect;
         }
@@ -103734,7 +103738,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
         fn(xs[i5], i5, xs);
       }
     };
-    var defineProp = function() {
+    var defineProp = (function() {
       try {
         Object.defineProperty({}, "_", {});
         return function(obj, name2, value) {
@@ -103750,7 +103754,7 @@ exports[`Direct Eval Test > GIVEN a file that imports a crypto THEN the output s
           obj[name2] = value;
         };
       }
-    }();
+    })();
     var globals = ["Array", "Boolean", "Date", "Error", "EvalError", "Function", "Infinity", "JSON", "Math", "NaN", "Number", "Object", "RangeError", "ReferenceError", "RegExp", "String", "SyntaxError", "TypeError", "URIError", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "escape", "eval", "isFinite", "isNaN", "parseFloat", "parseInt", "undefined", "unescape"];
     function Context() {
     }

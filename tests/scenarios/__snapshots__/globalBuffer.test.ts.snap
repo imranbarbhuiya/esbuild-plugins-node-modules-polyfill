@@ -1699,7 +1699,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
     function numberIsNaN(obj) {
       return obj !== obj;
     }
-    const hexSliceLookupTable = function() {
+    const hexSliceLookupTable = (function() {
       const alphabet = "0123456789abcdef";
       const table = new Array(256);
       for (let i = 0; i < 16; ++i) {
@@ -1709,7 +1709,7 @@ exports[`Global Buffer Test > GIVEN a file that references the "Buffer" global T
         }
       }
       return table;
-    }();
+    })();
     function defineBigIntMethod(fn) {
       return typeof BigInt === "undefined" ? BufferBigIntNotDefined : fn;
     }

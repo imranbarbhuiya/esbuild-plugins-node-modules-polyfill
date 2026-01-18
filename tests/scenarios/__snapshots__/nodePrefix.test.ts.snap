@@ -17,7 +17,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
         return true;
       }
       var obj = {};
-      var sym = Symbol("test");
+      var sym = /* @__PURE__ */ Symbol("test");
       var symObj = Object(sym);
       if (typeof sym === "string") {
         return false;
@@ -129,7 +129,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
       if (typeof origSymbol("foo") !== "symbol") {
         return false;
       }
-      if (typeof Symbol("bar") !== "symbol") {
+      if (typeof /* @__PURE__ */ Symbol("bar") !== "symbol") {
         return false;
       }
       return hasSymbolSham();
@@ -274,7 +274,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     var throwTypeError = function() {
       throw new $TypeError();
     };
-    var ThrowTypeError = $gOPD ? function() {
+    var ThrowTypeError = $gOPD ? (function() {
       try {
         arguments.callee;
         return throwTypeError;
@@ -285,7 +285,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
           return throwTypeError;
         }
       }
-    }() : throwTypeError;
+    })() : throwTypeError;
     var hasSymbols = dew$c()();
     var hasProto = dew$b()();
     var getProto = Object.getPrototypeOf || (hasProto ? function(x) {
@@ -1112,9 +1112,9 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
       }
       return value !== null && typeof value === "object" && typeof value.length === "number" && value.length >= 0 && $toString(value) !== "[object Array]" && $toString(value.callee) === "[object Function]";
     };
-    var supportsStandardArguments = function() {
+    var supportsStandardArguments = (function() {
       return isStandardArguments(arguments);
-    }();
+    })();
     isStandardArguments.isLegacyArguments = isLegacyArguments;
     exports$b2 = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
     return exports$b2;
@@ -2152,7 +2152,7 @@ exports[`Polyfill Test > GIVEN a file that imports a node builtin with node: pre
     function hasOwnProperty(obj, prop) {
       return Object.prototype.hasOwnProperty.call(obj, prop);
     }
-    var kCustomPromisifiedSymbol = typeof Symbol !== "undefined" ? Symbol("util.promisify.custom") : void 0;
+    var kCustomPromisifiedSymbol = typeof Symbol !== "undefined" ? /* @__PURE__ */ Symbol("util.promisify.custom") : void 0;
     exports$12.promisify = function promisify2(original) {
       if (typeof original !== "function") throw new TypeError('The "original" argument must be of type Function');
       if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
