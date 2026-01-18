@@ -10,7 +10,10 @@ export default [
 	...node,
 	...typescript,
 	{
-		rules: { 'unicorn/prefer-string-replace-all': 'off' },
+		rules: { 
+			'unicorn/prefer-string-replace-all': 'off',
+			'@typescript-eslint/prefer-nullish-coalescing':'off'
+		 },
 		languageOptions: {
 			parserOptions: {
 				projectService: {
