@@ -14,9 +14,7 @@
 		"build": "tsup",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
-		"prepack": "yarn build && pinst --disable",
-		"postinstall": "husky .github/husky",
-		"postpack": "pinst --enable",
+		"prepack": "yarn build",
 		"typecheck": "tsc -p tsconfig.eslint.json",
 		"test": "vitest run"
 	},
@@ -36,18 +34,14 @@
 		"resolve.exports": "^2.0.3"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.3.1",
-		"@commitlint/config-conventional": "^20.3.1",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
 		"@types/node": "^22.19.7",
-		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.27.2",
 		"eslint": "9.39.2",
 		"eslint-config-mahir": "^1.0.13",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
-		"pinst": "^3.0.0",
 		"prettier": "^3.8.0",
 		"tsup": "^8.5.1",
 		"typescript": "^5.9.3",
@@ -70,18 +64,8 @@
 		"url": "https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/issues"
 	},
 	"homepage": "https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill#readme",
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
 	"lint-staged": {
 		"*.{mjs,js,ts}": "eslint --fix"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
 	},
 	"engines": {
 		"node": ">=14.0.0"
