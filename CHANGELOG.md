@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.8.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.8.0...v1.8.1) - (2026-01-19)
+
+## 🐛 Bug Fixes
+
+- Remove husky as it slows down commit ([996ace4](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/996ace4a4ef6595a5ca8a87c8c58a9e68d74fded))
+
 # [1.8.0](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.7.1...v1.8.0) - (2026-01-18)
 
 ## 🚀 Features
