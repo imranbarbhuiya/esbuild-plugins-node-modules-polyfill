@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22, 24, 25]
+        node: [20, 22, 24, 26]
       fail-fast: false
     env:
       YARN_IGNORE_NODE: 1

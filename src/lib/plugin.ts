@@ -133,10 +133,7 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 				// https://github.com/defunctzombie/package-browser-field-spec
 				if (initialOptions.platform === 'browser') {
 					const packageJson = await loadPackageJSON(args.resolveDir);
-					const browserFieldValue = packageJson?.browser as unknown as
-						| Record<string, string | false>
-						| string
-						| undefined;
+					const browserFieldValue = packageJson?.browser;
 
 					if (typeof browserFieldValue === 'string') return;
 					const browserFieldValueForModule = browserFieldValue?.[args.path];
