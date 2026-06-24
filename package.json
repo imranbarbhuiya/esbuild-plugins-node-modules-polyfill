@@ -11,7 +11,7 @@
 		"lint": "eslint src --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"update": "yarn upgrade-interactive",
-		"build": "tsup",
+		"build": "tsdown",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
 		"prepack": "yarn build",
@@ -42,7 +42,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^17.0.8",
 		"prettier": "^3.8.4",
-		"tsup": "^8.5.1",
+		"tsdown": "^0.22.3",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.9"
 	},

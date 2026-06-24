@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
 	clean: true,
@@ -6,10 +6,11 @@ export default defineConfig({
 	entry: ['src/index.ts'],
 	format: ['cjs'],
 	minify: false,
-	skipNodeModulesBundle: true,
+	deps: {
+		skipNodeModulesBundle: true,
+	},
 	sourcemap: true,
 	target: 'es2021',
-	keepNames: true,
 	tsconfig: 'src/tsconfig.json',
 	treeshake: true,
 });
