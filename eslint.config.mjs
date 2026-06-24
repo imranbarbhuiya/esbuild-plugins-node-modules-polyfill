@@ -17,7 +17,7 @@ export default [
 		languageOptions: {
 			parserOptions: {
 				projectService: {
-					allowDefaultProject: ['tsdown.config.ts', 'vitest.config.ts', 'eslint.config.mjs'],
+					allowDefaultProject: ['tsdown.config.js', 'vitest.config.ts', 'eslint.config.mjs'],
 					defaultProject: 'tsconfig.eslint.json',
 				},
 				tsconfigRootDir: import.meta.dirname,
