@@ -16,7 +16,7 @@
 		"check-update": "cliff-jumper --dry-run",
 		"prepack": "yarn build",
 		"typecheck": "tsc -p tsconfig.eslint.json",
-		"test": "vitest run"
+		"test": "yarn build && vitest run"
 	},
 	"keywords": [
 		"esbuild-plugins",
