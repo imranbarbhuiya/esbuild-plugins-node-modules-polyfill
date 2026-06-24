@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.8.2](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.8.1...v1.8.2) - (2026-06-24)
+
+## 🐛 Bug Fixes
+
+- Widen esbuild peer dep to allow 0.28.x ([2e4636b](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/commit/2e4636bb43a0fc2f17a0ee7bcf8815615e5bce02))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 # [1.8.1](https://github.com/imranbarbhuiya/esbuild-plugins-node-modules-polyfill/compare/v1.8.0...v1.8.1) - (2026-01-19)
 
 ## 🐛 Bug Fixes
