@@ -11,7 +11,7 @@
 		"lint": "eslint src --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"update": "yarn upgrade-interactive",
-		"build": "tsdown",
+		"build": "tsdown --config-loader native",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
 		"prepack": "yarn build",
