@@ -30,21 +30,21 @@
 	],
 	"dependencies": {
 		"@jspm/core": "^2.1.0",
-		"local-pkg": "^1.1.2",
+		"local-pkg": "^1.2.1",
 		"resolve.exports": "^2.0.3"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^6.0.0",
-		"@types/node": "^22.19.9",
+		"@favware/cliff-jumper": "^6.1.0",
+		"@types/node": "^22.20.0",
 		"esbuild": "^0.28.1",
-		"eslint": "9.39.2",
-		"eslint-config-mahir": "^1.1.6",
+		"eslint": "10.5.0",
+		"eslint-config-mahir": "^1.1.10",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.2.7",
-		"prettier": "^3.8.1",
+		"lint-staged": "^17.0.8",
+		"prettier": "^3.8.4",
 		"tsup": "^8.5.1",
-		"typescript": "^5.9.3",
-		"vitest": "^4.0.18"
+		"typescript": "^6.0.3",
+		"vitest": "^4.1.9"
 	},
 	"peerDependencies": {
 		"esbuild": ">=0.14.0 <=0.28.x"
@@ -69,5 +69,5 @@
 	"engines": {
 		"node": ">=14.0.0"
 	},
-	"packageManager": "yarn@4.12.0"
+	"packageManager": "yarn@4.17.0"
 }
