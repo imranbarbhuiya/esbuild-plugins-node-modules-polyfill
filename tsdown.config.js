@@ -8,7 +8,7 @@ module.exports = defineConfig({
 	fixedExtension: false,
 	minify: false,
 	deps: {
-		skipNodeModulesBundle: true,
+		neverBundle: true,
 	},
 	sourcemap: true,
 	target: 'es2021',
