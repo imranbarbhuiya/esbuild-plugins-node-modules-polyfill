@@ -135,18 +135,20 @@ export const nodeModulesPolyfillPlugin = (options: NodePolyfillsOptions = {}): P
 					const packageJson = await loadPackageJSON(args.resolveDir);
 					const browserFieldValue = packageJson?.browser;
 
-					if (typeof browserFieldValue === 'string') return;
-					const browserFieldValueForModule = browserFieldValue?.[args.path];
+					if (browserFieldValue && typeof browserFieldValue === 'object') {
+						const browserFieldValueForModule = browserFieldValue[args.path];
 
-					// This is here to support consumers who have used the
-					// "external" option to exclude all Node builtins (e.g.
-					// Remix v1 does this), otherwise the import/require is left
-					// in the output and throws an error at runtime. Ideally we
-					// would just return undefined for any browser field value,
-					// and we can safely switch to this in a major version.
-					if (browserFieldValueForModule === false) return result.empty;
+						// This is here to support consumers who have used the
+						// "external" option to exclude all Node builtins (e.g.
+						// Remix v1 does this), otherwise the import/require is left
+						// in the output and throws an error at runtime. Ideally we
+						// would just return undefined for any browser field value,
+						// and we can safely switch to this in a major version.
+						if (browserFieldValueForModule === false) return result.empty;
 
-					if (browserFieldValueForModule !== undefined) return;
+						// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+						if (browserFieldValueForModule !== undefined) return;
+					}
 				}
 
 				const moduleName = normalizeNodeBuiltinPath(args.path);
